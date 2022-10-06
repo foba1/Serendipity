@@ -13,9 +13,16 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        connectStateText.text = "Connecting to server...";
-        PhotonNetwork.GameVersion = gameVersion;
-        PhotonNetwork.ConnectUsingSettings();
+        if (PhotonNetwork.IsConnected)
+        {
+            connectStateText.text = "Online";
+        }
+        else
+        {
+            connectStateText.text = "Connecting to server...";
+            PhotonNetwork.GameVersion = gameVersion;
+            PhotonNetwork.ConnectUsingSettings();
+        }
     }
 
     public override void OnConnectedToMaster()
