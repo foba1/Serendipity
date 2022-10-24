@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void Draw()
+    {
+
+    }
+
     public void Surren()
     {
 
