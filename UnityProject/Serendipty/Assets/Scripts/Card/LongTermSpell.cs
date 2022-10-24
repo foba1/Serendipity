@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class LongTermSpell : Card
 {
-    public int spellType;
     public int maxTurn;
     public bool isActive;
     public abstract void ActiveAbility();

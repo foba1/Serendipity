@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class Creature : Card
 {
-    public int creatureType;
     public int health;
     public int power;
     public bool ableToAct;
