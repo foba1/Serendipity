@@ -6,6 +6,15 @@ public class Deck
 {
     public List<int> cardList;
 
+    public Deck()
+    {
+        cardList = new List<int>();
+        for (int i = 0; i < 10; i++)
+        {
+            cardList.Add(StaticVariable.ExampleCreatureIndex);
+        }
+    }
+
     public void Shuffle()
     {
 
@@ -13,6 +22,8 @@ public class Deck
 
     public int Pop()
     {
-        return 0;
+        int cardIndex = cardList[0];
+        cardList.RemoveAt(0);
+        return cardIndex;
     }
 }

@@ -290,6 +290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5b570d7e15134409fc27a0574d1570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creatureList: []
+  spellList: []
   player: {fileID: 1937242133}
 --- !u!4 &68767232
 Transform:
@@ -638,6 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3181d855b34b0043b311677655c224b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardList: []
   selectedCard: 0
 --- !u!4 &795302960
 Transform:
@@ -940,6 +943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3181d855b34b0043b311677655c224b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardList: []
   selectedCard: 0
 --- !u!4 &946761806
 Transform:
@@ -2917,6 +2921,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5b570d7e15134409fc27a0574d1570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creatureList: []
+  spellList: []
   player: {fileID: 0}
 --- !u!4 &1973715769
 Transform:
