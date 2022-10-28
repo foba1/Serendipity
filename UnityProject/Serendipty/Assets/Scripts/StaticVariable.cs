@@ -16,6 +16,6 @@ public static class StaticVariable
     public static int Wood = 104;
 
     // Card Index
+    public static int NumberOfCard = 60;
     public static int ExampleCreatureIndex = 0;
-
 }
