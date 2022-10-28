@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class Field : MonoBehaviour
+public class Field : MonoBehaviourPun
 {
     public List<Creature> creatureList;
     public List<LongTermSpell> spellList;

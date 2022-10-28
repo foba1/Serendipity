@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
@@ -48,6 +49,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             connectStateText.text = "Fail to connect server...";
             PhotonNetwork.ConnectUsingSettings();
         }
+    }
+
+    public void Collection()
+    {
+        SceneManager.LoadScene("Collection");
     }
 
     public override void OnJoinedRoom()

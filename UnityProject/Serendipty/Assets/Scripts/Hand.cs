@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class Hand : MonoBehaviour
+public class Hand : MonoBehaviourPun
 {
     public Card[] cardArray = new Card[5] { null, null, null, null, null };
     public int selectedCard;
-    public Texture2D testTex;
 
     private GameManager gameManager;
 
@@ -25,7 +26,6 @@ public class Hand : MonoBehaviour
                 if (name == "Hand1")
                 {
                     int cardIndex = gameManager.deckList[0].Pop();
-                    transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = Sprite.Create(testTex, new Rect(0.0f, 0.0f, testTex.width, testTex.height), new Vector2(0.5f, 0.5f), 100.0f);
                 }
             }
         }
@@ -33,7 +33,7 @@ public class Hand : MonoBehaviour
 
     public void UseCard(int index)
     {
-
+        
     }
 
     public void SelectPosition(int pos)
