@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Linq;
 
 public class CollectionManager : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class CollectionManager : MonoBehaviour
         selectedCardIndex = -1;
         InitializeCollectionInfo();
         UpdateCardPage();
-        UpdateGold();
+        UpdateGoldText();
     }
 
     public void Main()
@@ -34,14 +35,96 @@ public class CollectionManager : MonoBehaviour
     public void SelectCard(int index)
     {
         selectedCardIndex = curPage * 8 + index;
-        cardInfo.SetActive(true);
-        cardInfo.transform.GetChild(3).GetComponent<Image>().sprite = Resources.Load<Sprite>("Card/" + selectedCardIndex.ToString());
+        if (PlayerPrefs.HasKey("Card" + selectedCardIndex))
+        {
+            cardInfo.SetActive(true);
+            cardInfo.transform.GetChild(2).GetComponent<Text>().text = "Card " + selectedCardIndex;
+            cardInfo.transform.GetChild(3).GetComponent<Image>().sprite = Resources.Load<Sprite>("Card/" + selectedCardIndex);
+            cardInfo.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "x " + PlayerPrefs.GetInt("Card" + selectedCardIndex);
+            cardInfo.transform.GetChild(4).GetComponent<Text>().text = "This is card " + selectedCardIndex;
+        }
     }
 
     public void ExitCardInfo()
     {
         cardInfo.SetActive(false);
-        UpdateCardPage();
+    }
+
+    public void BuyCard()
+    {
+        if (PlayerPrefs.HasKey("Gold") && PlayerPrefs.HasKey("Card" + selectedCardIndex))
+        {
+            gold = PlayerPrefs.GetInt("Gold");
+            int count = PlayerPrefs.GetInt("Card" + selectedCardIndex);
+            if (IsLegendary(selectedCardIndex))
+            {
+                if (gold >= StaticVariable.LegendaryCardPrice)
+                {
+                    gold -= StaticVariable.LegendaryCardPrice;
+                    PlayerPrefs.SetInt("Gold", gold);
+                    PlayerPrefs.SetInt("Card" + selectedCardIndex, count + 1);
+                    PlayerPrefs.Save();
+                }
+            }
+            else
+            {
+                if (gold >= StaticVariable.NormalCardPrice)
+                {
+                    gold -= StaticVariable.NormalCardPrice;
+                    PlayerPrefs.SetInt("Gold", gold);
+                    PlayerPrefs.SetInt("Card" + selectedCardIndex, count + 1);
+                    PlayerPrefs.Save();
+                }
+            }
+            UpdateCardInfo();
+            UpdateGoldText();
+            UpdateCardPage();
+        }
+    }
+
+    public void SellCard()
+    {
+        if (PlayerPrefs.HasKey("Gold") && PlayerPrefs.HasKey("Card" + selectedCardIndex))
+        {
+            gold = PlayerPrefs.GetInt("Gold");
+            int count = PlayerPrefs.GetInt("Card" + selectedCardIndex);
+            if (IsLegendary(selectedCardIndex))
+            {
+                if (count > 0)
+                {
+                    gold += StaticVariable.LegendaryCardPrice / 4;
+                    PlayerPrefs.SetInt("Gold", gold);
+                    PlayerPrefs.SetInt("Card" + selectedCardIndex, count - 1);
+                    PlayerPrefs.Save();
+                }
+            }
+            else
+            {
+                if (count > 0)
+                {
+                    gold += StaticVariable.NormalCardPrice / 4;
+                    PlayerPrefs.SetInt("Gold", gold);
+                    PlayerPrefs.SetInt("Card" + selectedCardIndex, count - 1);
+                    PlayerPrefs.Save();
+                }
+            }
+            UpdateCardInfo();
+            UpdateGoldText();
+            UpdateCardPage();
+        }
+    }
+
+    private void UpdateCardInfo()
+    {
+        if (PlayerPrefs.HasKey("Card" + selectedCardIndex))
+        {
+            cardInfo.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "x " + PlayerPrefs.GetInt("Card" + selectedCardIndex);
+        }
+    }
+
+    private bool IsLegendary(int index)
+    {
+        return StaticVariable.LegendaryCardIndexArray.Contains(index);
     }
 
     private void InitializeCollectionInfo()
@@ -49,35 +132,36 @@ public class CollectionManager : MonoBehaviour
         PlayerPrefs.DeleteAll();
         for (int i = 0; i < StaticVariable.CardCount; i++)
         {
-            PlayerPrefs.SetInt("Card" + i.ToString(), 0);
+            PlayerPrefs.SetInt("Card" + i, 0);
         }
-        PlayerPrefs.SetInt("Gold", 0);
+        PlayerPrefs.SetInt("Gold", 1000);
         PlayerPrefs.Save();
     }
 
-    private void UpdateGold()
+    private void UpdateGoldText()
     {
         if (PlayerPrefs.HasKey("Gold"))
         {
             gold = PlayerPrefs.GetInt("Gold");
-            goldText.text = "Gold : " + gold.ToString();
+            goldText.text = "Gold : " + gold;
         }
     }
 
     private void UpdateCardPage()
     {
+        int index;
+        Transform cardTransform;
         for (int i = 0; i < 8; i++)
         {
-            Transform cardTransform = cardObject.transform.GetChild(i);
-            int index = curPage * 8 + i;
+            cardTransform = cardObject.transform.GetChild(i);
+            index = curPage * 8 + i;
             if (index < StaticVariable.CardCount)
             {
                 cardTransform.gameObject.SetActive(true);
-                cardTransform.GetComponent<Image>().sprite = Resources.Load<Sprite>("Card/" + index.ToString());
-                if (PlayerPrefs.HasKey("Card" + index.ToString()))
+                cardTransform.GetComponent<Image>().sprite = Resources.Load<Sprite>("Card/" + index);
+                if (PlayerPrefs.HasKey("Card" + index))
                 {
-                    int count = PlayerPrefs.GetInt("Card" + index.ToString());
-                    cardTransform.GetChild(0).GetComponent<Text>().text = "x " + count.ToString();
+                    cardTransform.GetChild(0).GetComponent<Text>().text = "x " + PlayerPrefs.GetInt("Card" + index);
                 }
             }
             else
