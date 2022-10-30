@@ -37,7 +37,14 @@ public class CollectionManager : MonoBehaviour
 
     public void SelectDeck(int index)
     {
-
+        selectedDeckIndex = index;
+        if (PlayerPrefs.HasKey("Deck" + (index + 1)))
+        {
+            string deckName = PlayerPrefs.GetString("Deck" + (index + 1) + "Name");
+            string deck = PlayerPrefs.GetString("Deck" + (index + 1));
+            deckInfo.SetActive(true);
+            deckInfo.transform.GetChild(1).GetComponent<Text>().text = deckName;
+        }
     }
 
     public void ExitDeckInfo()
@@ -64,6 +71,21 @@ public class CollectionManager : MonoBehaviour
                 PlayerPrefs.Save();
                 deckObject.transform.GetChild(deckCount - 1).gameObject.SetActive(true);
             }
+        }
+    }
+
+    public void DeleteDeck()
+    {
+        if (PlayerPrefs.HasKey("Deck" + (selectedDeckIndex + 1)))
+        {
+            PlayerPrefs.DeleteKey("Deck" + (selectedDeckIndex + 1));
+            PlayerPrefs.DeleteKey("Deck" + (selectedDeckIndex + 1) + "Name");
+            deckCount = PlayerPrefs.GetInt("DeckCount");
+            PlayerPrefs.SetInt("DeckCount", deckCount - 1);
+            PlayerPrefs.Save();
+            selectedDeckIndex = -1;
+            deckInfo.SetActive(false);
+            UpdateInfo();
         }
     }
 
