@@ -78,14 +78,42 @@ public class CollectionManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("Deck" + (selectedDeckIndex + 1)))
         {
-            PlayerPrefs.DeleteKey("Deck" + (selectedDeckIndex + 1));
-            PlayerPrefs.DeleteKey("Deck" + (selectedDeckIndex + 1) + "Name");
-            deckCount = PlayerPrefs.GetInt("DeckCount");
-            PlayerPrefs.SetInt("DeckCount", deckCount - 1);
-            PlayerPrefs.Save();
-            selectedDeckIndex = -1;
-            deckInfo.SetActive(false);
-            UpdateInfo();
+            if (selectedDeckIndex + 1 < deckCount)
+            {
+                string nextDeck;
+                string nextDeckName;
+                for (int i = selectedDeckIndex; i < deckCount - 1; i++)
+                {
+                    if (PlayerPrefs.HasKey("Deck" + (i + 2)))
+                    {
+                        nextDeck = PlayerPrefs.GetString("Deck" + (i + 2));
+                        nextDeckName = PlayerPrefs.GetString("Deck" + (i + 2) + "Name");
+                        PlayerPrefs.SetString("Deck" + (i + 1), nextDeck);
+                        PlayerPrefs.SetString("Deck" + (i + 1) + "Name", nextDeckName);
+                    }
+                }
+                PlayerPrefs.DeleteKey("Deck" + deckCount);
+                PlayerPrefs.DeleteKey("Deck" + deckCount + "Name");
+                deckCount = PlayerPrefs.GetInt("DeckCount");
+                PlayerPrefs.SetInt("DeckCount", deckCount - 1);
+                PlayerPrefs.Save();
+                deckCount--;
+                selectedDeckIndex = -1;
+                deckInfo.SetActive(false);
+                UpdateInfo();
+            }
+            else
+            {
+                PlayerPrefs.DeleteKey("Deck" + (selectedDeckIndex + 1));
+                PlayerPrefs.DeleteKey("Deck" + (selectedDeckIndex + 1) + "Name");
+                deckCount = PlayerPrefs.GetInt("DeckCount");
+                PlayerPrefs.SetInt("DeckCount", deckCount - 1);
+                PlayerPrefs.Save();
+                deckCount--;
+                selectedDeckIndex = -1;
+                deckInfo.SetActive(false);
+                UpdateInfo();
+            }
         }
     }
 
