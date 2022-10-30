@@ -7,29 +7,64 @@ using System.Linq;
 
 public class CollectionManager : MonoBehaviour
 {
+    public Text goldText;
     public GameObject cardPage;
     public GameObject cardObject;
     public GameObject cardInfo;
-    public Text goldText;
+    public GameObject deckObject;
+    public GameObject deckInfo;
 
     private int curPage;
     private int maxPage;
     private int selectedCardIndex;
+    private int selectedDeckIndex;
     private int gold;
+    private int deckCount;
 
     private void Start()
     {
         curPage = 0;
         maxPage = (StaticVariable.CardCount - 1) / 8 + 1;
         selectedCardIndex = -1;
-        InitializeCollectionInfo();
-        UpdateCardPage();
-        UpdateGoldText();
+        InitializeInfo();
+        UpdateInfo();
     }
 
     public void Main()
     {
         SceneManager.LoadScene("Main");
+    }
+
+    public void SelectDeck(int index)
+    {
+
+    }
+
+    public void ExitDeckInfo()
+    {
+        deckInfo.SetActive(false);
+    }
+
+    public void CreateDeck()
+    {
+        if (PlayerPrefs.HasKey("DeckCount"))
+        {
+            deckCount = PlayerPrefs.GetInt("DeckCount");
+            if (deckCount < StaticVariable.MaxDeckCount)
+            {
+                deckCount++;
+                PlayerPrefs.SetInt("DeckCount", deckCount);
+                string deck = "";
+                for (int i = 0; i < StaticVariable.CardCount; i++)
+                {
+                    deck += "0";
+                }
+                PlayerPrefs.SetString("Deck" + deckCount, deck);
+                PlayerPrefs.SetString("Deck" + deckCount + "Name", "µ¦ " + deckCount);
+                PlayerPrefs.Save();
+                deckObject.transform.GetChild(deckCount - 1).gameObject.SetActive(true);
+            }
+        }
     }
 
     public void SelectCard(int index)
@@ -127,7 +162,7 @@ public class CollectionManager : MonoBehaviour
         return StaticVariable.LegendaryCardIndexArray.Contains(index);
     }
 
-    private void InitializeCollectionInfo()
+    private void InitializeInfo()
     {
         PlayerPrefs.DeleteAll();
         for (int i = 0; i < StaticVariable.CardCount; i++)
@@ -135,7 +170,15 @@ public class CollectionManager : MonoBehaviour
             PlayerPrefs.SetInt("Card" + i, 0);
         }
         PlayerPrefs.SetInt("Gold", 1000);
+        PlayerPrefs.SetInt("DeckCount", 0);
         PlayerPrefs.Save();
+    }
+
+    private void UpdateInfo()
+    {
+        UpdateGoldText();
+        UpdateCardPage();
+        UpdateDeckPage();
     }
 
     private void UpdateGoldText()
@@ -167,6 +210,29 @@ public class CollectionManager : MonoBehaviour
             else
             {
                 cardTransform.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void UpdateDeckPage()
+    {
+        if (PlayerPrefs.HasKey("DeckCount"))
+        {
+            deckCount = PlayerPrefs.GetInt("DeckCount");
+            for (int i = 0; i < StaticVariable.MaxDeckCount; i++)
+            {
+                if (i < deckCount)
+                {
+                    deckObject.transform.GetChild(i).gameObject.SetActive(true);
+                    if (PlayerPrefs.HasKey("Deck" + (i + 1) + "Name"))
+                    {
+                        deckObject.transform.GetChild(i).GetChild(0).GetComponent<Text>().text = PlayerPrefs.GetString("Deck" + (i + 1) + "Name");
+                    }
+                }
+                else
+                {
+                    deckObject.transform.GetChild(i).gameObject.SetActive(false);
+                }
             }
         }
     }

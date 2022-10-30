@@ -19,6 +19,9 @@ public static class StaticVariable
     public static int Water = 103;
     public static int Wood = 104;
 
+    // Deck
+    public static int MaxDeckCount = 5;
+
     // Legendary Card Index
     public static int[] LegendaryCardIndexArray = new int[10] { 10, 11, 22, 23, 34, 35, 46, 47, 58, 59 };
 
