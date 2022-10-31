@@ -3570,7 +3570,7 @@ GameObject:
   - component: {fileID: 812503213}
   - component: {fileID: 812503212}
   m_Layer: 5
-  m_Name: BuyButton
+  m_Name: AddButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3643,7 +3643,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1377157613}
         m_TargetAssemblyTypeName: CollectionManager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: AddCardToDeck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4039,7 +4039,7 @@ GameObject:
   - component: {fileID: 1023864893}
   - component: {fileID: 1023864892}
   m_Layer: 5
-  m_Name: SellButton
+  m_Name: SubButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4112,7 +4112,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1377157613}
         m_TargetAssemblyTypeName: CollectionManager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: SubCardFromDeck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -44,6 +44,62 @@ public class CollectionManager : MonoBehaviour
         SceneManager.LoadScene("Main");
     }
 
+    public void AddCardToDeck()
+    {
+        if (PlayerPrefs.HasKey("Deck" + (selectedDeckIndex + 1)))
+        {
+            if (PlayerPrefs.HasKey("Card" + selectedDeckCardIndex))
+            {
+                string deck = PlayerPrefs.GetString("Deck" + (selectedDeckIndex + 1));
+                int deckCardCount = GetCardCountFromDeck(deck, selectedDeckCardIndex);
+                int cardCount = PlayerPrefs.GetInt("Card" + selectedDeckCardIndex);
+                if (IsLegendary(selectedDeckCardIndex))
+                {
+                    if (cardCount - deckCardCount <= 0) return;
+                    if (deckCardCount >= StaticVariable.MaxLegendaryCardCount) return;
+                    deck = ReplaceAtChars(deck, selectedDeckCardIndex, (char)(deckCardCount + 1 + 48));
+                    PlayerPrefs.SetString("Deck" + (selectedDeckIndex + 1), deck);
+                    PlayerPrefs.Save();
+                }
+                else
+                {
+                    if (cardCount - deckCardCount <= 0) return;
+                    if (deckCardCount >= StaticVariable.MaxNormalCardCount) return;
+                    deck = ReplaceAtChars(deck, selectedDeckCardIndex, (char)(deckCardCount + 1 + 48));
+                    PlayerPrefs.SetString("Deck" + (selectedDeckIndex + 1), deck);
+                    PlayerPrefs.Save();
+                }
+                UpdateDeckCardPage();
+                UpdateDeckCardInfo();
+            }
+        }
+    }
+
+    public void SubCardFromDeck()
+    {
+        if (PlayerPrefs.HasKey("Deck" + (selectedDeckIndex + 1)))
+        {
+            if (PlayerPrefs.HasKey("Card" + selectedDeckCardIndex))
+            {
+                string deck = PlayerPrefs.GetString("Deck" + (selectedDeckIndex + 1));
+                int deckCardCount = GetCardCountFromDeck(deck, selectedDeckCardIndex);
+                if (deckCardCount <= 0) return;
+                deck = ReplaceAtChars(deck, selectedDeckCardIndex, (char)(deckCardCount - 1 + 48));
+                PlayerPrefs.SetString("Deck" + (selectedDeckIndex + 1), deck);
+                PlayerPrefs.Save();
+                UpdateDeckCardPage();
+                UpdateDeckCardInfo();
+            }
+        }
+    }
+
+    private string ReplaceAtChars(string source, int index, char replacement)
+    {
+        var temp = source.ToCharArray();
+        temp[index] = replacement;
+        return new string(temp);
+    }
+
     public void SelectDeckCard(int index)
     {
         selectedDeckCardIndex = curDeckCardPage * 8 + index;
@@ -59,6 +115,15 @@ public class CollectionManager : MonoBehaviour
             deckCardInfo.transform.GetChild(3).GetComponent<Image>().sprite = Resources.Load<Sprite>("Card/" + selectedDeckCardIndex);
             deckCardInfo.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "x " + GetCardCountFromDeck(deck, selectedDeckCardIndex);
             deckCardInfo.transform.GetChild(4).GetComponent<Text>().text = "This is card " + selectedDeckCardIndex;
+        }
+    }
+
+    private void UpdateDeckCardInfo()
+    {
+        if (PlayerPrefs.HasKey("Deck" + (selectedDeckIndex + 1)))
+        {
+            string deck = PlayerPrefs.GetString("Deck" + (selectedDeckIndex + 1));
+            deckCardInfo.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "x " + GetCardCountFromDeck(deck, selectedDeckCardIndex);
         }
     }
 
@@ -256,7 +321,7 @@ public class CollectionManager : MonoBehaviour
                     PlayerPrefs.Save();
                 }
             }
-            UpdateCardCount();
+            UpdateCardInfo();
             UpdateGoldText();
             UpdateCardPage();
         }
@@ -288,13 +353,13 @@ public class CollectionManager : MonoBehaviour
                     PlayerPrefs.Save();
                 }
             }
-            UpdateCardCount();
+            UpdateCardInfo();
             UpdateGoldText();
             UpdateCardPage();
         }
     }
 
-    private void UpdateCardCount()
+    private void UpdateCardInfo()
     {
         if (PlayerPrefs.HasKey("Card" + selectedCardIndex))
         {
