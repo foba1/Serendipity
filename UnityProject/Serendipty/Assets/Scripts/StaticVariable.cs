@@ -12,9 +12,11 @@ public static class StaticVariable
     public static int LegendaryCardPrice = 200;
     public static int NormalCardPrice = 40;
 
-    // Max Card Count
+    // Max & Min Card Count
     public static int MaxLegendaryCardCount = 1;
     public static int MaxNormalCardCount = 3;
+    public static int MaxDeckCardCount = 40;
+    public static int MinDeckCardCount = 24;
 
     // Card Type
     public static int Light = 100;

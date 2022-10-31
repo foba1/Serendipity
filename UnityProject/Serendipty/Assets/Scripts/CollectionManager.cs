@@ -53,6 +53,7 @@ public class CollectionManager : MonoBehaviour
                 string deck = PlayerPrefs.GetString("Deck" + (selectedDeckIndex + 1));
                 int deckCardCount = GetCardCountFromDeck(deck, selectedDeckCardIndex);
                 int cardCount = PlayerPrefs.GetInt("Card" + selectedDeckCardIndex);
+                if (GetCountFromDeck(deck) >= StaticVariable.MaxDeckCardCount) return;
                 if (IsLegendary(selectedDeckCardIndex))
                 {
                     if (cardCount - deckCardCount <= 0) return;
