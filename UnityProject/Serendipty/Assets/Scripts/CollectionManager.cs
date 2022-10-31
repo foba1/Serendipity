@@ -13,18 +13,23 @@ public class CollectionManager : MonoBehaviour
     public GameObject cardInfo;
     public GameObject deckObject;
     public GameObject deckInfo;
+    public GameObject deckCardObject;
+    public GameObject deckCardInfo;
 
-    private int curPage;
-    private int maxPage;
+    private int curCardPage;
+    private int maxCardPage;
     private int selectedCardIndex;
     private int selectedDeckIndex;
     private int gold;
     private int deckCount;
+    private int curDeckCardPage;
+    private int maxDeckCardPage;
+    private int selectedDeckCardIndex;
 
     private void Start()
     {
-        curPage = 0;
-        maxPage = (StaticVariable.CardCount - 1) / 8 + 1;
+        curCardPage = 0;
+        maxCardPage = (StaticVariable.CardCount - 1) / 8 + 1;
         selectedCardIndex = -1;
         InitializeInfo();
         UpdateInfo();
@@ -33,6 +38,32 @@ public class CollectionManager : MonoBehaviour
     public void Main()
     {
         SceneManager.LoadScene("Main");
+    }
+
+    private void UpdateDeckCardPage()
+    {
+        int index;
+        Transform cardTransform;
+        for (int i = 0; i < 8; i++)
+        {
+            cardTransform = deckCardObject.transform.GetChild(i);
+            index = curDeckCardPage * 8 + i;
+            if (index < StaticVariable.CardCount)
+            {
+                cardTransform.gameObject.SetActive(true);
+                cardTransform.GetComponent<Image>().sprite = Resources.Load<Sprite>("Card/" + index);
+                
+                // Fix this part
+                if (PlayerPrefs.HasKey("Card" + index))
+                {
+                    cardTransform.GetChild(0).GetComponent<Text>().text = "x " + PlayerPrefs.GetInt("Card" + index);
+                }
+            }
+            else
+            {
+                cardTransform.gameObject.SetActive(false);
+            }
+        }
     }
 
     public void SelectDeck(int index)
@@ -70,6 +101,7 @@ public class CollectionManager : MonoBehaviour
                 PlayerPrefs.SetString("Deck" + deckCount + "Name", "µ¦ " + deckCount);
                 PlayerPrefs.Save();
                 deckObject.transform.GetChild(deckCount - 1).gameObject.SetActive(true);
+                deckObject.transform.GetChild(deckCount - 1).GetChild(0).GetComponent<Text>().text = "µ¦ " + deckCount;
             }
         }
     }
@@ -94,7 +126,6 @@ public class CollectionManager : MonoBehaviour
                 }
                 PlayerPrefs.DeleteKey("Deck" + deckCount);
                 PlayerPrefs.DeleteKey("Deck" + deckCount + "Name");
-                deckCount = PlayerPrefs.GetInt("DeckCount");
                 PlayerPrefs.SetInt("DeckCount", deckCount - 1);
                 PlayerPrefs.Save();
                 deckCount--;
@@ -106,7 +137,6 @@ public class CollectionManager : MonoBehaviour
             {
                 PlayerPrefs.DeleteKey("Deck" + (selectedDeckIndex + 1));
                 PlayerPrefs.DeleteKey("Deck" + (selectedDeckIndex + 1) + "Name");
-                deckCount = PlayerPrefs.GetInt("DeckCount");
                 PlayerPrefs.SetInt("DeckCount", deckCount - 1);
                 PlayerPrefs.Save();
                 deckCount--;
@@ -119,7 +149,7 @@ public class CollectionManager : MonoBehaviour
 
     public void SelectCard(int index)
     {
-        selectedCardIndex = curPage * 8 + index;
+        selectedCardIndex = curCardPage * 8 + index;
         if (PlayerPrefs.HasKey("Card" + selectedCardIndex))
         {
             cardInfo.SetActive(true);
@@ -161,7 +191,7 @@ public class CollectionManager : MonoBehaviour
                     PlayerPrefs.Save();
                 }
             }
-            UpdateCardInfo();
+            UpdateCardCount();
             UpdateGoldText();
             UpdateCardPage();
         }
@@ -193,13 +223,13 @@ public class CollectionManager : MonoBehaviour
                     PlayerPrefs.Save();
                 }
             }
-            UpdateCardInfo();
+            UpdateCardCount();
             UpdateGoldText();
             UpdateCardPage();
         }
     }
 
-    private void UpdateCardInfo()
+    private void UpdateCardCount()
     {
         if (PlayerPrefs.HasKey("Card" + selectedCardIndex))
         {
@@ -247,7 +277,7 @@ public class CollectionManager : MonoBehaviour
         for (int i = 0; i < 8; i++)
         {
             cardTransform = cardObject.transform.GetChild(i);
-            index = curPage * 8 + i;
+            index = curCardPage * 8 + i;
             if (index < StaticVariable.CardCount)
             {
                 cardTransform.gameObject.SetActive(true);
@@ -289,18 +319,18 @@ public class CollectionManager : MonoBehaviour
 
     public void NextPage()
     {
-        if (curPage < maxPage - 1)
+        if (curCardPage < maxCardPage - 1)
         {
-            curPage++;
+            curCardPage++;
             UpdateCardPage();
         }
     }
 
     public void PrevPage()
     {
-        if (curPage > 0)
+        if (curCardPage > 0)
         {
-            curPage--;
+            curCardPage--;
             UpdateCardPage();
         }
     }
