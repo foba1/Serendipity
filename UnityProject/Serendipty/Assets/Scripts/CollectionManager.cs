@@ -19,18 +19,22 @@ public class CollectionManager : MonoBehaviour
     private int curCardPage;
     private int maxCardPage;
     private int selectedCardIndex;
-    private int selectedDeckIndex;
-    private int gold;
-    private int deckCount;
     private int curDeckCardPage;
     private int maxDeckCardPage;
     private int selectedDeckCardIndex;
+    private int selectedDeckIndex;
+    private int gold;
+    private int deckCount;
 
     private void Start()
     {
         curCardPage = 0;
+        curDeckCardPage = 0;
         maxCardPage = (StaticVariable.CardCount - 1) / 8 + 1;
+        maxDeckCardPage = (StaticVariable.CardCount - 1) / 8 + 1;
         selectedCardIndex = -1;
+        selectedDeckIndex = -1;
+        selectedDeckCardIndex = -1;
         InitializeInfo();
         UpdateInfo();
     }
@@ -40,10 +44,33 @@ public class CollectionManager : MonoBehaviour
         SceneManager.LoadScene("Main");
     }
 
+    public void SelectDeckCard(int index)
+    {
+        selectedDeckCardIndex = curDeckCardPage * 8 + index;
+        string deck = "";
+        if (PlayerPrefs.HasKey("Deck" + (selectedDeckIndex + 1)))
+        {
+            deck = PlayerPrefs.GetString("Deck" + (selectedDeckIndex + 1));
+        }
+        if (PlayerPrefs.HasKey("Card" + selectedDeckCardIndex))
+        {
+            deckCardInfo.SetActive(true);
+            deckCardInfo.transform.GetChild(2).GetComponent<Text>().text = "Card " + selectedDeckCardIndex;
+            deckCardInfo.transform.GetChild(3).GetComponent<Image>().sprite = Resources.Load<Sprite>("Card/" + selectedDeckCardIndex);
+            deckCardInfo.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "x " + GetCardCountFromDeck(deck, selectedDeckCardIndex);
+            deckCardInfo.transform.GetChild(4).GetComponent<Text>().text = "This is card " + selectedDeckCardIndex;
+        }
+    }
+
     private void UpdateDeckCardPage()
     {
         int index;
         Transform cardTransform;
+        string deck = "";
+        if (PlayerPrefs.HasKey("Deck" + (selectedDeckIndex + 1)))
+        {
+            deck = PlayerPrefs.GetString("Deck" + (selectedDeckIndex + 1));
+        }
         for (int i = 0; i < 8; i++)
         {
             cardTransform = deckCardObject.transform.GetChild(i);
@@ -52,12 +79,7 @@ public class CollectionManager : MonoBehaviour
             {
                 cardTransform.gameObject.SetActive(true);
                 cardTransform.GetComponent<Image>().sprite = Resources.Load<Sprite>("Card/" + index);
-                
-                // Fix this part
-                if (PlayerPrefs.HasKey("Card" + index))
-                {
-                    cardTransform.GetChild(0).GetComponent<Text>().text = "x " + PlayerPrefs.GetInt("Card" + index);
-                }
+                cardTransform.GetChild(0).GetComponent<Text>().text = "x " + GetCardCountFromDeck(deck, index);
             }
             else
             {
@@ -66,20 +88,62 @@ public class CollectionManager : MonoBehaviour
         }
     }
 
+    public void NextDeckPage()
+    {
+        if (curDeckCardPage < maxDeckCardPage - 1)
+        {
+            curDeckCardPage++;
+            UpdateDeckCardPage();
+        }
+    }
+
+    public void PrevDeckPage()
+    {
+        if (curDeckCardPage > 0)
+        {
+            curDeckCardPage--;
+            UpdateDeckCardPage();
+        }
+    }
+
+    public void ExitDeckCardInfo()
+    {
+        selectedDeckCardIndex = -1;
+        deckCardInfo.SetActive(false);
+    }
+
+    private int GetCardCountFromDeck(string deck, int index)
+    {
+        if (index < 0 || index >= deck.Length) return -1;
+        return deck[index] - '0';
+    }
+
+    private int GetCountFromDeck(string deck)
+    {
+        int result = 0;
+        for (int i = 0; i < deck.Length; i++)
+        {
+            result += deck[i] - '0';
+        }
+        return result;
+    }
+
     public void SelectDeck(int index)
     {
         selectedDeckIndex = index;
+        curDeckCardPage = 0;
         if (PlayerPrefs.HasKey("Deck" + (index + 1)))
         {
             string deckName = PlayerPrefs.GetString("Deck" + (index + 1) + "Name");
-            string deck = PlayerPrefs.GetString("Deck" + (index + 1));
             deckInfo.SetActive(true);
             deckInfo.transform.GetChild(1).GetComponent<Text>().text = deckName;
+            UpdateDeckCardPage();
         }
     }
 
     public void ExitDeckInfo()
     {
+        selectedDeckIndex = -1;
         deckInfo.SetActive(false);
     }
 
@@ -162,6 +226,7 @@ public class CollectionManager : MonoBehaviour
 
     public void ExitCardInfo()
     {
+        selectedCardIndex = -1;
         cardInfo.SetActive(false);
     }
 
@@ -317,7 +382,7 @@ public class CollectionManager : MonoBehaviour
         }
     }
 
-    public void NextPage()
+    public void NextCardPage()
     {
         if (curCardPage < maxCardPage - 1)
         {
@@ -326,7 +391,7 @@ public class CollectionManager : MonoBehaviour
         }
     }
 
-    public void PrevPage()
+    public void PrevCardPage()
     {
         if (curCardPage > 0)
         {
