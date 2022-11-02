@@ -4,34 +4,37 @@ using UnityEngine;
 
 public static class StaticVariable
 {
+    // Deck
+    public static string MyDeck = "";
+
     // Card Class
-    public static int Legendary = 200;
-    public static int Normal = 201;
+    public static readonly int Legendary = 200;
+    public static readonly int Normal = 201;
 
     // Card Price
-    public static int LegendaryCardPrice = 200;
-    public static int NormalCardPrice = 40;
+    public static readonly int LegendaryCardPrice = 200;
+    public static readonly int NormalCardPrice = 40;
 
     // Max & Min Card Count
-    public static int MaxLegendaryCardCount = 1;
-    public static int MaxNormalCardCount = 3;
-    public static int MaxDeckCardCount = 40;
-    public static int MinDeckCardCount = 24;
+    public static readonly int MaxLegendaryCardCount = 1;
+    public static readonly int MaxNormalCardCount = 3;
+    public static readonly int MaxDeckCardCount = 40;
+    public static readonly int MinDeckCardCount = 24;
 
     // Card Type
-    public static int Light = 100;
-    public static int Dark = 101;
-    public static int Fire = 102;
-    public static int Water = 103;
-    public static int Wood = 104;
+    public static readonly int Light = 100;
+    public static readonly int Dark = 101;
+    public static readonly int Fire = 102;
+    public static readonly int Water = 103;
+    public static readonly int Wood = 104;
 
     // Deck
-    public static int MaxDeckCount = 5;
+    public static readonly int MaxDeckCount = 5;
 
     // Legendary Card Index
-    public static int[] LegendaryCardIndexArray = new int[10] { 10, 11, 22, 23, 34, 35, 46, 47, 58, 59 };
+    public static readonly int[] LegendaryCardIndexArray = new int[10] { 10, 11, 22, 23, 34, 35, 46, 47, 58, 59 };
 
     // Card Index
-    public static int CardCount = 60;
-    public static int ExampleCreatureIndex = 0;
+    public static readonly int CardCount = 60;
+    public static readonly int ExampleCreatureIndex = 0;
 }

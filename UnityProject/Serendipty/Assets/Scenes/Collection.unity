@@ -3834,7 +3834,7 @@ GameObject:
   m_Component:
   - component: {fileID: 986717297}
   m_Layer: 5
-  m_Name: DeckInfo
+  m_Name: DeckInfoPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5384,11 +5384,11 @@ MonoBehaviour:
   goldText: {fileID: 437380678}
   cardPage: {fileID: 1613862941}
   cardObject: {fileID: 98356458}
-  cardInfo: {fileID: 1973692531}
+  cardInfoPanel: {fileID: 1973692531}
   deckObject: {fileID: 133761969}
-  deckInfo: {fileID: 986717296}
+  deckInfoPanel: {fileID: 986717296}
   deckCardObject: {fileID: 1420087215}
-  deckCardInfo: {fileID: 2136336837}
+  deckCardInfoPanel: {fileID: 2136336837}
 --- !u!1 &1403360261
 GameObject:
   m_ObjectHideFlags: 0
@@ -8433,7 +8433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1973692532}
   m_Layer: 5
-  m_Name: CardInfo
+  m_Name: CardInfoPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9110,7 +9110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2136336838}
   m_Layer: 5
-  m_Name: CardInfo
+  m_Name: CardInfoPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
