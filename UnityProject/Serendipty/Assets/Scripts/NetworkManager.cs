@@ -41,8 +41,15 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsConnected)
         {
-            connectStateText.text = "Quick matching...";
-            PhotonNetwork.JoinRandomRoom();
+            if (StaticVariable.MyDeck == "" || StaticVariable.MyDeck.Length != StaticVariable.CardCount)
+            {
+                connectStateText.text = "Please select your deck.";
+            }
+            else
+            {
+                connectStateText.text = "Quick matching...";
+                PhotonNetwork.JoinRandomRoom();
+            }
         }
         else
         {
