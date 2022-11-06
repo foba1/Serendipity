@@ -18,13 +18,31 @@ public class DeckSelectManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("Deck" + (index + 1)))
         {
-            StaticVariable.MyDeck = PlayerPrefs.GetString("Deck" + (index + 1));
+            string deck = PlayerPrefs.GetString("Deck" + (index + 1));
+            if (GetCountFromDeck(deck) < StaticVariable.MinDeckCardCount || GetCountFromDeck(deck) > StaticVariable.MaxDeckCardCount)
+            {
+                Debug.Log("Cannot select deck.");
+            }
+            else
+            {
+                StaticVariable.MyDeck = deck;
+            }
         }
     }
 
     public void ExitDeckSelect()
     {
         deckSelectPanel.SetActive(false);
+    }
+
+    private int GetCountFromDeck(string deck)
+    {
+        int result = 0;
+        for (int i = 0; i < deck.Length; i++)
+        {
+            result += deck[i] - '0';
+        }
+        return result;
     }
 
     private void UpdateDeckSelectPanel()
