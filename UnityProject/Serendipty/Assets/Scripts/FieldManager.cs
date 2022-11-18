@@ -30,20 +30,45 @@ public class FieldManager : MonoBehaviour
     public void SelectField(int fieldIndex)
     {
         if (fieldIndex < 0 || fieldIndex >= fieldObject.Length) return;
-        if (fieldObject[fieldIndex].transform.childCount > 0)
+        if (selectedFieldIndex == -1)
         {
-            if (selectedFieldIndex == -1)
+            if (fieldObject[fieldIndex].transform.childCount > 0)
             {
                 selectedFieldIndex = fieldIndex;
-                Debug.Log("Select " + fieldIndex.ToString());
-
+            }
+        }
+        else
+        {
+            if (fieldObject[fieldIndex].transform.childCount > 0)
+            {
+                if (selectedFieldIndex / 6 == fieldIndex / 6)
+                {
+                    Move(selectedFieldIndex, fieldIndex);
+                    selectedFieldIndex = -1;
+                }
+                else
+                {
+                    AttackManager.Instance.Attack(selectedFieldIndex, fieldIndex);
+                    selectedFieldIndex = -1;
+                }
             }
             else
             {
-                AttackManager.Instance.Attack(selectedFieldIndex, fieldIndex);
-                Debug.Log(selectedFieldIndex.ToString() + " attacks " + fieldIndex.ToString());
-                selectedFieldIndex = -1;
+                if (selectedFieldIndex / 6 == fieldIndex / 6)
+                {
+                    Move(selectedFieldIndex, fieldIndex);
+                    selectedFieldIndex = -1;
+                }
+                else
+                {
+                    selectedFieldIndex = -1;
+                }
             }
         }
+    }
+
+    public void Move(int fieldIndex1, int fieldIndex2)
+    {
+
     }
 }
