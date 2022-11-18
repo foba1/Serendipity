@@ -20,11 +20,10 @@ public class AttackManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-        DontDestroyOnLoad(this);
     }
 
     public void Attack(int fieldIndex1, int fieldIndex2)
     {
-
+        
     }
 }

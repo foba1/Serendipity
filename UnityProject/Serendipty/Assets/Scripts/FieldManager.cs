@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FieldManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] fieldObject;
+    public GameObject[] fieldObject;
 
     private int selectedFieldIndex = -1;
 
@@ -24,7 +24,6 @@ public class FieldManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-        DontDestroyOnLoad(this);
     }
 
     private void UpdateFieldColor()
@@ -66,6 +65,7 @@ public class FieldManager : MonoBehaviour
     public void SelectField(int fieldIndex)
     {
         if (fieldIndex < 0 || fieldIndex >= fieldObject.Length) return;
+
         if (selectedFieldIndex == -1)
         {
             if (fieldObject[fieldIndex].transform.childCount > 0)
@@ -95,11 +95,30 @@ public class FieldManager : MonoBehaviour
             }
             selectedFieldIndex = -1;
         }
+
         UpdateFieldColor();
     }
 
     public void Move(int fieldIndex1, int fieldIndex2)
     {
+        if (fieldObject[fieldIndex1].transform.childCount == 0) return;
 
+        if (fieldObject[fieldIndex2].transform.childCount > 0)
+        {
+            Transform firstTransform = fieldObject[fieldIndex1].transform.GetChild(0);
+            Transform secondTransform = fieldObject[fieldIndex2].transform.GetChild(0);
+
+            firstTransform.SetParent(fieldObject[fieldIndex2].transform, false);
+            firstTransform.localPosition = new Vector3(0f, 0f, 0f);
+
+            secondTransform.SetParent(fieldObject[fieldIndex1].transform, false);
+            secondTransform.localPosition = new Vector3(0f, 0f, 0f);
+        }
+        else
+        {
+            Transform transform = fieldObject[fieldIndex1].transform.GetChild(0);
+            transform.SetParent(fieldObject[fieldIndex2].transform, false);
+            transform.localPosition = new Vector3(0f, 0f, 0f);
+        }
     }
 }
