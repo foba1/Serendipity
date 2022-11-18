@@ -7,8 +7,6 @@ public class FieldManager : MonoBehaviour
     [SerializeField] GameObject[] fieldObject;
 
     private int selectedFieldIndex = -1;
-    private bool grap = false;
-    private int grapIndex = -1;
 
     static FieldManager instance;
     public static FieldManager Instance
@@ -31,29 +29,21 @@ public class FieldManager : MonoBehaviour
 
     public void SelectField(int fieldIndex)
     {
-        Debug.Log("Select " + fieldIndex.ToString());
         if (fieldIndex < 0 || fieldIndex >= fieldObject.Length) return;
         if (fieldObject[fieldIndex].transform.childCount > 0)
         {
-            selectedFieldIndex = fieldIndex;
-        }
-    }
+            if (selectedFieldIndex == -1)
+            {
+                selectedFieldIndex = fieldIndex;
+                Debug.Log("Select " + fieldIndex.ToString());
 
-    public void DeselectField()
-    {
-        selectedFieldIndex = -1;
-    }
-
-    private void GrapOrDrop(int fieldIndex)
-    {
-        if (grap)
-        {
-
-        }
-        else
-        {
-            grap = true;
-            grapIndex = fieldIndex;
+            }
+            else
+            {
+                AttackManager.Instance.Attack(selectedFieldIndex, fieldIndex);
+                Debug.Log(selectedFieldIndex.ToString() + " attacks " + fieldIndex.ToString());
+                selectedFieldIndex = -1;
+            }
         }
     }
 }
