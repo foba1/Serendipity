@@ -7,12 +7,7 @@ using Photon.Realtime;
 public class GameManager : MonoBehaviourPun
 {
     public int turn;
-    public int[] curMana = new int[2];
-    public List<Field> fieldList;
-    public List<Hand> handList;
-    public List<Deck> deckList;
-    public List<Grave> graveList;
-
+    public int curMana;
     public static int[] mana = new int[] { 3, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10 };
 
     static GameManager instance;
@@ -36,9 +31,7 @@ public class GameManager : MonoBehaviourPun
 
     private void Start()
     {
-        deckList = new List<Deck>();
-        deckList.Add(new Deck());
-        deckList.Add(new Deck());
+
     }
 
     public void StartGame()
