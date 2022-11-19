@@ -5,11 +5,6 @@ using UnityEngine.UI;
 
 public class Skeleton : Creature
 {
-    private void Start()
-    {
-        Instantiate(3);
-    }
-
     private void UpdateInfoText()
     {
         transform.GetChild(1).GetChild(0).GetComponent<Text>().text = power.ToString();

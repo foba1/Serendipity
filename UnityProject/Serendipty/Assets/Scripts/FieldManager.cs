@@ -32,6 +32,16 @@ public class FieldManager : MonoBehaviour
         GameObject bluePlayer = Instantiate(Resources.Load<GameObject>("BluePlayer"), fieldObject[10].transform);
         redPlayer.GetComponent<Creature>().Instantiate(4);
         bluePlayer.GetComponent<Creature>().Instantiate(10);
+
+        SpawnCreature(0, 0);
+    }
+
+    public void SpawnCreature(int pos, int cardIndex)
+    {
+        if (fieldObject[pos].transform.childCount > 0) return;
+
+        GameObject creatureObject = Instantiate(Resources.Load<GameObject>("Card/Creature_" + cardIndex.ToString()), fieldObject[pos].transform);
+        creatureObject.GetComponent<Creature>().Instantiate(pos);
     }
 
     private void UpdateFieldColor()
