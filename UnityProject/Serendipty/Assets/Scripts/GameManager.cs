@@ -7,6 +7,7 @@ using Photon.Realtime;
 public class GameManager : MonoBehaviourPun
 {
     public int turn;
+    public int myArea;
     public int curMana;
     public static int[] mana = new int[] { 3, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10 };
 
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviourPun
 
     private void Start()
     {
-
+        myArea = 0;
     }
 
     public void StartGame()

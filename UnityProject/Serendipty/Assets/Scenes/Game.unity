@@ -668,6 +668,7 @@ GameObject:
   - component: {fileID: 81646254}
   - component: {fileID: 81646255}
   - component: {fileID: 81646256}
+  - component: {fileID: 81646257}
   m_Layer: 0
   m_Name: Dark
   m_TagString: Untagged
@@ -789,6 +790,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916f6dfcb91d3ba41a27eb7190263b65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &81646257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81646252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21351614f2adfc47865271ea1793a6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardIndex: 0
+  cardClass: 0
+  cardType: 0
+  cost: 0
+  additionalCost: 0
 --- !u!1 &86474248
 GameObject:
   m_ObjectHideFlags: 0
@@ -7582,6 +7600,7 @@ MonoBehaviour:
   - {fileID: 2095059288}
   - {fileID: 1636956997}
   - {fileID: 1077050888}
+  usedHandIndex: -1
 --- !u!1 &637212455
 GameObject:
   m_ObjectHideFlags: 0
@@ -9135,6 +9154,7 @@ GameObject:
   - component: {fileID: 824017909}
   - component: {fileID: 824017910}
   - component: {fileID: 824017911}
+  - component: {fileID: 824017912}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -9256,6 +9276,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916f6dfcb91d3ba41a27eb7190263b65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &824017912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824017907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21351614f2adfc47865271ea1793a6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardIndex: 0
+  cardClass: 0
+  cardType: 0
+  cost: 0
+  additionalCost: 0
 --- !u!1 &825314307
 GameObject:
   m_ObjectHideFlags: 0
@@ -10162,6 +10199,7 @@ GameObject:
   - component: {fileID: 882912939}
   - component: {fileID: 882912941}
   - component: {fileID: 882912942}
+  - component: {fileID: 882912943}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -10283,6 +10321,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916f6dfcb91d3ba41a27eb7190263b65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &882912943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882912938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21351614f2adfc47865271ea1793a6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardIndex: 0
+  cardClass: 0
+  cardType: 0
+  cost: 0
+  additionalCost: 0
 --- !u!1 &892327453
 GameObject:
   m_ObjectHideFlags: 0
@@ -14102,6 +14157,7 @@ GameObject:
   - component: {fileID: 1278166696}
   - component: {fileID: 1278166697}
   - component: {fileID: 1278166698}
+  - component: {fileID: 1278166699}
   m_Layer: 0
   m_Name: Wood
   m_TagString: Untagged
@@ -14223,6 +14279,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916f6dfcb91d3ba41a27eb7190263b65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1278166699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278166694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21351614f2adfc47865271ea1793a6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardIndex: 0
+  cardClass: 0
+  cardType: 0
+  cost: 0
+  additionalCost: 0
 --- !u!1 &1295713830
 GameObject:
   m_ObjectHideFlags: 0
@@ -17536,6 +17609,7 @@ GameObject:
   - component: {fileID: 1647721967}
   - component: {fileID: 1647721968}
   - component: {fileID: 1647721969}
+  - component: {fileID: 1647721970}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -17657,6 +17731,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916f6dfcb91d3ba41a27eb7190263b65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1647721970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647721965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21351614f2adfc47865271ea1793a6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardIndex: 0
+  cardClass: 0
+  cardType: 0
+  cost: 0
+  additionalCost: 0
 --- !u!1 &1651811444
 GameObject:
   m_ObjectHideFlags: 0

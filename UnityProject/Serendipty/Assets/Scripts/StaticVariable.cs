@@ -21,12 +21,17 @@ public static class StaticVariable
     public static readonly int MaxDeckCardCount = 30;
     public static readonly int MinDeckCardCount = 20;
 
-    // Card Type
+    // Card Property
     public static readonly int Light = 100;
     public static readonly int Dark = 101;
     public static readonly int Fire = 102;
     public static readonly int Water = 103;
     public static readonly int Wood = 104;
+
+    // Card Type
+    public static readonly int Creature = 300;
+    public static readonly int InstantSpell = 301;
+    public static readonly int LongTermSpell = 302;
 
     // Deck
     public static readonly int MaxDeckCount = 5;
@@ -36,5 +41,5 @@ public static class StaticVariable
 
     // Card Index
     public static readonly int CardCount = 20;
-    public static readonly int ExampleCreatureIndex = 0;
+    public static readonly int Skeleton = 0;
 }

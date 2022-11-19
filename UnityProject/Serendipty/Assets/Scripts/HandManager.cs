@@ -5,6 +5,7 @@ using UnityEngine;
 public class HandManager : MonoBehaviour
 {
     public GameObject[] handObject;
+    public Card usedCard = null;
 
     private int selectedHandIndex = -1;
 
@@ -24,6 +25,20 @@ public class HandManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (selectedHandIndex != -1)
+            {
+                usedCard = handObject[selectedHandIndex].transform.GetChild(0).GetComponent<Card>();
+                selectedHandIndex = -1;
+                UpdateHand();
+                FieldManager.Instance.UseHandCard();
+            }
+        }
     }
 
     private void UpdateHand()

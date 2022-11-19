@@ -7,6 +7,7 @@ public class FieldManager : MonoBehaviour
     public GameObject[] fieldObject;
 
     private int selectedFieldIndex = -1;
+    private bool handSelectMode = false;
 
     static FieldManager instance;
     public static FieldManager Instance
@@ -32,8 +33,6 @@ public class FieldManager : MonoBehaviour
         GameObject bluePlayer = Instantiate(Resources.Load<GameObject>("BluePlayer"), fieldObject[10].transform);
         redPlayer.GetComponent<Creature>().Instantiate(4);
         bluePlayer.GetComponent<Creature>().Instantiate(10);
-
-        SpawnCreature(0, 0);
     }
 
     public void SpawnCreature(int pos, int cardIndex)
@@ -44,37 +43,74 @@ public class FieldManager : MonoBehaviour
         creatureObject.GetComponent<Creature>().Instantiate(pos);
     }
 
+    public void UseHandCard()
+    {
+        handSelectMode = true;
+        UpdateFieldColor();
+    }
+
     private void UpdateFieldColor()
     {
-        if (selectedFieldIndex == -1)
+        if (handSelectMode)
         {
-            for (int i = 0; i < fieldObject.Length; i++)
+            if (HandManager.Instance.usedCard.cardType == StaticVariable.Creature)
             {
-                fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-            }
-        }
-        else
-        {
-            for (int i = 0; i < fieldObject.Length; i++)
-            {
-                if (i / 6 != selectedFieldIndex / 6)
+                for (int i = 0; i < fieldObject.Length; i++)
                 {
-                    if (fieldObject[i].transform.childCount > 0)
+                    if ((GameManager.Instance.myArea * 6) / 6 == i / 6)
                     {
-                        fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 160f / 255f, 160f / 255f, 1f);
+                        if (fieldObject[i].transform.childCount == 0)
+                        {
+                            fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(199f / 255f, 1f, 170f / 255f, 1f);
+                        }
+                        else
+                        {
+                            fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 160f / 255f, 160f / 255f, 1f);
+                        }
                     }
                     else
                     {
                         fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
                     }
                 }
-                else if (i == selectedFieldIndex)
-                {
-                    fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(199f / 255f, 1f, 170f / 255f, 1f);
-                }
-                else
+            }
+            else if (HandManager.Instance.usedCard.cardType == StaticVariable.InstantSpell)
+            {
+
+            }
+        }
+        else
+        {
+            if (selectedFieldIndex == -1)
+            {
+                for (int i = 0; i < fieldObject.Length; i++)
                 {
                     fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < fieldObject.Length; i++)
+                {
+                    if (i / 6 != selectedFieldIndex / 6)
+                    {
+                        if (fieldObject[i].transform.childCount > 0)
+                        {
+                            fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 160f / 255f, 160f / 255f, 1f);
+                        }
+                        else
+                        {
+                            fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                        }
+                    }
+                    else if (i == selectedFieldIndex)
+                    {
+                        fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(199f / 255f, 1f, 170f / 255f, 1f);
+                    }
+                    else
+                    {
+                        fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                    }
                 }
             }
         }
@@ -84,37 +120,53 @@ public class FieldManager : MonoBehaviour
     {
         if (fieldIndex < 0 || fieldIndex >= fieldObject.Length) return;
 
-        if (selectedFieldIndex == -1)
+        if (handSelectMode)
         {
-            if (fieldObject[fieldIndex].transform.childCount > 0)
+            if (fieldObject[fieldIndex].transform.childCount > 0) return;
+            else
             {
-                selectedFieldIndex = fieldIndex;
+                if ((GameManager.Instance.myArea * 6) / 6 == fieldIndex / 6)
+                {
+                    SpawnCreature(fieldIndex, HandManager.Instance.usedCard.cardIndex);
+                    handSelectMode = false;
+                    UpdateFieldColor();
+                }
             }
         }
         else
         {
-            if (fieldObject[fieldIndex].transform.childCount > 0)
+            if (selectedFieldIndex == -1)
             {
-                if (selectedFieldIndex / 6 == fieldIndex / 6)
+                if (fieldObject[fieldIndex].transform.childCount > 0)
                 {
-                    Move(selectedFieldIndex, fieldIndex);
-                }
-                else
-                {
-                    AttackManager.Instance.Attack(selectedFieldIndex, fieldIndex);
+                    selectedFieldIndex = fieldIndex;
                 }
             }
             else
             {
-                if (selectedFieldIndex / 6 == fieldIndex / 6)
+                if (fieldObject[fieldIndex].transform.childCount > 0)
                 {
-                    Move(selectedFieldIndex, fieldIndex);
+                    if (selectedFieldIndex / 6 == fieldIndex / 6)
+                    {
+                        Move(selectedFieldIndex, fieldIndex);
+                    }
+                    else
+                    {
+                        AttackManager.Instance.Attack(selectedFieldIndex, fieldIndex);
+                    }
                 }
+                else
+                {
+                    if (selectedFieldIndex / 6 == fieldIndex / 6)
+                    {
+                        Move(selectedFieldIndex, fieldIndex);
+                    }
+                }
+                selectedFieldIndex = -1;
             }
-            selectedFieldIndex = -1;
-        }
 
-        UpdateFieldColor();
+            UpdateFieldColor();
+        }
     }
 
     public void Move(int fieldIndex1, int fieldIndex2)
