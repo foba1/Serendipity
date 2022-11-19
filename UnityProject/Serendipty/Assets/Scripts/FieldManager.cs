@@ -110,15 +110,18 @@ public class FieldManager : MonoBehaviour
 
             firstTransform.SetParent(fieldObject[fieldIndex2].transform, false);
             firstTransform.localPosition = new Vector3(0f, 0f, 0f);
+            firstTransform.GetComponent<Creature>().curPosition = fieldIndex2;
 
             secondTransform.SetParent(fieldObject[fieldIndex1].transform, false);
             secondTransform.localPosition = new Vector3(0f, 0f, 0f);
+            secondTransform.GetComponent<Creature>().curPosition = fieldIndex1;
         }
         else
         {
             Transform transform = fieldObject[fieldIndex1].transform.GetChild(0);
             transform.SetParent(fieldObject[fieldIndex2].transform, false);
             transform.localPosition = new Vector3(0f, 0f, 0f);
+            transform.GetComponent<Creature>().curPosition = fieldIndex2;
         }
     }
 }
