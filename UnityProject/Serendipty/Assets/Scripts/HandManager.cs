@@ -31,8 +31,51 @@ public class HandManager : MonoBehaviour
 
     }
 
+    private void UpdateHand()
+    {
+        if (selectedHandIndex == -1)
+        {
+            for (int i = 0; i < handObject.Length; i++)
+            {
+                handObject[i].transform.GetChild(0).localPosition = new Vector3(0f, 0f, 0f);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < handObject.Length; i++)
+            {
+                if (i == selectedHandIndex)
+                {
+                    handObject[i].transform.GetChild(0).localPosition = new Vector3(0f, 70f, 0f);
+                }
+                else
+                {
+                    handObject[i].transform.GetChild(0).localPosition = new Vector3(0f, 0f, 0f);
+                }
+            }
+        }
+    }
+
     public void SelectHand(int handIndex)
     {
-        Debug.Log("Select " + handIndex.ToString());
+        if (handIndex < 0 || handIndex >= handObject.Length) return;
+
+        if (selectedHandIndex == -1)
+        {
+            selectedHandIndex = handIndex;
+        }
+        else
+        {
+            if (selectedHandIndex == handIndex)
+            {
+                selectedHandIndex = -1;
+            }
+            else
+            {
+                selectedHandIndex = handIndex;
+            }
+        }
+
+        UpdateHand();
     }
 }

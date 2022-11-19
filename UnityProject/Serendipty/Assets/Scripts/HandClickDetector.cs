@@ -32,10 +32,6 @@ public class HandClickDetector : MonoBehaviour
                     ableToClick = true;
                 }
             }
-            else
-            {
-                ableToClick = false;
-            }
         }
 
         prevMouseButtonDown = Input.GetMouseButton(0);

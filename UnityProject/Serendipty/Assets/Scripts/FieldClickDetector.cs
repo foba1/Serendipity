@@ -32,10 +32,6 @@ public class FieldClickDetector : MonoBehaviour
                     ableToClick = true;
                 }
             }
-            else
-            {
-                ableToClick = false;
-            }
         }
 
         prevMouseButtonDown = Input.GetMouseButton(0);
