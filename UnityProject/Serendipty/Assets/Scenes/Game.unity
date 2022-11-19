@@ -3652,7 +3652,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 437127540}
-  - component: {fileID: 437127541}
   - component: {fileID: 437127544}
   - component: {fileID: 437127543}
   m_Layer: 0
@@ -3678,19 +3677,6 @@ Transform:
   m_Father: {fileID: 632639069}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &437127541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 437127539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 916f6dfcb91d3ba41a27eb7190263b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handIndex: 0
 --- !u!114 &437127543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10314,7 +10300,6 @@ GameObject:
   - component: {fileID: 1077050889}
   - component: {fileID: 1077050890}
   - component: {fileID: 1077050891}
-  - component: {fileID: 1077050892}
   m_Layer: 0
   m_Name: Card (4)
   m_TagString: Untagged
@@ -10338,20 +10323,7 @@ Transform:
   m_Father: {fileID: 632639069}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1077050890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1077050888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 916f6dfcb91d3ba41a27eb7190263b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handIndex: 4
---- !u!60 &1077050891
+--- !u!60 &1077050890
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10367,23 +10339,23 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 16.585663, y: 24.83}
-    newSize: {x: 16.585663, y: 24.83}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 24.642632, y: 37.75964}
-      - {x: -15.207153, y: 37.229897}
-      - {x: -22.98537, y: 43.79475}
-      - {x: -31.800152, y: 34.60768}
-      - {x: -24.627323, y: 26.353146}
-      - {x: -24.902802, y: -37.202694}
-      - {x: 24.666534, y: -37.132904}
---- !u!114 &1077050892
+    - - {x: -22.612595, y: 44.19413}
+      - {x: -31.800186, y: 34.701836}
+      - {x: -24.79905, y: 26.407345}
+      - {x: -24.954391, y: -37.0975}
+      - {x: 24.854622, y: -37.062702}
+      - {x: 24.814705, y: 37.13913}
+      - {x: -15.109741, y: 37.139122}
+--- !u!114 &1077050891
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11392,7 +11364,6 @@ GameObject:
   - component: {fileID: 1235221623}
   - component: {fileID: 1235221624}
   - component: {fileID: 1235221625}
-  - component: {fileID: 1235221626}
   m_Layer: 0
   m_Name: Card (1)
   m_TagString: Untagged
@@ -11416,20 +11387,7 @@ Transform:
   m_Father: {fileID: 632639069}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1235221624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1235221622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 916f6dfcb91d3ba41a27eb7190263b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handIndex: 1
---- !u!60 &1235221625
+--- !u!60 &1235221624
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11445,23 +11403,23 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 16.585663, y: 24.83}
-    newSize: {x: 16.585663, y: 24.83}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 24.642632, y: 37.75964}
-      - {x: -15.207153, y: 37.229897}
-      - {x: -22.98537, y: 43.79475}
-      - {x: -31.800152, y: 34.60768}
-      - {x: -24.627323, y: 26.353146}
-      - {x: -24.902802, y: -37.202694}
-      - {x: 24.666534, y: -37.132904}
---- !u!114 &1235221626
+    - - {x: -22.612595, y: 44.19413}
+      - {x: -31.800186, y: 34.701836}
+      - {x: -24.79905, y: 26.407345}
+      - {x: -24.954391, y: -37.0975}
+      - {x: 24.854622, y: -37.062702}
+      - {x: 24.814705, y: 37.13913}
+      - {x: -15.109741, y: 37.139122}
+--- !u!114 &1235221625
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14731,7 +14689,6 @@ GameObject:
   - component: {fileID: 1636956998}
   - component: {fileID: 1636956999}
   - component: {fileID: 1636957000}
-  - component: {fileID: 1636957001}
   m_Layer: 0
   m_Name: Card (3)
   m_TagString: Untagged
@@ -14755,20 +14712,7 @@ Transform:
   m_Father: {fileID: 632639069}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1636956999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1636956997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 916f6dfcb91d3ba41a27eb7190263b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handIndex: 3
---- !u!60 &1636957000
+--- !u!60 &1636956999
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14784,23 +14728,23 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 16.585663, y: 24.83}
-    newSize: {x: 16.585663, y: 24.83}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 24.642632, y: 37.75964}
-      - {x: -15.207153, y: 37.229897}
-      - {x: -22.98537, y: 43.79475}
-      - {x: -31.800152, y: 34.60768}
-      - {x: -24.627323, y: 26.353146}
-      - {x: -24.902802, y: -37.202694}
-      - {x: 24.666534, y: -37.132904}
---- !u!114 &1636957001
+    - - {x: -22.612595, y: 44.19413}
+      - {x: -31.800186, y: 34.701836}
+      - {x: -24.79905, y: 26.407345}
+      - {x: -24.954391, y: -37.0975}
+      - {x: 24.854622, y: -37.062702}
+      - {x: 24.814705, y: 37.13913}
+      - {x: -15.109741, y: 37.139122}
+--- !u!114 &1636957000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19328,7 +19272,6 @@ GameObject:
   - component: {fileID: 2095059289}
   - component: {fileID: 2095059290}
   - component: {fileID: 2095059291}
-  - component: {fileID: 2095059292}
   m_Layer: 0
   m_Name: Card (2)
   m_TagString: Untagged
@@ -19352,20 +19295,7 @@ Transform:
   m_Father: {fileID: 632639069}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2095059290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2095059288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 916f6dfcb91d3ba41a27eb7190263b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handIndex: 2
---- !u!60 &2095059291
+--- !u!60 &2095059290
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19381,23 +19311,23 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 16.585663, y: 24.83}
-    newSize: {x: 16.585663, y: 24.83}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 24.642632, y: 37.75964}
-      - {x: -15.207153, y: 37.229897}
-      - {x: -22.98537, y: 43.79475}
-      - {x: -31.800152, y: 34.60768}
-      - {x: -24.627323, y: 26.353146}
-      - {x: -24.902802, y: -37.202694}
-      - {x: 24.666534, y: -37.132904}
---- !u!114 &2095059292
+    - - {x: -22.612595, y: 44.19413}
+      - {x: -31.800186, y: 34.701836}
+      - {x: -24.79905, y: 26.407345}
+      - {x: -24.954391, y: -37.0975}
+      - {x: 24.854622, y: -37.062702}
+      - {x: 24.814705, y: 37.13913}
+      - {x: -15.109741, y: 37.139122}
+--- !u!114 &2095059291
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
