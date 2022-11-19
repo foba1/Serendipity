@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieldClickDetector : MonoBehaviour
+public class HandClickDetector : MonoBehaviour
 {
-    [SerializeField] int fieldIndex;
+    [SerializeField] int handIndex;
 
     private bool isOver = false;
     private bool ableToClick = false;
@@ -18,7 +18,7 @@ public class FieldClickDetector : MonoBehaviour
             {
                 if (isOver && ableToClick)
                 {
-                    FieldManager.Instance.SelectField(fieldIndex);
+                    HandManager.Instance.SelectHand(handIndex);
                     ableToClick = false;
                 }
             }

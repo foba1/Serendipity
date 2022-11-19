@@ -19,7 +19,7 @@ public class Skeleton : Creature
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetTrigger("GetDamaged");
 
-        yield return new WaitForSecondsRealtime(0.670f);
+        yield return new WaitForSecondsRealtime(0.600f);
 
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         transform.GetChild(2).GetChild(0).GetComponent<Text>().color = new Color(1f, 1f, 1f, 1f);
@@ -40,11 +40,11 @@ public class Skeleton : Creature
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetTrigger("Attack");
 
-        yield return new WaitForSecondsRealtime(0.350f);
+        yield return new WaitForSecondsRealtime(0.280f);
 
         FieldManager.Instance.fieldObject[pos].transform.GetChild(0).GetComponent<Creature>().GetDamaged(power);
 
-        yield return new WaitForSecondsRealtime(0.250f);
+        yield return new WaitForSecondsRealtime(0.403f);
 
         transform.position = FieldManager.Instance.fieldObject[curPosition].transform.position;
         isAttackFinished = true;
