@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Skeleton : Creature
 {
+    private bool ableToRespawn = true;
+
     private void UpdateInfoText()
     {
         transform.GetChild(1).GetChild(0).GetComponent<Text>().text = power.ToString();
@@ -17,7 +19,17 @@ public class Skeleton : Creature
         animator.SetTrigger("Death");
 
         yield return new WaitForSecondsRealtime(0.767f);
-        Destroy(gameObject);
+
+        if (ableToRespawn)
+        {
+            ableToRespawn = false;
+            Instantiate(curPosition);
+            animator.SetTrigger("Respawn");
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator GetDamagedCoroutine()
