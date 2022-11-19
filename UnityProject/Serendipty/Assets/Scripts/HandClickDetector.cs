@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class HandClickDetector : MonoBehaviour
 {
-    [SerializeField] int handIndex;
-
+    private int handIndex;
     private bool isOver = false;
     private bool ableToClick = false;
     private bool prevMouseButtonDown = false;
 
-    void Update()
+    private void Start()
+    {
+        for (int i = 0; i < HandManager.Instance.handObject.Length; i++)
+        {
+            if (HandManager.Instance.handObject[i].transform == transform.parent)
+            {
+                handIndex = i;
+                return;
+            }
+        }
+    }
+
+    private void Update()
     {
         if (prevMouseButtonDown)
         {

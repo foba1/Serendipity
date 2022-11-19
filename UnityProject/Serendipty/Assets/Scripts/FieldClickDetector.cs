@@ -10,7 +10,7 @@ public class FieldClickDetector : MonoBehaviour
     private bool ableToClick = false;
     private bool prevMouseButtonDown = false;
 
-    void Update()
+    private void Update()
     {
         if (prevMouseButtonDown)
         {

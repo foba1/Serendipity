@@ -26,11 +26,6 @@ public class HandManager : MonoBehaviour
         instance = this;
     }
 
-    private void Start()
-    {
-
-    }
-
     private void UpdateHand()
     {
         if (selectedHandIndex == -1)
