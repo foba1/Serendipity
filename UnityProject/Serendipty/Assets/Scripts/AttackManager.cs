@@ -24,13 +24,27 @@ public class AttackManager : MonoBehaviour
 
     public void Attack(int fieldIndex1, int fieldIndex2)
     {
+        StartCoroutine(AttackCoroutine(fieldIndex1, fieldIndex2));
+    }
+
+    IEnumerator AttackCoroutine(int fieldIndex1, int fieldIndex2)
+    {
         Creature firstCreature = FieldManager.Instance.fieldObject[fieldIndex1].transform.GetChild(0).GetComponent<Creature>();
         Creature secondCreature = FieldManager.Instance.fieldObject[fieldIndex2].transform.GetChild(0).GetComponent<Creature>();
 
         if (firstCreature != null && secondCreature != null)
         {
             firstCreature.Attack(fieldIndex2);
-            secondCreature.CounterAttack(fieldIndex1);
+
+            while (!firstCreature.isAttackFinished) yield return null;
+            firstCreature.isAttackFinished = false;
+
+            yield return new WaitForSecondsRealtime(0.5f);
+            secondCreature.Attack(fieldIndex1);
+
+            while (!secondCreature.isAttackFinished) yield return null;
+            secondCreature.isAttackFinished = false;
         }
+        yield return null;
     }
 }

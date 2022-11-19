@@ -2159,6 +2159,7 @@ MonoBehaviour:
   power: 0
   ableToAct: 0
   curPosition: 0
+  isAttackFinished: 0
 --- !u!1 &240452638
 GameObject:
   m_ObjectHideFlags: 0
@@ -13431,6 +13432,7 @@ MonoBehaviour:
   power: 0
   ableToAct: 0
   curPosition: 0
+  isAttackFinished: 0
 --- !u!1 &1471198391
 GameObject:
   m_ObjectHideFlags: 0

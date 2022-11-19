@@ -27,11 +27,6 @@ public class ExampleCreature : Creature
         throw new System.NotImplementedException();
     }
 
-    public override void CounterAttack(int pos)
-    {
-        throw new System.NotImplementedException();
-    }
-
     public override void GetDamaged(int damage)
     {
         throw new System.NotImplementedException();
