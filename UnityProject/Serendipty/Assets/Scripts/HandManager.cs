@@ -33,6 +33,7 @@ public class HandManager : MonoBehaviour
             for (int i = 0; i < handObject.Length; i++)
             {
                 handObject[i].transform.GetChild(0).localPosition = new Vector3(0f, 0f, 0f);
+                handObject[i].transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
             }
         }
         else
@@ -42,10 +43,12 @@ public class HandManager : MonoBehaviour
                 if (i == selectedHandIndex)
                 {
                     handObject[i].transform.GetChild(0).localPosition = new Vector3(0f, 70f, 0f);
+                    handObject[i].transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
                 }
                 else
                 {
                     handObject[i].transform.GetChild(0).localPosition = new Vector3(0f, 0f, 0f);
+                    handObject[i].transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
                 }
             }
         }
