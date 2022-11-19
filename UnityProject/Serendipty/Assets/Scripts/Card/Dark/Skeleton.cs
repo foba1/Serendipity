@@ -52,7 +52,7 @@ public class Skeleton : Creature
 
     public override void Instantiate(int pos)
     {
-        health = 40;
+        health = 20;
         power = 15;
         ableToAct = true;
         curPosition = pos;

@@ -39,7 +39,7 @@ public class FieldManager : MonoBehaviour
     {
         if (fieldObject[pos].transform.childCount > 0) return;
 
-        GameObject creatureObject = Instantiate(Resources.Load<GameObject>("Card/Creature_" + cardIndex.ToString()), fieldObject[pos].transform);
+        GameObject creatureObject = Instantiate(Resources.Load<GameObject>("Creature/" + cardIndex.ToString()), fieldObject[pos].transform);
         creatureObject.GetComponent<Creature>().Instantiate(pos);
     }
 
