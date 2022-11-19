@@ -13,6 +13,15 @@ public class Player : Creature
         transform.GetChild(2).GetChild(0).GetComponent<Text>().text = health.ToString();
     }
 
+    IEnumerator DeathCoroutine()
+    {
+        Animator animator = transform.GetChild(0).GetComponent<Animator>();
+        animator.SetTrigger("Death");
+
+        yield return new WaitForSecondsRealtime(0.767f);
+        Destroy(gameObject);
+    }
+
     IEnumerator GetDamagedCoroutine()
     {
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1f, 148f / 255f, 148f / 255f, 1f);
@@ -75,7 +84,21 @@ public class Player : Creature
     public override void GetDamaged(int damage)
     {
         health -= damage;
-        UpdateInfoText();
-        StartCoroutine(GetDamagedCoroutine());
+        if (health > 0)
+        {
+            UpdateInfoText();
+            StartCoroutine(GetDamagedCoroutine());
+        }
+        else
+        {
+            health = 0;
+            UpdateInfoText();
+            Death();
+        }
+    }
+
+    public override void Death()
+    {
+        StartCoroutine(DeathCoroutine());
     }
 }

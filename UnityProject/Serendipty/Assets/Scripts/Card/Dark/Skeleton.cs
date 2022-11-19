@@ -76,4 +76,9 @@ public class Skeleton : Creature
         UpdateInfoText();
         StartCoroutine(GetDamagedCoroutine());
     }
+
+    public override void Death()
+    {
+
+    }
 }

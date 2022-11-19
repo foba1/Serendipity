@@ -40,10 +40,13 @@ public class AttackManager : MonoBehaviour
             firstCreature.isAttackFinished = false;
 
             yield return new WaitForSecondsRealtime(0.4f);
-            secondCreature.Attack(fieldIndex1);
+            if (FieldManager.Instance.fieldObject[fieldIndex2].transform.childCount > 0)
+            {
+                secondCreature.Attack(fieldIndex1);
 
-            while (!secondCreature.isAttackFinished) yield return null;
-            secondCreature.isAttackFinished = false;
+                while (!secondCreature.isAttackFinished) yield return null;
+                secondCreature.isAttackFinished = false;
+            }
         }
         yield return null;
     }

@@ -14,4 +14,6 @@ public abstract class Creature : Card
     public abstract void Attack(int pos);
     public abstract void UseAbility(int index);
     public abstract void GetDamaged(int damage);
+
+    public abstract void Death();
 }
