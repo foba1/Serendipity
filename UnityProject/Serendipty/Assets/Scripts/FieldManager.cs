@@ -26,6 +26,14 @@ public class FieldManager : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        GameObject redPlayer = Instantiate(Resources.Load<GameObject>("RedPlayer"), fieldObject[4].transform);
+        GameObject bluePlayer = Instantiate(Resources.Load<GameObject>("BluePlayer"), fieldObject[10].transform);
+        redPlayer.GetComponent<Creature>().Instantiate(4);
+        bluePlayer.GetComponent<Creature>().Instantiate(10);
+    }
+
     private void UpdateFieldColor()
     {
         if (selectedFieldIndex == -1)

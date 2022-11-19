@@ -7,18 +7,6 @@ using UnityEngine.UI;
 
 public class Player : Creature
 {
-    private void Start()
-    {
-        if (name == "RedPlayer")
-        {
-            Instantiate(4);
-        }
-        else
-        {
-            Instantiate(10);
-        }
-    }
-
     private void UpdateInfoText()
     {
         transform.GetChild(1).GetChild(0).GetComponent<Text>().text = power.ToString();
