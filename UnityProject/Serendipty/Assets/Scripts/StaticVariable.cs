@@ -18,8 +18,8 @@ public static class StaticVariable
     // Max & Min Card Count
     public static readonly int MaxLegendaryCardCount = 1;
     public static readonly int MaxNormalCardCount = 3;
-    public static readonly int MaxDeckCardCount = 40;
-    public static readonly int MinDeckCardCount = 24;
+    public static readonly int MaxDeckCardCount = 30;
+    public static readonly int MinDeckCardCount = 20;
 
     // Card Type
     public static readonly int Light = 100;
@@ -35,6 +35,6 @@ public static class StaticVariable
     public static readonly int[] LegendaryCardIndexArray = new int[10] { 10, 11, 22, 23, 34, 35, 46, 47, 58, 59 };
 
     // Card Index
-    public static readonly int CardCount = 60;
+    public static readonly int CardCount = 20;
     public static readonly int ExampleCreatureIndex = 0;
 }

@@ -1,22 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
-using Photon.Realtime;
 using UnityEngine.UI;
 
-public class Player : Creature
+public class Skeleton : Creature
 {
     private void Start()
     {
-        if (name == "RedPlayer")
-        {
-            Instantiate(4);
-        }
-        else
-        {
-            Instantiate(10);
-        }
+        Instantiate(3);
     }
 
     private void UpdateInfoText()
@@ -33,7 +24,7 @@ public class Player : Creature
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetTrigger("GetDamaged");
 
-        yield return new WaitForSecondsRealtime(0.600f);
+        yield return new WaitForSecondsRealtime(0.670f);
 
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         transform.GetChild(2).GetChild(0).GetComponent<Text>().color = new Color(1f, 1f, 1f, 1f);
@@ -54,11 +45,11 @@ public class Player : Creature
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetTrigger("Attack");
 
-        yield return new WaitForSecondsRealtime(0.280f);
+        yield return new WaitForSecondsRealtime(0.350f);
 
         FieldManager.Instance.fieldObject[pos].transform.GetChild(0).GetComponent<Creature>().GetDamaged(power);
 
-        yield return new WaitForSecondsRealtime(0.403f);
+        yield return new WaitForSecondsRealtime(0.250f);
 
         transform.position = FieldManager.Instance.fieldObject[curPosition].transform.position;
         isAttackFinished = true;
@@ -66,8 +57,8 @@ public class Player : Creature
 
     public override void Instantiate(int pos)
     {
-        health = 600;
-        power = 10;
+        health = 40;
+        power = 15;
         ableToAct = true;
         curPosition = pos;
         isAttackFinished = false;

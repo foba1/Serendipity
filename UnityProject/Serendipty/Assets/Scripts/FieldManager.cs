@@ -21,7 +21,7 @@ public class FieldManager : MonoBehaviour
         }
     }
 
-    void Awake()
+    private void Awake()
     {
         instance = this;
     }
