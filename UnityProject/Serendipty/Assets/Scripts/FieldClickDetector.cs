@@ -31,6 +31,10 @@ public class FieldClickDetector : MonoBehaviour
                 {
                     ableToClick = true;
                 }
+                else
+                {
+                    ableToClick = false;
+                }
             }
         }
 

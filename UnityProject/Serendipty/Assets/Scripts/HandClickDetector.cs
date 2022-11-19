@@ -16,7 +16,7 @@ public class HandClickDetector : MonoBehaviour
             if (HandManager.Instance.handObject[i].transform == transform.parent)
             {
                 handIndex = i;
-                return;
+                break;
             }
         }
     }
@@ -41,6 +41,10 @@ public class HandClickDetector : MonoBehaviour
                 if (isOver)
                 {
                     ableToClick = true;
+                }
+                else
+                {
+                    ableToClick = false;
                 }
             }
         }
