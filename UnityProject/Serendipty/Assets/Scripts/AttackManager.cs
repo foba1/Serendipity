@@ -24,6 +24,13 @@ public class AttackManager : MonoBehaviour
 
     public void Attack(int fieldIndex1, int fieldIndex2)
     {
-        
+        Creature firstCreature = FieldManager.Instance.fieldObject[fieldIndex1].transform.GetChild(0).GetComponent<Creature>();
+        Creature secondCreature = FieldManager.Instance.fieldObject[fieldIndex2].transform.GetChild(0).GetComponent<Creature>();
+
+        if (firstCreature != null && secondCreature != null)
+        {
+            firstCreature.Attack(fieldIndex2);
+            secondCreature.CounterAttack(fieldIndex1);
+        }
     }
 }

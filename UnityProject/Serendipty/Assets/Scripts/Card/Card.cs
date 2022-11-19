@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public abstract class Card : MonoBehaviour
+public abstract class Card : MonoBehaviourPun
 {
     public int cardIndex;
     public int cardClass;

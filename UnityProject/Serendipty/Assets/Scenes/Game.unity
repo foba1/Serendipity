@@ -997,7 +997,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 10
+  m_Text: 100
 --- !u!222 &134717882
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2112,6 +2112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 235943060}
+  - component: {fileID: 235943061}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -2137,6 +2138,27 @@ Transform:
   m_Father: {fileID: 807078931}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &235943061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235943059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9102db589589d4799a75bc2160129f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardIndex: 0
+  cardClass: 0
+  cardType: 0
+  cost: 0
+  additionalCost: 0
+  health: 0
+  power: 0
+  ableToAct: 0
+  curPosition: 0
 --- !u!1 &240452638
 GameObject:
   m_ObjectHideFlags: 0
@@ -3609,7 +3631,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 600
+  m_Text: 100
 --- !u!222 &363899980
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9693,7 +9715,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 10
+  m_Text: 100
 --- !u!222 &963179555
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13362,6 +13384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1459716438}
+  - component: {fileID: 1459716439}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -13387,6 +13410,27 @@ Transform:
   m_Father: {fileID: 676658759}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1459716439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459716437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9102db589589d4799a75bc2160129f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardIndex: 0
+  cardClass: 0
+  cardType: 0
+  cost: 0
+  additionalCost: 0
+  health: 0
+  power: 0
+  ableToAct: 0
+  curPosition: 0
 --- !u!1 &1471198391
 GameObject:
   m_ObjectHideFlags: 0
@@ -18418,7 +18462,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 600
+  m_Text: 100
 --- !u!222 &1964163047
 CanvasRenderer:
   m_ObjectHideFlags: 0
