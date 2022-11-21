@@ -130,6 +130,7 @@ public class FieldManager : MonoBehaviour
                     SpawnCreature(fieldIndex, HandManager.Instance.usedCard.cardIndex);
                     handSelectMode = false;
                     UpdateFieldColor();
+                    Destroy(HandManager.Instance.usedCard.gameObject);
                 }
             }
         }
