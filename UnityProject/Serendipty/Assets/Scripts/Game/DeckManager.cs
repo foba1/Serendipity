@@ -76,8 +76,11 @@ public class DeckManager : MonoBehaviour
 
         for (int i = 0; i < emptyCount; i++)
         {
-            HandManager.Instance.InstantiateCard(deckList[0]);
-            deckList.RemoveAt(0);
+            if (deckList.Count > 0)
+            {
+                HandManager.Instance.InstantiateCard(deckList[0]);
+                deckList.RemoveAt(0);
+            }
         }
     }
 }

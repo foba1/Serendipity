@@ -142,7 +142,10 @@ public class FieldManager : MonoBehaviour
             {
                 if (fieldObject[fieldIndex].transform.childCount > 0)
                 {
-                    selectedFieldIndex = fieldIndex;
+                    if (fieldObject[fieldIndex].transform.GetChild(0).GetComponent<Creature>().ableToAct)
+                    {
+                        selectedFieldIndex = fieldIndex;
+                    }
                 }
             }
             else
