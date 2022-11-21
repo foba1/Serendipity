@@ -25,6 +25,7 @@ public class Skeleton : Creature
             ableToRespawn = false;
             Instantiate(curPosition);
             animator.SetTrigger("Respawn");
+            Active();
         }
         else
         {

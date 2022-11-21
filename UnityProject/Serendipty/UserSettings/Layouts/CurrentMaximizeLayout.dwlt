@@ -224,7 +224,7 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 826b0000
       m_LastClickedID: 0
       m_ExpandedIDs: d2c2ffff3efaffff66670000506a0000
       m_RenameOverlay:
@@ -269,8 +269,8 @@ MonoBehaviour:
     y: 0
     width: 1198
     height: 597
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 8}
@@ -671,14 +671,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.95550627
+    - e00: 1
       e01: 0
       e02: 0
-      e03: 18.398651
+      e03: 49.5
       e10: 0
-      e11: 0.95550627
+      e11: 1
       e12: 0
-      e13: 172.46326
+      e13: 143.5
       e20: 0
       e21: 0
       e22: 1
@@ -688,9 +688,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: c67525f8938476a4ea414ed85927521c, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: f7951730ce95cf94a9a49cd55752f993, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 8510160056985192431, guid: c67525f8938476a4ea414ed85927521c, type: 2}
+  - m_Target: {fileID: -155135346705760509, guid: f7951730ce95cf94a9a49cd55752f993, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -771,21 +771,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Animation/Player
+    - Assets/Animation/Skeleton
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Animation/Player
+  - Assets/Animation/Skeleton
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\foba1\Documents\GitHub\Serendipty\UnityProject\Serendipty
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 446c0000
-    m_LastClickedID: 27716
+    m_SelectedIDs: 466c0000
+    m_LastClickedID: 27718
     m_ExpandedIDs: 000000002c6c00002e6c0000306c0000326c0000346c0000366c0000386c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -814,7 +814,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002c6c00002e6c0000306c0000326c0000346c0000366c0000386c00003a6c00003c6c00003e6c0000
+    m_ExpandedIDs: 000000002c6c00002e6c0000306c0000326c0000346c0000366c0000386c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -839,8 +839,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 826b0000
+    m_LastClickedInstanceID: 27522
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300000a8600007e7b000016640000
     m_RenameOverlay:
