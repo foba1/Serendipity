@@ -41,7 +41,7 @@ public class AttackManager : MonoBehaviour
                 while (!firstCreature.isAttackFinished) yield return null;
                 firstCreature.isAttackFinished = false;
 
-                firstCreature.ableToAct = false;
+                firstCreature.Deactive();
             }
             else
             {
@@ -57,7 +57,7 @@ public class AttackManager : MonoBehaviour
                 while (!secondCreature.isAttackFinished) yield return null;
                 secondCreature.isAttackFinished = false;
 
-                firstCreature.ableToAct = false;
+                firstCreature.Deactive();
             }
         }
         yield return null;

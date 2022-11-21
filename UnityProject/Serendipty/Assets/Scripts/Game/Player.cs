@@ -101,4 +101,20 @@ public class Player : Creature
     {
         StartCoroutine(DeathCoroutine());
     }
+
+    public override void Active()
+    {
+        ableToAct = true;
+        Animator animator = transform.GetChild(0).GetComponent<Animator>();
+        animator.SetBool("ableToAct", true);
+        animator.SetTrigger("Active");
+    }
+
+    public override void Deactive()
+    {
+        ableToAct = false;
+        Animator animator = transform.GetChild(0).GetComponent<Animator>();
+        animator.SetBool("ableToAct", false);
+        animator.SetTrigger("Deactive");
+    }
 }
