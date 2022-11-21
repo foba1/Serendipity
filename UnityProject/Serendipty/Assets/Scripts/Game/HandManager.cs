@@ -49,14 +49,36 @@ public class HandManager : MonoBehaviour
         }
     }
 
+    public void InstantiateCard(int cardIndex)
+    {
+        int emptyHand = -1;
+        for (int i = 0; i < handObject.Length; i++)
+        {
+            if (handObject[i].transform.childCount == 0)
+            {
+                emptyHand = i;
+                break;
+            }
+        }
+        if (emptyHand == -1) return;
+        else
+        {
+            GameObject cardObject = Instantiate(Resources.Load<GameObject>("Card/" + cardIndex.ToString()), handObject[emptyHand].transform);
+            
+        }
+    }
+
     private void UpdateHand()
     {
         if (selectedHandIndex == -1)
         {
             for (int i = 0; i < handObject.Length; i++)
             {
-                handObject[i].transform.GetChild(0).localPosition = new Vector3(0f, 0f, 0f);
-                handObject[i].transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
+                if (handObject[i].transform.childCount > 0)
+                {
+                    handObject[i].transform.GetChild(0).localPosition = new Vector3(0f, 0f, 0f);
+                    handObject[i].transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
+                }
             }
         }
         else
@@ -65,13 +87,19 @@ public class HandManager : MonoBehaviour
             {
                 if (i == selectedHandIndex)
                 {
-                    handObject[i].transform.GetChild(0).localPosition = new Vector3(0f, 70f, 0f);
-                    handObject[i].transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
+                    if (handObject[i].transform.childCount > 0)
+                    {
+                        handObject[i].transform.GetChild(0).localPosition = new Vector3(0f, 70f, 0f);
+                        handObject[i].transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
+                    }
                 }
                 else
                 {
-                    handObject[i].transform.GetChild(0).localPosition = new Vector3(0f, 0f, 0f);
-                    handObject[i].transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
+                    if (handObject[i].transform.childCount > 0)
+                    {
+                        handObject[i].transform.GetChild(0).localPosition = new Vector3(0f, 0f, 0f);
+                        handObject[i].transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
+                    }
                 }
             }
         }
