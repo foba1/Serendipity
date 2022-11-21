@@ -237,6 +237,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d5365645f3550841bb089d6fdf2a3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerProfile:
+  - {fileID: 1012116053}
+  - {fileID: 2101092966}
   turn: 0
   myArea: 0
   curMana: 0
@@ -2644,7 +2647,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: x 3
+  m_Text: x 10
 --- !u!222 &243596133
 CanvasRenderer:
   m_ObjectHideFlags: 0

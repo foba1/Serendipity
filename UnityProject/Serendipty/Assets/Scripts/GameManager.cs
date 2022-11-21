@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviourPun
 {
+    [Header("Profile Object")]
+    [SerializeField] GameObject[] playerProfile;
+
     public int turn;
     public int myArea;
     public int curMana;
@@ -32,6 +36,13 @@ public class GameManager : MonoBehaviourPun
     private void Start()
     {
         myArea = 0;
+        curMana = mana[0];
+        UpdateMana();
+    }
+
+    public void UpdateMana()
+    {
+        playerProfile[myArea].transform.GetChild(4).GetComponent<Text>().text = "x " + curMana.ToString();
     }
 
     public void StartGame()

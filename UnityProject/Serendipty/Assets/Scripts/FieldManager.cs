@@ -127,6 +127,8 @@ public class FieldManager : MonoBehaviour
             {
                 if ((GameManager.Instance.myArea * 6) / 6 == fieldIndex / 6)
                 {
+                    GameManager.Instance.curMana -= HandManager.Instance.usedCard.cost;
+                    GameManager.Instance.UpdateMana();
                     SpawnCreature(fieldIndex, HandManager.Instance.usedCard.cardIndex);
                     handSelectMode = false;
                     UpdateFieldColor();

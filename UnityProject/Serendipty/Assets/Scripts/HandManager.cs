@@ -34,10 +34,17 @@ public class HandManager : MonoBehaviour
             if (selectedHandIndex != -1)
             {
                 usedCard = handObject[selectedHandIndex].transform.GetChild(0).GetComponent<Card>();
-                handObject[selectedHandIndex].transform.GetChild(0).gameObject.SetActive(false);
-                selectedHandIndex = -1;
-                UpdateHand();
-                FieldManager.Instance.UseHandCard();
+                if (GameManager.Instance.curMana >= usedCard.cost)
+                {
+                    handObject[selectedHandIndex].transform.GetChild(0).gameObject.SetActive(false);
+                    selectedHandIndex = -1;
+                    UpdateHand();
+                    FieldManager.Instance.UseHandCard();
+                }
+                else
+                {
+                    usedCard = null;
+                }
             }
         }
     }
