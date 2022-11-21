@@ -37,7 +37,7 @@ public static class StaticVariable
     public static readonly int MaxDeckCount = 5;
 
     // Legendary Card Index
-    public static readonly int[] LegendaryCardIndexArray = new int[10] { 10, 11, 22, 23, 34, 35, 46, 47, 58, 59 };
+    public static readonly int[] LegendaryCardIndexArray = new int[5] { 3, 7, 11, 15, 19 };
 
     // Card Index
     public static readonly int CardCount = 20;
