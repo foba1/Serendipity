@@ -94,16 +94,24 @@ public class Player : Creature
         health -= damage;
         if (health > 0)
         {
-            UpdateInfoText();
-            GameManager.Instance.UpdateHealth(health, GameManager.Instance.myArea);
             StartCoroutine(GetDamagedCoroutine());
         }
         else
         {
             health = 0;
-            UpdateInfoText();
-            GameManager.Instance.UpdateHealth(health, GameManager.Instance.myArea);
             Death();
+        }
+        UpdateInfoText();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if (name == "RedPlayer(Clone)")
+            {
+                GameManager.Instance.photonView.RPC("UpdateHealth", RpcTarget.AllBuffered, health, 0);
+            }
+            else
+            {
+                GameManager.Instance.photonView.RPC("UpdateHealth", RpcTarget.AllBuffered, health, 1);
+            }
         }
     }
 
