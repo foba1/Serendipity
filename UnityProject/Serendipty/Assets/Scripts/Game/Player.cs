@@ -63,7 +63,7 @@ public class Player : Creature
 
     public override void Instantiate(int pos)
     {
-        health = 600;
+        health = StaticVariable.PlayerMaxHealth;
         power = 10;
         ableToAct = true;
         curPosition = pos;

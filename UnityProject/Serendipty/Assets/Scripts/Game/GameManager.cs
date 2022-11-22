@@ -10,10 +10,10 @@ public class GameManager : MonoBehaviourPun
     [Header("Profile Object")]
     [SerializeField] GameObject[] playerProfile;
 
-    public int turn;
-    public int myArea;
-    public int curMana;
-    public static int[] mana = new int[] { 3, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10 };
+    public int turn = 0;
+    public int myArea = 0;
+    public int curMana = 0;
+    public static int[] mana = new int[12] { 3, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10 };
 
     static GameManager instance;
     public static GameManager Instance
@@ -35,18 +35,23 @@ public class GameManager : MonoBehaviourPun
 
     private void Start()
     {
-        myArea = 0;
-        curMana = mana[0];
-        UpdateMana();
-        UpdateHealth(600, 0);
-        UpdateHealth(600, 1);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            myArea = 0;
+        }
+        else
+        {
+            myArea = 1;
+        }
+        StartGame();
     }
 
+    [PunRPC]
     public void UpdateHealth(int health, int playerIndex)
     {
-        if (health >= 0 && health <= 600)
+        if (health >= 0 && health <= StaticVariable.PlayerMaxHealth)
         {
-            playerProfile[playerIndex].transform.GetChild(1).GetComponent<Slider>().value = health / 600f;
+            playerProfile[playerIndex].transform.GetChild(1).GetComponent<Slider>().value = health / (float)StaticVariable.PlayerMaxHealth;
         }
         else
         {
@@ -54,14 +59,43 @@ public class GameManager : MonoBehaviourPun
         }
     }
 
-    public void UpdateMana()
+    [PunRPC]
+    public void UpdateMana(int mana, int playerIndex)
     {
-        playerProfile[myArea].transform.GetChild(4).GetComponent<Text>().text = "x " + curMana.ToString();
+        playerProfile[playerIndex].transform.GetChild(4).GetComponent<Text>().text = "x " + mana.ToString();
+    }
+
+    [PunRPC]
+    public void SetTurnAndMana(int nextTurn)
+    {
+        turn = nextTurn;
+        if (IsMyTurn())
+        {
+            if (mana.Length - 1 < turn)
+            {
+                curMana = mana[mana.Length - 1];
+            }
+            else
+            {
+                curMana = mana[turn];
+            }
+        }
+        photonView.RPC("UpdateMana", RpcTarget.AllBuffered, curMana, myArea);
+    }
+
+    public bool IsMyTurn()
+    {
+        if (myArea % 2 == turn % 2) return true;
+        else return false;
     }
 
     public void StartGame()
     {
-
+        SetTurnAndMana(0);
+        UpdateHealth(StaticVariable.PlayerMaxHealth, 0);
+        UpdateHealth(StaticVariable.PlayerMaxHealth, 1);
+        FieldManager.Instance.InstantiatePlayer();
+        DeckManager.Instance.InitializeDeck();
     }
 
     public void Surren()

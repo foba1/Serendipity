@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class FieldManager : MonoBehaviour
+public class FieldManager : MonoBehaviourPun
 {
     public GameObject[] fieldObject;
 
@@ -27,10 +28,11 @@ public class FieldManager : MonoBehaviour
         instance = this;
     }
 
-    private void Start()
+    public void InstantiatePlayer()
     {
         GameObject redPlayer = Instantiate(Resources.Load<GameObject>("RedPlayer"), fieldObject[4].transform);
         GameObject bluePlayer = Instantiate(Resources.Load<GameObject>("BluePlayer"), fieldObject[10].transform);
+
         redPlayer.GetComponent<Creature>().Instantiate(4);
         bluePlayer.GetComponent<Creature>().Instantiate(10);
     }
@@ -128,7 +130,7 @@ public class FieldManager : MonoBehaviour
                 if ((GameManager.Instance.myArea * 6) / 6 == fieldIndex / 6)
                 {
                     GameManager.Instance.curMana -= HandManager.Instance.usedCard.cost;
-                    GameManager.Instance.UpdateMana();
+                    GameManager.Instance.UpdateMana(GameManager.Instance.curMana, GameManager.Instance.myArea);
                     SpawnCreature(fieldIndex, HandManager.Instance.usedCard.cardIndex);
                     handSelectMode = false;
                     UpdateFieldColor();

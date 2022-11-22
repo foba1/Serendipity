@@ -41,6 +41,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsConnected)
         {
+            StaticVariable.MyDeck = "30000000000000000000";
             if (StaticVariable.MyDeck == "" || StaticVariable.MyDeck.Length != StaticVariable.CardCount)
             {
                 connectStateText.text = "Please select your deck.";

@@ -24,10 +24,9 @@ public class DeckManager : MonoBehaviour
         instance = this;
     }
 
-    private void Start()
+    public void InitializeDeck()
     {
         deckList = new List<int>();
-        StaticVariable.MyDeck = "30000000000000000000";
         GenerateDeckFromDeckString();
         Draw();
     }

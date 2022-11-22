@@ -19,7 +19,7 @@ public static class StaticVariable
     public static readonly int MaxLegendaryCardCount = 1;
     public static readonly int MaxNormalCardCount = 3;
     public static readonly int MaxDeckCardCount = 30;
-    public static readonly int MinDeckCardCount = 20;
+    public static readonly int MinDeckCardCount = 3;
 
     // Card Property
     public static readonly int Light = 100;
@@ -38,6 +38,9 @@ public static class StaticVariable
 
     // Legendary Card Index
     public static readonly int[] LegendaryCardIndexArray = new int[5] { 3, 7, 11, 15, 19 };
+
+    // Player Max Health
+    public static readonly int PlayerMaxHealth = 600;
 
     // Card Index
     public static readonly int CardCount = 20;
