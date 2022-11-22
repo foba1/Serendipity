@@ -87,12 +87,14 @@ public class Player : Creature
         if (health > 0)
         {
             UpdateInfoText();
+            GameManager.Instance.UpdateHealth(health, GameManager.Instance.myArea);
             StartCoroutine(GetDamagedCoroutine());
         }
         else
         {
             health = 0;
             UpdateInfoText();
+            GameManager.Instance.UpdateHealth(health, GameManager.Instance.myArea);
             Death();
         }
     }

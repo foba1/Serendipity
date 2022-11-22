@@ -38,6 +38,20 @@ public class GameManager : MonoBehaviourPun
         myArea = 0;
         curMana = mana[0];
         UpdateMana();
+        UpdateHealth(600, 0);
+        UpdateHealth(600, 1);
+    }
+
+    public void UpdateHealth(int health, int playerIndex)
+    {
+        if (health >= 0 && health <= 600)
+        {
+            playerProfile[playerIndex].transform.GetChild(1).GetComponent<Slider>().value = health / 600f;
+        }
+        else
+        {
+            playerProfile[playerIndex].transform.GetChild(1).GetComponent<Slider>().value = 1f;
+        }
     }
 
     public void UpdateMana()
