@@ -28,7 +28,6 @@ public class DeckManager : MonoBehaviour
     {
         deckList = new List<int>();
         GenerateDeckFromDeckString();
-        Draw();
     }
 
     private List<int> Shuffle(List<int> list)

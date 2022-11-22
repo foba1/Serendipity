@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviourPun
                 curMana = mana[turn];
             }
             photonView.RPC("UpdateMana", RpcTarget.AllBuffered, curMana, myArea);
+            DeckManager.Instance.Draw();
         }
     }
 
