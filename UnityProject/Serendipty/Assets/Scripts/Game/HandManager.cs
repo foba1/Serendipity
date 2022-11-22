@@ -66,7 +66,11 @@ public class HandManager : MonoBehaviour
         if (emptyHand == -1) return;
         else
         {
-            Instantiate(Resources.Load<GameObject>("Card/" + cardIndex.ToString()), handObject[emptyHand].transform);
+            GameObject cardObject = Instantiate(Resources.Load<GameObject>("Card/" + cardIndex.ToString()), handObject[emptyHand].transform);
+            if (emptyHand > 2)
+            {
+                cardObject.transform.GetChild(2).localPosition = new Vector3(-cardObject.transform.GetChild(2).localPosition.x, cardObject.transform.GetChild(2).localPosition.y, cardObject.transform.GetChild(2).localPosition.z);
+            }
         }
     }
 

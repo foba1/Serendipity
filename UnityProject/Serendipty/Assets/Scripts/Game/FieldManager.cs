@@ -42,6 +42,10 @@ public class FieldManager : MonoBehaviourPun
         if (fieldObject[pos].transform.childCount > 0) return;
 
         GameObject creatureObject = Instantiate(Resources.Load<GameObject>("Creature/" + cardIndex.ToString()), fieldObject[pos].transform);
+        if (pos > 5)
+        {
+            creatureObject.transform.GetChild(0).localEulerAngles = new Vector3(0f, 180f, 0f);
+        }
         creatureObject.GetComponent<Creature>().Instantiate(pos);
     }
 
