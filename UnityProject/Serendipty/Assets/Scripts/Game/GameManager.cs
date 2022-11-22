@@ -57,9 +57,8 @@ public class GameManager : MonoBehaviourPun
         {
             if (startTime + 60f <= Time.time)
             {
-                startTime = Time.time;
                 turn++;
-                photonView.RPC("GoToNextTurn", RpcTarget.AllBuffered, startTime, turn);
+                photonView.RPC("GoToNextTurn", RpcTarget.AllBuffered, turn);
             }
         }
 
@@ -69,17 +68,16 @@ public class GameManager : MonoBehaviourPun
         {
             if (IsMyTurn())
             {
-                startTime = Time.time;
                 turn++;
-                photonView.RPC("GoToNextTurn", RpcTarget.AllBuffered, startTime, turn);
+                photonView.RPC("GoToNextTurn", RpcTarget.AllBuffered, turn);
             }
         }
     }
 
     [PunRPC]
-    public void GoToNextTurn(float time, int nextTurn)
+    public void GoToNextTurn(int nextTurn)
     {
-        startTime = time;
+        startTime = Time.time;
         turn = nextTurn;
         if (turn % 2 == 0)
         {
@@ -161,7 +159,7 @@ public class GameManager : MonoBehaviourPun
         DeckManager.Instance.InitializeDeck();
         if (PhotonNetwork.IsMasterClient)
         {
-            photonView.RPC("GoToNextTurn", RpcTarget.AllBuffered, startTime, turn);
+            photonView.RPC("GoToNextTurn", RpcTarget.AllBuffered, turn);
         }
     }
 
