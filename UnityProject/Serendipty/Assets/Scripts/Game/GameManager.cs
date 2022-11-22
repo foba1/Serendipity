@@ -163,13 +163,28 @@ public class GameManager : MonoBehaviourPun
         }
     }
 
-    public void Surren()
+    public void Surrender()
     {
-
+        if (myArea == 0)
+        {
+            photonView.RPC("FinishGame", RpcTarget.AllBuffered, 1);
+        }
+        else
+        {
+            photonView.RPC("FinishGame", RpcTarget.AllBuffered, 0);
+        }
     }
 
-    public void FinishGame()
+    [PunRPC]
+    public void FinishGame(int winner)
     {
+        if (myArea == winner)
+        {
 
+        }
+        else
+        {
+
+        }
     }
 }
