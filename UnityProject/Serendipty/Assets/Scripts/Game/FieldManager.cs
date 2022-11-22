@@ -45,6 +45,21 @@ public class FieldManager : MonoBehaviourPun
         creatureObject.GetComponent<Creature>().Instantiate(pos);
     }
 
+    public void ActiveCreature(int turn)
+    {
+        for (int i = 0; i < fieldObject.Length; i++)
+        {
+            int area = turn % 2;
+            if ((area * 6) / 6 == i / 6)
+            {
+                if (fieldObject[i].transform.childCount > 0)
+                {
+                    fieldObject[i].transform.GetChild(0).GetComponent<Creature>().Active();
+                }
+            }
+        }
+    }
+
     public void UseHandCard()
     {
         handSelectMode = true;
@@ -146,7 +161,7 @@ public class FieldManager : MonoBehaviourPun
             {
                 if (fieldObject[fieldIndex].transform.childCount > 0)
                 {
-                    if (GameManager.Instance.myArea / 6 == fieldIndex / 6)
+                    if ((GameManager.Instance.myArea * 6) / 6 == fieldIndex / 6)
                     {
                         if (fieldObject[fieldIndex].transform.GetChild(0).GetComponent<Creature>().ableToAct)
                         {

@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviourPun
 {
+    [Header("Top Object")]
+    [SerializeField] GameObject topObject;
+
     [Header("Profile Object")]
     [SerializeField] GameObject[] playerProfile;
 
@@ -14,6 +17,8 @@ public class GameManager : MonoBehaviourPun
     public int myArea = 0;
     public int curMana = 0;
     public static int[] mana = new int[12] { 3, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10 };
+
+    private float startTime = 0f;
 
     static GameManager instance;
     public static GameManager Instance
@@ -46,6 +51,62 @@ public class GameManager : MonoBehaviourPun
         StartGame();
     }
 
+    private void Update()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if (startTime + 60f <= Time.time)
+            {
+                startTime = Time.time;
+                turn++;
+                photonView.RPC("GoToNextTurn", RpcTarget.AllBuffered, startTime, turn);
+            }
+        }
+
+        topObject.transform.GetChild(1).GetComponent<Text>().text = Mathf.FloorToInt(60f + startTime - Time.time).ToString();
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            if (IsMyTurn())
+            {
+                startTime = Time.time;
+                turn++;
+                photonView.RPC("GoToNextTurn", RpcTarget.AllBuffered, startTime, turn);
+            }
+        }
+    }
+
+    [PunRPC]
+    public void GoToNextTurn(float time, int nextTurn)
+    {
+        startTime = time;
+        turn = nextTurn;
+        if (turn % 2 == 0)
+        {
+            topObject.transform.GetChild(2).GetComponent<Image>().color = new Color(0f, 1f, 0f, 1f);
+            topObject.transform.GetChild(3).GetComponent<Image>().color = new Color(230f / 255f, 230f / 255f, 230f / 255f, 1f);
+        }
+        else
+        {
+            topObject.transform.GetChild(2).GetComponent<Image>().color = new Color(230f / 255f, 230f / 255f, 230f / 255f, 1f);
+            topObject.transform.GetChild(3).GetComponent<Image>().color = new Color(0f, 1f, 0f, 1f);
+        }
+        FieldManager.Instance.ActiveCreature(turn);
+
+        if (IsMyTurn())
+        {
+            if (mana.Length - 1 < turn)
+            {
+                curMana = mana[mana.Length - 1];
+            }
+            else
+            {
+                curMana = mana[turn];
+            }
+            photonView.RPC("UpdateMana", RpcTarget.AllBuffered, curMana, myArea);
+        }
+    }
+
     [PunRPC]
     public void UpdateHealth(int health, int playerIndex)
     {
@@ -63,23 +124,6 @@ public class GameManager : MonoBehaviourPun
     public void UpdateMana(int mana, int playerIndex)
     {
         playerProfile[playerIndex].transform.GetChild(4).GetComponent<Text>().text = "x " + mana.ToString();
-    }
-
-    public void SetTurnAndMana(int nextTurn)
-    {
-        turn = nextTurn;
-        if (IsMyTurn())
-        {
-            if (mana.Length - 1 < turn)
-            {
-                curMana = mana[mana.Length - 1];
-            }
-            else
-            {
-                curMana = mana[turn];
-            }
-            photonView.RPC("UpdateMana", RpcTarget.AllBuffered, curMana, myArea);
-        }
     }
 
     [PunRPC]
@@ -108,11 +152,16 @@ public class GameManager : MonoBehaviourPun
 
     public void StartGame()
     {
-        SetTurnAndMana(0);
+        startTime = Time.time;
+        turn = 0;
         UpdateHealth(StaticVariable.PlayerMaxHealth, 0);
         UpdateHealth(StaticVariable.PlayerMaxHealth, 1);
         FieldManager.Instance.InstantiatePlayer();
         DeckManager.Instance.InitializeDeck();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            photonView.RPC("GoToNextTurn", RpcTarget.AllBuffered, startTime, turn);
+        }
     }
 
     public void Surren()
