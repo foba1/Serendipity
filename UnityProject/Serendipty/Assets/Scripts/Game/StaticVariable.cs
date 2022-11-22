@@ -47,5 +47,5 @@ public static class StaticVariable
 
     // Card Index
     public static readonly int CardCount = 20;
-    public static readonly int Skeleton = 0;
+    public static readonly int Skeleton = 4;
 }
