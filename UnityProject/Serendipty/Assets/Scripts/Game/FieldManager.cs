@@ -146,9 +146,12 @@ public class FieldManager : MonoBehaviourPun
             {
                 if (fieldObject[fieldIndex].transform.childCount > 0)
                 {
-                    if (fieldObject[fieldIndex].transform.GetChild(0).GetComponent<Creature>().ableToAct)
+                    if (GameManager.Instance.myArea / 6 == fieldIndex / 6)
                     {
-                        selectedFieldIndex = fieldIndex;
+                        if (fieldObject[fieldIndex].transform.GetChild(0).GetComponent<Creature>().ableToAct)
+                        {
+                            selectedFieldIndex = fieldIndex;
+                        }
                     }
                 }
             }

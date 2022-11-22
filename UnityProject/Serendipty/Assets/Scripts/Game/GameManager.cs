@@ -65,7 +65,6 @@ public class GameManager : MonoBehaviourPun
         playerProfile[playerIndex].transform.GetChild(4).GetComponent<Text>().text = "x " + mana.ToString();
     }
 
-    [PunRPC]
     public void SetTurnAndMana(int nextTurn)
     {
         turn = nextTurn;
@@ -79,8 +78,8 @@ public class GameManager : MonoBehaviourPun
             {
                 curMana = mana[turn];
             }
+            photonView.RPC("UpdateMana", RpcTarget.AllBuffered, curMana, myArea);
         }
-        photonView.RPC("UpdateMana", RpcTarget.AllBuffered, curMana, myArea);
     }
 
     [PunRPC]
