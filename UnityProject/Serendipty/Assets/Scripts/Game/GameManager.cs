@@ -83,6 +83,24 @@ public class GameManager : MonoBehaviourPun
         photonView.RPC("UpdateMana", RpcTarget.AllBuffered, curMana, myArea);
     }
 
+    [PunRPC]
+    public void SpawnCreature(int pos, int cardIndex)
+    {
+        FieldManager.Instance.SpawnCreature(pos, cardIndex);
+    }
+
+    [PunRPC]
+    public void Attack(int selectedFieldIndex, int fieldIndex)
+    {
+        AttackManager.Instance.Attack(selectedFieldIndex, fieldIndex);
+    }
+
+    [PunRPC]
+    public void Move(int fieldIndex1, int fieldIndex2)
+    {
+        FieldManager.Instance.Move(fieldIndex1, fieldIndex2);
+    }
+
     public bool IsMyTurn()
     {
         if (myArea % 2 == turn % 2) return true;

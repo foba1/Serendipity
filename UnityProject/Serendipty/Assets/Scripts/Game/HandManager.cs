@@ -31,19 +31,22 @@ public class HandManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (selectedHandIndex != -1)
+            if (GameManager.Instance.IsMyTurn())
             {
-                usedCard = handObject[selectedHandIndex].transform.GetChild(0).GetComponent<Card>();
-                if (GameManager.Instance.curMana >= usedCard.cost)
+                if (selectedHandIndex != -1)
                 {
-                    handObject[selectedHandIndex].transform.GetChild(0).gameObject.SetActive(false);
-                    selectedHandIndex = -1;
-                    UpdateHand();
-                    FieldManager.Instance.UseHandCard();
-                }
-                else
-                {
-                    usedCard = null;
+                    usedCard = handObject[selectedHandIndex].transform.GetChild(0).GetComponent<Card>();
+                    if (GameManager.Instance.curMana >= usedCard.cost)
+                    {
+                        handObject[selectedHandIndex].transform.GetChild(0).gameObject.SetActive(false);
+                        selectedHandIndex = -1;
+                        UpdateHand();
+                        FieldManager.Instance.UseHandCard();
+                    }
+                    else
+                    {
+                        usedCard = null;
+                    }
                 }
             }
         }
@@ -63,8 +66,7 @@ public class HandManager : MonoBehaviour
         if (emptyHand == -1) return;
         else
         {
-            GameObject cardObject = Instantiate(Resources.Load<GameObject>("Card/" + cardIndex.ToString()), handObject[emptyHand].transform);
-            
+            Instantiate(Resources.Load<GameObject>("Card/" + cardIndex.ToString()), handObject[emptyHand].transform);
         }
     }
 
@@ -108,6 +110,8 @@ public class HandManager : MonoBehaviour
     public void SelectHand(int handIndex)
     {
         if (handIndex < 0 || handIndex >= handObject.Length) return;
+
+        if (!GameManager.Instance.IsMyTurn()) return;
 
         if (selectedHandIndex == -1)
         {

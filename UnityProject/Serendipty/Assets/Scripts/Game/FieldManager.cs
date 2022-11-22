@@ -122,6 +122,8 @@ public class FieldManager : MonoBehaviourPun
     {
         if (fieldIndex < 0 || fieldIndex >= fieldObject.Length) return;
 
+        if (!GameManager.Instance.IsMyTurn()) return;
+
         if (handSelectMode)
         {
             if (fieldObject[fieldIndex].transform.childCount > 0) return;
@@ -130,8 +132,8 @@ public class FieldManager : MonoBehaviourPun
                 if ((GameManager.Instance.myArea * 6) / 6 == fieldIndex / 6)
                 {
                     GameManager.Instance.curMana -= HandManager.Instance.usedCard.cost;
-                    GameManager.Instance.UpdateMana(GameManager.Instance.curMana, GameManager.Instance.myArea);
-                    SpawnCreature(fieldIndex, HandManager.Instance.usedCard.cardIndex);
+                    GameManager.Instance.photonView.RPC("UpdateMana", RpcTarget.AllBuffered, GameManager.Instance.curMana, GameManager.Instance.myArea);
+                    GameManager.Instance.photonView.RPC("SpawnCreature", RpcTarget.AllBuffered, fieldIndex, HandManager.Instance.usedCard.cardIndex);
                     handSelectMode = false;
                     UpdateFieldColor();
                     Destroy(HandManager.Instance.usedCard.gameObject);
@@ -156,18 +158,18 @@ public class FieldManager : MonoBehaviourPun
                 {
                     if (selectedFieldIndex / 6 == fieldIndex / 6)
                     {
-                        Move(selectedFieldIndex, fieldIndex);
+                        GameManager.Instance.photonView.RPC("Move", RpcTarget.AllBuffered, selectedFieldIndex, fieldIndex);
                     }
                     else
                     {
-                        AttackManager.Instance.Attack(selectedFieldIndex, fieldIndex);
+                        GameManager.Instance.photonView.RPC("Attack", RpcTarget.AllBuffered, selectedFieldIndex, fieldIndex);
                     }
                 }
                 else
                 {
                     if (selectedFieldIndex / 6 == fieldIndex / 6)
                     {
-                        Move(selectedFieldIndex, fieldIndex);
+                        GameManager.Instance.photonView.RPC("Move", RpcTarget.AllBuffered, selectedFieldIndex, fieldIndex);
                     }
                 }
                 selectedFieldIndex = -1;
