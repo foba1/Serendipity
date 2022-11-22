@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
-public class ResultManager : MonoBehaviour
+public class ResultManager : MonoBehaviourPun
 {
     [SerializeField] bool isWinning;
 
@@ -23,6 +24,7 @@ public class ResultManager : MonoBehaviour
 
     public void Main()
     {
+        PhotonNetwork.LeaveRoom();
         SceneManager.LoadScene("Main");
     }
 }

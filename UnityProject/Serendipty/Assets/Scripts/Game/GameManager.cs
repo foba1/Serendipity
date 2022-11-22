@@ -180,12 +180,10 @@ public class GameManager : MonoBehaviourPun
     {
         if (myArea == winner)
         {
-            PhotonNetwork.LeaveRoom();
             SceneManager.LoadScene("Win");
         }
         else
         {
-            PhotonNetwork.LeaveRoom();
             SceneManager.LoadScene("Lose");
         }
     }
