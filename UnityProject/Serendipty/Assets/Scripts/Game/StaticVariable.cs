@@ -42,6 +42,9 @@ public static class StaticVariable
     // Player Max Health
     public static readonly int PlayerMaxHealth = 600;
 
+    // Winning Result Gold
+    public static readonly int WinningResultGold = 20;
+
     // Card Index
     public static readonly int CardCount = 20;
     public static readonly int Skeleton = 0;
