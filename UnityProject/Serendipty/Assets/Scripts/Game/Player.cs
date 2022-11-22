@@ -109,7 +109,6 @@ public class Player : Creature
         ableToAct = true;
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetBool("ableToAct", true);
-        animator.SetTrigger("Active");
     }
 
     public override void Deactive()
@@ -117,6 +116,5 @@ public class Player : Creature
         ableToAct = false;
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetBool("ableToAct", false);
-        animator.SetTrigger("Deactive");
     }
 }
