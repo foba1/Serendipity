@@ -111,7 +111,10 @@ public class Skeleton : Creature
     public override void Death()
     {
         StartCoroutine(DeathCoroutine());
-        GraveManager.Instance.Add(StaticVariable.Skeleton);
+        if (curPosition / 6 == GameManager.Instance.myArea)
+        {
+            GraveManager.Instance.Add(StaticVariable.Skeleton);
+        }
     }
 
     public override void Active()
