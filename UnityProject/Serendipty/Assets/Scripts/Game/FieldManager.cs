@@ -64,6 +64,13 @@ public class FieldManager : MonoBehaviourPun
         }
     }
 
+    private bool ableToAttack(int pos)
+    {
+        if (pos % 6 < 3) return true;
+        else if (fieldObject[pos - 3].transform.childCount > 0) return false;
+        else return true;
+    }
+
     public bool hasSpaceToSpawn(int area)
     {
         bool hasSpace = false;
@@ -132,7 +139,14 @@ public class FieldManager : MonoBehaviourPun
                     {
                         if (fieldObject[i].transform.childCount > 0)
                         {
-                            fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 160f / 255f, 160f / 255f, 1f);
+                            if (ableToAttack(i))
+                            {
+                                fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 160f / 255f, 160f / 255f, 1f);
+                            }
+                            else
+                            {
+                                fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                            }
                         }
                         else
                         {
