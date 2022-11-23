@@ -64,6 +64,21 @@ public class FieldManager : MonoBehaviourPun
         }
     }
 
+    public bool hasSpaceToSpawn(int area)
+    {
+        bool hasSpace = false;
+        for (int i = 0; i < fieldObject.Length; i++)
+        {
+            if ((area * 6) / 6 != i / 6) continue;
+            if (fieldObject[i].transform.childCount == 0)
+            {
+                hasSpace = true;
+                break;
+            }
+        }
+        return hasSpace;
+    }
+
     public void UseHandCard()
     {
         handSelectMode = true;

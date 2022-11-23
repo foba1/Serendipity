@@ -38,10 +38,20 @@ public class HandManager : MonoBehaviour
                     usedCard = handObject[selectedHandIndex].transform.GetChild(0).GetComponent<Card>();
                     if (GameManager.Instance.curMana >= usedCard.cost)
                     {
-                        handObject[selectedHandIndex].transform.GetChild(0).gameObject.SetActive(false);
-                        selectedHandIndex = -1;
-                        UpdateHand();
-                        FieldManager.Instance.UseHandCard();
+                        if (usedCard.cardType == StaticVariable.Creature)
+                        {
+                            if (FieldManager.Instance.hasSpaceToSpawn(GameManager.Instance.myArea))
+                            {
+                                handObject[selectedHandIndex].transform.GetChild(0).gameObject.SetActive(false);
+                                selectedHandIndex = -1;
+                                UpdateHand();
+                                FieldManager.Instance.UseHandCard();
+                            }
+                        }
+                        else if (usedCard.cardType == StaticVariable.InstantSpell)
+                        {
+
+                        }
                     }
                     else
                     {
