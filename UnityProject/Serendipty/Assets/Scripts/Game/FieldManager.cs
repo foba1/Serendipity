@@ -213,7 +213,10 @@ public class FieldManager : MonoBehaviourPun
                     }
                     else
                     {
-                        GameManager.Instance.photonView.RPC("Attack", RpcTarget.AllBuffered, selectedFieldIndex, fieldIndex);
+                        if (ableToAttack(fieldIndex))
+                        {
+                            GameManager.Instance.photonView.RPC("Attack", RpcTarget.AllBuffered, selectedFieldIndex, fieldIndex);
+                        }
                     }
                 }
                 else
