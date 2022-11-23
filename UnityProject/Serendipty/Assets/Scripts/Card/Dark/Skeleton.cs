@@ -111,6 +111,7 @@ public class Skeleton : Creature
     public override void Death()
     {
         StartCoroutine(DeathCoroutine());
+        GraveManager.Instance.Add(StaticVariable.Skeleton);
     }
 
     public override void Active()
