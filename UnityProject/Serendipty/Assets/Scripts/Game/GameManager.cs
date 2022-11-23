@@ -60,18 +60,31 @@ public class GameManager : MonoBehaviourPun
                 turn++;
                 photonView.RPC("GoToNextTurn", RpcTarget.AllBuffered, turn);
             }
+            else if (Input.GetKeyDown(KeyCode.Return))
+            {
+                if (IsMyTurn())
+                {
+                    turn++;
+                    photonView.RPC("GoToNextTurn", RpcTarget.AllBuffered, turn);
+                }
+            }
+        }
+        else
+        {
+            if (startTime + 60f > Time.time)
+            {
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    if (IsMyTurn())
+                    {
+                        turn++;
+                        photonView.RPC("GoToNextTurn", RpcTarget.AllBuffered, turn);
+                    }
+                }
+            }
         }
 
         topObject.transform.GetChild(1).GetComponent<Text>().text = Mathf.FloorToInt(60f + startTime - Time.time).ToString();
-
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            if (IsMyTurn())
-            {
-                turn++;
-                photonView.RPC("GoToNextTurn", RpcTarget.AllBuffered, turn);
-            }
-        }
     }
 
     [PunRPC]
