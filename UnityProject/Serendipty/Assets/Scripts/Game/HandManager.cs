@@ -36,7 +36,7 @@ public class HandManager : MonoBehaviour
                 if (selectedHandIndex != -1)
                 {
                     usedCard = handObject[selectedHandIndex].transform.GetChild(0).GetComponent<Card>();
-                    if (GameManager.Instance.curMana >= usedCard.cost)
+                    if (GameManager.Instance.curMana >= usedCard.cost + usedCard.additionalCost)
                     {
                         if (usedCard.cardType == StaticVariable.Creature)
                         {
