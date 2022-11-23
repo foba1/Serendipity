@@ -7,7 +7,7 @@ public class Skeleton : Creature
 {
     private bool ableToRespawn = true;
 
-    private void UpdateInfoText()
+    public void UpdateInfoText()
     {
         transform.GetChild(1).GetChild(0).GetComponent<Text>().text = power.ToString();
         transform.GetChild(2).GetChild(0).GetComponent<Text>().text = health.ToString();
@@ -111,9 +111,13 @@ public class Skeleton : Creature
     public override void Death()
     {
         StartCoroutine(DeathCoroutine());
-        if (curPosition / 6 == GameManager.Instance.myArea)
+        if (curPosition / 6 == 0)
         {
-            GraveManager.Instance.Add(StaticVariable.Skeleton);
+            GraveManager.Instance.Add(0, StaticVariable.Skeleton);
+        }
+        else
+        {
+            GraveManager.Instance.Add(1, StaticVariable.Skeleton);
         }
     }
 

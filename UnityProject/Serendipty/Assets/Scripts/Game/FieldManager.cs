@@ -37,6 +37,16 @@ public class FieldManager : MonoBehaviourPun
         bluePlayer.GetComponent<Creature>().Instantiate(10);
     }
 
+    public void UseSpell(int pos, int cardIndex)
+    {
+        GameObject spellObject = Instantiate(Resources.Load<GameObject>("Spell/" + cardIndex.ToString()), fieldObject[pos].transform);
+        if (pos > 5)
+        {
+            spellObject.transform.GetChild(0).localEulerAngles = new Vector3(0f, 180f, 0f);
+        }
+        spellObject.GetComponent<Spell>().UseAbility(pos);
+    }
+
     public void SpawnCreature(int pos, int cardIndex)
     {
         if (fieldObject[pos].transform.childCount > 0) return;
@@ -117,9 +127,29 @@ public class FieldManager : MonoBehaviourPun
                     }
                 }
             }
-            else if (HandManager.Instance.usedCard.cardType == StaticVariable.InstantSpell)
+            else if (HandManager.Instance.usedCard.cardType == StaticVariable.Spell)
             {
-
+                if (HandManager.Instance.usedCard.cardIndex == StaticVariable.Resurrection)
+                {
+                    for (int i = 0; i < fieldObject.Length; i++)
+                    {
+                        if ((GameManager.Instance.myArea * 6) / 6 == i / 6)
+                        {
+                            if (fieldObject[i].transform.childCount == 0)
+                            {
+                                fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(199f / 255f, 1f, 170f / 255f, 1f);
+                            }
+                            else
+                            {
+                                fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 160f / 255f, 160f / 255f, 1f);
+                            }
+                        }
+                        else
+                        {
+                            fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                        }
+                    }
+                }
             }
         }
         else
@@ -174,17 +204,35 @@ public class FieldManager : MonoBehaviourPun
 
         if (handSelectMode)
         {
-            if (fieldObject[fieldIndex].transform.childCount > 0) return;
-            else
+            if (HandManager.Instance.usedCard.cardType == StaticVariable.Creature)
             {
-                if ((GameManager.Instance.myArea * 6) / 6 == fieldIndex / 6)
+                if (fieldObject[fieldIndex].transform.childCount > 0) return;
+                else
                 {
-                    GameManager.Instance.curMana -= HandManager.Instance.usedCard.cost;
-                    GameManager.Instance.photonView.RPC("UpdateMana", RpcTarget.AllBuffered, GameManager.Instance.curMana, GameManager.Instance.myArea);
-                    GameManager.Instance.photonView.RPC("SpawnCreature", RpcTarget.AllBuffered, fieldIndex, HandManager.Instance.usedCard.cardIndex);
-                    handSelectMode = false;
-                    UpdateFieldColor();
-                    Destroy(HandManager.Instance.usedCard.gameObject);
+                    if ((GameManager.Instance.myArea * 6) / 6 == fieldIndex / 6)
+                    {
+                        GameManager.Instance.curMana -= HandManager.Instance.usedCard.cost;
+                        GameManager.Instance.photonView.RPC("UpdateMana", RpcTarget.AllBuffered, GameManager.Instance.curMana, GameManager.Instance.myArea);
+                        GameManager.Instance.photonView.RPC("SpawnCreature", RpcTarget.AllBuffered, fieldIndex, HandManager.Instance.usedCard.cardIndex);
+                        handSelectMode = false;
+                        UpdateFieldColor();
+                        Destroy(HandManager.Instance.usedCard.gameObject);
+                    }
+                }
+            }
+            else if (HandManager.Instance.usedCard.cardType == StaticVariable.Spell)
+            {
+                if (HandManager.Instance.usedCard.cardIndex == StaticVariable.Resurrection)
+                {
+                    if ((GameManager.Instance.myArea * 6) / 6 == fieldIndex / 6)
+                    {
+                        GameManager.Instance.curMana -= HandManager.Instance.usedCard.cost;
+                        GameManager.Instance.photonView.RPC("UpdateMana", RpcTarget.AllBuffered, GameManager.Instance.curMana, GameManager.Instance.myArea);
+                        GameManager.Instance.photonView.RPC("UseSpell", RpcTarget.AllBuffered, fieldIndex, HandManager.Instance.usedCard.cardIndex);
+                        handSelectMode = false;
+                        UpdateFieldColor();
+                        Destroy(HandManager.Instance.usedCard.gameObject);
+                    }
                 }
             }
         }

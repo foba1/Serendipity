@@ -48,9 +48,18 @@ public class HandManager : MonoBehaviour
                                 FieldManager.Instance.UseHandCard();
                             }
                         }
-                        else if (usedCard.cardType == StaticVariable.InstantSpell)
+                        else if (usedCard.cardType == StaticVariable.Spell)
                         {
-
+                            if (usedCard.cardIndex == StaticVariable.Resurrection)
+                            {
+                                if (FieldManager.Instance.hasSpaceToSpawn(GameManager.Instance.myArea))
+                                {
+                                    handObject[selectedHandIndex].transform.GetChild(0).gameObject.SetActive(false);
+                                    selectedHandIndex = -1;
+                                    UpdateHand();
+                                    FieldManager.Instance.UseHandCard();
+                                }
+                            }
                         }
                     }
                     else

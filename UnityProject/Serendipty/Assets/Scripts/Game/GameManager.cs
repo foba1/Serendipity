@@ -139,6 +139,12 @@ public class GameManager : MonoBehaviourPun
     }
 
     [PunRPC]
+    public void UseSpell(int pos, int cardIndex)
+    {
+        FieldManager.Instance.UseSpell(pos, cardIndex);
+    }
+
+    [PunRPC]
     public void SpawnCreature(int pos, int cardIndex)
     {
         FieldManager.Instance.SpawnCreature(pos, cardIndex);

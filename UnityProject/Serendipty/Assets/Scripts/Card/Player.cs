@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Player : Creature
 {
-    private void UpdateInfoText()
+    public void UpdateInfoText()
     {
         transform.GetChild(1).GetChild(0).GetComponent<Text>().text = power.ToString();
         transform.GetChild(2).GetChild(0).GetComponent<Text>().text = health.ToString();

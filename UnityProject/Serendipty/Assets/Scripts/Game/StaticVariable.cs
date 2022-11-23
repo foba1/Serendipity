@@ -30,8 +30,7 @@ public static class StaticVariable
 
     // Card Type
     public static readonly int Creature = 300;
-    public static readonly int InstantSpell = 301;
-    public static readonly int LongTermSpell = 302;
+    public static readonly int Spell = 301;
 
     // Deck
     public static readonly int MaxDeckCount = 5;
@@ -47,5 +46,6 @@ public static class StaticVariable
 
     // Card Index
     public static readonly int CardCount = 20;
+    public static readonly int Resurrection = 0;
     public static readonly int Skeleton = 4;
 }
