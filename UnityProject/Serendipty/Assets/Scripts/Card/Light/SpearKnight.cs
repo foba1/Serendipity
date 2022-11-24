@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HolyKnight : Creature
+public class SpearKnight : Creature
 {
-    private int armor = 20;
-
     public void UpdateInfoText()
     {
         transform.GetChild(1).GetChild(0).GetComponent<Text>().text = power.ToString();
@@ -41,11 +39,11 @@ public class HolyKnight : Creature
     {
         if (curPosition / 6 == 0)
         {
-            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(-13f, 0f, 0f);
+            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(-22f, 0f, 0f);
         }
         else
         {
-            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(7f, 0f, 0f);
+            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(22f, 0f, 0f);
         }
 
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
@@ -54,6 +52,13 @@ public class HolyKnight : Creature
         yield return new WaitForSecondsRealtime(0.280f);
 
         FieldManager.Instance.fieldObject[pos].transform.GetChild(0).GetComponent<Creature>().GetDamaged(power);
+        if (pos + 3 >= 0 && pos + 3 < 12)
+        {
+            if (FieldManager.Instance.fieldObject[pos + 3].transform.childCount > 0)
+            {
+                FieldManager.Instance.fieldObject[pos + 3].transform.GetChild(0).GetComponent<Creature>().GetDamaged(power);
+            }
+        }
 
         yield return new WaitForSecondsRealtime(0.403f);
 
@@ -63,12 +68,17 @@ public class HolyKnight : Creature
 
     public override void Instantiate(int pos)
     {
-        power = 40;
-        health = 100;
+        power = 30;
+        health = 70;
         ableToAct = true;
         curPosition = pos;
         isAttackFinished = false;
         UpdateInfoText();
+
+        if (pos / 6 == 1)
+        {
+            transform.GetChild(0).localPosition = new Vector3(-0.3f, 0.55f, 0f);
+        }
     }
 
     public override void Attack(int pos)
@@ -86,14 +96,6 @@ public class HolyKnight : Creature
         health -= damage;
         if (health > 0)
         {
-            if (damage >= armor)
-            {
-                health += armor;
-            }
-            else
-            {
-                health += damage;
-            }
             UpdateInfoText();
             StartCoroutine(GetDamagedCoroutine());
         }
@@ -109,11 +111,11 @@ public class HolyKnight : Creature
     {
         if (curPosition / 6 == 0)
         {
-            GraveManager.Instance.Add(0, StaticVariable.HolyKnight);
+            GraveManager.Instance.Add(0, StaticVariable.SpearKnight);
         }
         else
         {
-            GraveManager.Instance.Add(1, StaticVariable.HolyKnight);
+            GraveManager.Instance.Add(1, StaticVariable.SpearKnight);
         }
         StartCoroutine(DeathCoroutine());
     }
