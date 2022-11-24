@@ -7,7 +7,7 @@ public class Resurrection : Spell
 {
     IEnumerator AnimationCoroutine(int pos)
     {
-        yield return new WaitForSecondsRealtime(0.667f);
+        yield return new WaitForSecondsRealtime(0.567f);
 
         int cardIndex;
         if (pos / 6 == 0)
