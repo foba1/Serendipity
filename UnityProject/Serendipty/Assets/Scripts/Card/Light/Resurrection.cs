@@ -20,7 +20,10 @@ public class Resurrection : Spell
         }
         if (cardIndex != -1)
         {
-            GameManager.Instance.photonView.RPC("SpawnCreature", RpcTarget.AllBuffered, pos, cardIndex);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                GameManager.Instance.photonView.RPC("SpawnCreature", RpcTarget.AllBuffered, pos, cardIndex);
+            }
         }
 
         Destroy(gameObject);
