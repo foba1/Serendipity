@@ -49,8 +49,6 @@ public class FieldManager : MonoBehaviourPun
 
     public void SpawnCreature(int pos, int cardIndex)
     {
-        if (fieldObject[pos].transform.childCount > 0) return;
-
         GameObject creatureObject = Instantiate(Resources.Load<GameObject>("Creature/" + cardIndex.ToString()), fieldObject[pos].transform);
         if (pos > 5)
         {

@@ -110,7 +110,6 @@ public class Skeleton : Creature
 
     public override void Death()
     {
-        StartCoroutine(DeathCoroutine());
         if (curPosition / 6 == 0)
         {
             GraveManager.Instance.Add(0, StaticVariable.Skeleton);
@@ -119,6 +118,7 @@ public class Skeleton : Creature
         {
             GraveManager.Instance.Add(1, StaticVariable.Skeleton);
         }
+        StartCoroutine(DeathCoroutine());
     }
 
     public override void Active()
