@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Skeleton : Creature
+public class HolyKnight : Creature
 {
-    private bool ableToRespawn = true;
+    private int armor = 20;
 
     public void UpdateInfoText()
     {
@@ -20,17 +20,7 @@ public class Skeleton : Creature
 
         yield return new WaitForSecondsRealtime(0.767f);
 
-        if (ableToRespawn)
-        {
-            ableToRespawn = false;
-            Instantiate(curPosition);
-            animator.SetTrigger("Respawn");
-            Active();
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 
     IEnumerator GetDamagedCoroutine()
@@ -74,8 +64,8 @@ public class Skeleton : Creature
 
     public override void Instantiate(int pos)
     {
-        power = 15;
-        health = 20;
+        power = 40;
+        health = 100;
         ableToAct = true;
         curPosition = pos;
         isAttackFinished = false;
@@ -97,6 +87,7 @@ public class Skeleton : Creature
         health -= damage;
         if (health > 0)
         {
+            health += armor;
             UpdateInfoText();
             StartCoroutine(GetDamagedCoroutine());
         }
@@ -112,11 +103,11 @@ public class Skeleton : Creature
     {
         if (curPosition / 6 == 0)
         {
-            GraveManager.Instance.Add(0, StaticVariable.Skeleton);
+            GraveManager.Instance.Add(0, StaticVariable.HolyKnight);
         }
         else
         {
-            GraveManager.Instance.Add(1, StaticVariable.Skeleton);
+            GraveManager.Instance.Add(1, StaticVariable.HolyKnight);
         }
         StartCoroutine(DeathCoroutine());
     }
