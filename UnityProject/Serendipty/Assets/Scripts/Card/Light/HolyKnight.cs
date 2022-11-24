@@ -41,11 +41,11 @@ public class HolyKnight : Creature
     {
         if (curPosition / 6 == 0)
         {
-            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(-15f, 0f, 0f);
+            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(-13f, 0f, 0f);
         }
         else
         {
-            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(10f, 0f, 0f);
+            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(7f, 0f, 0f);
         }
 
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
