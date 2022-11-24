@@ -57,6 +57,13 @@ public class FieldManager : MonoBehaviourPun
             creatureObject.transform.GetChild(0).localEulerAngles = new Vector3(0f, 180f, 0f);
         }
         creatureObject.GetComponent<Creature>().Instantiate(pos);
+
+        GameObject spawnObject = Instantiate(Resources.Load<GameObject>("Creature/Spawn"), fieldObject[pos].transform);
+        if (pos > 5)
+        {
+            spawnObject.transform.GetChild(0).localEulerAngles = new Vector3(0f, 180f, 0f);
+        }
+        spawnObject.GetComponent<Spell>().UseAbility(pos);
     }
 
     public void ActiveCreature(int turn)
