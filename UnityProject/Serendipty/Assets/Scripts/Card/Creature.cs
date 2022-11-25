@@ -10,6 +10,7 @@ public abstract class Creature : Card
     public bool ableToAct;
     public int curPosition;
     public bool isAttackFinished;
+    public bool isPoisoned = false;
 
     public void UpdateInfoText()
     {

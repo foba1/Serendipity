@@ -75,7 +75,12 @@ public class FieldManager : MonoBehaviourPun
             {
                 if (fieldObject[i].transform.childCount > 0)
                 {
-                    fieldObject[i].transform.GetChild(0).GetComponent<Creature>().Active();
+                    Creature creature = fieldObject[i].transform.GetChild(0).GetComponent<Creature>();
+                    creature.Active();
+                    if (creature.isPoisoned)
+                    {
+                        creature.GetDamaged(10);
+                    }
                 }
             }
         }
