@@ -157,7 +157,7 @@ public class FieldManager : MonoBehaviourPun
                         }
                     }
                 }
-                else if (HandManager.Instance.usedCard.cardIndex == StaticVariable.FireBall)
+                else
                 {
                     for (int i = 0; i < fieldObject.Length; i++)
                     {
@@ -262,7 +262,7 @@ public class FieldManager : MonoBehaviourPun
                         Destroy(HandManager.Instance.usedCard.gameObject);
                     }
                 }
-                else if (HandManager.Instance.usedCard.cardIndex == StaticVariable.FireBall)
+                else
                 {
                     if ((GameManager.Instance.myArea * 6) / 6 != fieldIndex / 6)
                     {

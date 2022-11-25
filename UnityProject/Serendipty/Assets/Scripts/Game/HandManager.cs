@@ -60,7 +60,7 @@ public class HandManager : MonoBehaviour
                                     FieldManager.Instance.UseHandCard();
                                 }
                             }
-                            else if (usedCard.cardIndex == StaticVariable.FireBall)
+                            else
                             {
                                 handObject[selectedHandIndex].transform.GetChild(0).gameObject.SetActive(false);
                                 selectedHandIndex = -1;
