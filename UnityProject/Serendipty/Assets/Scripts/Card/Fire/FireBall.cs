@@ -19,7 +19,7 @@ public class FireBall : Spell
                     Transform transform = FieldManager.Instance.fieldObject[i].transform;
                     if (transform.childCount > 0)
                     {
-                        if (transform.GetChild(0).GetComponent<Creature>().cardType == StaticVariable.Fire)
+                        if (transform.GetChild(0).GetComponent<Creature>().cardProperty == StaticVariable.Fire)
                         {
                             transform.GetChild(0).GetComponent<Creature>().Active();
                         }

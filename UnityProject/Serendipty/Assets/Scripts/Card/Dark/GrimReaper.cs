@@ -73,6 +73,13 @@ public class GrimReaper : Creature
 
     public override void Instantiate(int pos)
     {
+        cardIndex = StaticVariable.GrimReaper;
+        cardClass = StaticVariable.Normal;
+        cardProperty = StaticVariable.Dark;
+        cardType = StaticVariable.Creature;
+        cost = 3;
+        additionalCost = 0;
+
         power = 40;
         health = 30;
         ableToAct = true;
@@ -111,11 +118,11 @@ public class GrimReaper : Creature
     {
         if (curPosition / 6 == 0)
         {
-            GraveManager.Instance.Add(0, StaticVariable.GrimReaper);
+            GraveManager.Instance.Add(0, cardIndex);
         }
         else
         {
-            GraveManager.Instance.Add(1, StaticVariable.GrimReaper);
+            GraveManager.Instance.Add(1, cardIndex);
         }
         StartCoroutine(DeathCoroutine());
     }

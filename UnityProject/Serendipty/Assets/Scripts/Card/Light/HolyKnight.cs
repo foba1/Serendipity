@@ -63,6 +63,13 @@ public class HolyKnight : Creature
 
     public override void Instantiate(int pos)
     {
+        cardIndex = StaticVariable.HolyKnight;
+        cardClass = StaticVariable.Normal;
+        cardProperty = StaticVariable.Light;
+        cardType = StaticVariable.Creature;
+        cost = 4;
+        additionalCost = 0;
+
         power = 40;
         health = 100;
         ableToAct = true;
@@ -109,11 +116,11 @@ public class HolyKnight : Creature
     {
         if (curPosition / 6 == 0)
         {
-            GraveManager.Instance.Add(0, StaticVariable.HolyKnight);
+            GraveManager.Instance.Add(0, cardIndex);
         }
         else
         {
-            GraveManager.Instance.Add(1, StaticVariable.HolyKnight);
+            GraveManager.Instance.Add(1, cardIndex);
         }
         StartCoroutine(DeathCoroutine());
     }

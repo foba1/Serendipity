@@ -52,4 +52,5 @@ public static class StaticVariable
     public static readonly int Skeleton = 4;
     public static readonly int GrimReaper = 5;
     public static readonly int FireBall = 8;
+    public static readonly int FireDemon = 9;
 }

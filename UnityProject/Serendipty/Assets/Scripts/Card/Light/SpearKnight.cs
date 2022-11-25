@@ -68,6 +68,13 @@ public class SpearKnight : Creature
 
     public override void Instantiate(int pos)
     {
+        cardIndex = StaticVariable.SpearKnight;
+        cardClass = StaticVariable.Normal;
+        cardProperty = StaticVariable.Dark;
+        cardType = StaticVariable.Creature;
+        cost = 3;
+        additionalCost = 0;
+
         power = 30;
         health = 70;
         ableToAct = true;
@@ -111,11 +118,11 @@ public class SpearKnight : Creature
     {
         if (curPosition / 6 == 0)
         {
-            GraveManager.Instance.Add(0, StaticVariable.SpearKnight);
+            GraveManager.Instance.Add(0, cardIndex);
         }
         else
         {
-            GraveManager.Instance.Add(1, StaticVariable.SpearKnight);
+            GraveManager.Instance.Add(1, cardIndex);
         }
         StartCoroutine(DeathCoroutine());
     }

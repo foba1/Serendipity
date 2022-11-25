@@ -73,6 +73,13 @@ public class Skeleton : Creature
 
     public override void Instantiate(int pos)
     {
+        cardIndex = StaticVariable.Skeleton;
+        cardClass = StaticVariable.Normal;
+        cardProperty = StaticVariable.Dark;
+        cardType = StaticVariable.Creature;
+        cost = 1;
+        additionalCost = 0;
+
         power = 15;
         health = 20;
         ableToAct = true;
@@ -111,11 +118,11 @@ public class Skeleton : Creature
     {
         if (curPosition / 6 == 0)
         {
-            GraveManager.Instance.Add(0, StaticVariable.Skeleton);
+            GraveManager.Instance.Add(0, cardIndex);
         }
         else
         {
-            GraveManager.Instance.Add(1, StaticVariable.Skeleton);
+            GraveManager.Instance.Add(1, cardIndex);
         }
         StartCoroutine(DeathCoroutine());
     }
