@@ -9,6 +9,8 @@ public class FieldManager : MonoBehaviourPun
 
     private int selectedFieldIndex = -1;
     private bool handSelectMode = false;
+    private Color red = new Color(1f, 160f / 255f, 160f / 255f, 1f);
+    private Color green = new Color(199f / 255f, 1f, 170f / 255f, 1f);
 
     static FieldManager instance;
     public static FieldManager Instance
@@ -119,11 +121,11 @@ public class FieldManager : MonoBehaviourPun
                     {
                         if (fieldObject[i].transform.childCount == 0)
                         {
-                            fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(199f / 255f, 1f, 170f / 255f, 1f);
+                            fieldObject[i].GetComponent<SpriteRenderer>().color = green;
                         }
                         else
                         {
-                            fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 160f / 255f, 160f / 255f, 1f);
+                            fieldObject[i].GetComponent<SpriteRenderer>().color = red;
                         }
                     }
                     else
@@ -142,11 +144,32 @@ public class FieldManager : MonoBehaviourPun
                         {
                             if (fieldObject[i].transform.childCount == 0)
                             {
-                                fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(199f / 255f, 1f, 170f / 255f, 1f);
+                                fieldObject[i].GetComponent<SpriteRenderer>().color = green;
                             }
                             else
                             {
-                                fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 160f / 255f, 160f / 255f, 1f);
+                                fieldObject[i].GetComponent<SpriteRenderer>().color = red;
+                            }
+                        }
+                        else
+                        {
+                            fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                        }
+                    }
+                }
+                else if (HandManager.Instance.usedCard.cardIndex == StaticVariable.FireBall)
+                {
+                    for (int i = 0; i < fieldObject.Length; i++)
+                    {
+                        if ((GameManager.Instance.myArea * 6) / 6 != i / 6)
+                        {
+                            if (fieldObject[i].transform.childCount > 0)
+                            {
+                                fieldObject[i].GetComponent<SpriteRenderer>().color = red;
+                            }
+                            else
+                            {
+                                fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
                             }
                         }
                         else
@@ -176,7 +199,7 @@ public class FieldManager : MonoBehaviourPun
                         {
                             if (ableToAttack(i))
                             {
-                                fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 160f / 255f, 160f / 255f, 1f);
+                                fieldObject[i].GetComponent<SpriteRenderer>().color = red;
                             }
                             else
                             {
@@ -190,7 +213,7 @@ public class FieldManager : MonoBehaviourPun
                     }
                     else if (i == selectedFieldIndex)
                     {
-                        fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(199f / 255f, 1f, 170f / 255f, 1f);
+                        fieldObject[i].GetComponent<SpriteRenderer>().color = green;
                     }
                     else
                     {
@@ -237,6 +260,21 @@ public class FieldManager : MonoBehaviourPun
                         handSelectMode = false;
                         UpdateFieldColor();
                         Destroy(HandManager.Instance.usedCard.gameObject);
+                    }
+                }
+                else if (HandManager.Instance.usedCard.cardIndex == StaticVariable.FireBall)
+                {
+                    if ((GameManager.Instance.myArea * 6) / 6 != fieldIndex / 6)
+                    {
+                        if (fieldObject[fieldIndex].transform.childCount > 0)
+                        {
+                            GameManager.Instance.curMana -= HandManager.Instance.usedCard.cost;
+                            GameManager.Instance.photonView.RPC("UpdateMana", RpcTarget.AllBuffered, GameManager.Instance.curMana, GameManager.Instance.myArea);
+                            GameManager.Instance.photonView.RPC("UseSpell", RpcTarget.AllBuffered, fieldIndex, HandManager.Instance.usedCard.cardIndex);
+                            handSelectMode = false;
+                            UpdateFieldColor();
+                            Destroy(HandManager.Instance.usedCard.gameObject);
+                        }
                     }
                 }
             }
