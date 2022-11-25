@@ -9,6 +9,9 @@ public class GrimReaper : Creature
 
     IEnumerator DeathCoroutine()
     {
+        transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1f, 148f / 255f, 148f / 255f, 1f);
+        transform.GetChild(2).GetChild(0).GetComponent<Text>().color = new Color(1f, 80f / 255f, 80f / 255f, 1f);
+
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetTrigger("Death");
 
@@ -16,6 +19,9 @@ public class GrimReaper : Creature
 
         if (ableToRespawn)
         {
+            transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            transform.GetChild(2).GetChild(0).GetComponent<Text>().color = new Color(1f, 1f, 1f, 1f);
+
             ableToRespawn = false;
             Instantiate(curPosition);
             animator.SetTrigger("Respawn");

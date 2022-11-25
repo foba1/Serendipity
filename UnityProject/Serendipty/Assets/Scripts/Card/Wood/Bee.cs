@@ -7,6 +7,9 @@ public class Bee : Creature
 {
     IEnumerator DeathCoroutine()
     {
+        transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1f, 148f / 255f, 148f / 255f, 1f);
+        transform.GetChild(2).GetChild(0).GetComponent<Text>().color = new Color(1f, 80f / 255f, 80f / 255f, 1f);
+
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetTrigger("Death");
 
@@ -33,11 +36,11 @@ public class Bee : Creature
     {
         if (curPosition / 6 == 0)
         {
-            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(-17f, 0f, 0f);
+            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(-15f, 0f, 0f);
         }
         else
         {
-            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(17f, 0f, 0f);
+            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(15f, 0f, 0f);
         }
 
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
