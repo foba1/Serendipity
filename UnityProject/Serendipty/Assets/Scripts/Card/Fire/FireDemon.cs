@@ -68,8 +68,8 @@ public class FireDemon : Creature
         cost = 5;
         additionalCost = 0;
 
-        power = 150;
-        health = 150;
+        power = 100;
+        health = 100;
         ableToAct = true;
         curPosition = pos;
         isAttackFinished = false;
