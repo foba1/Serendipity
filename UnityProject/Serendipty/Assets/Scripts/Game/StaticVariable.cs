@@ -50,4 +50,5 @@ public static class StaticVariable
     public static readonly int HolyKnight = 1;
     public static readonly int SpearKnight = 2;
     public static readonly int Skeleton = 4;
+    public static readonly int GrimReaper = 5;
 }
