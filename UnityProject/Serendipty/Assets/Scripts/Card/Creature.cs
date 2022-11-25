@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Creature : Card
 {
@@ -9,6 +10,12 @@ public abstract class Creature : Card
     public bool ableToAct;
     public int curPosition;
     public bool isAttackFinished;
+
+    public void UpdateInfoText()
+    {
+        transform.GetChild(1).GetChild(0).GetComponent<Text>().text = power.ToString();
+        transform.GetChild(2).GetChild(0).GetComponent<Text>().text = health.ToString();
+    }
 
     public abstract void Instantiate(int pos);
     public abstract void Attack(int pos);

@@ -54,4 +54,5 @@ public static class StaticVariable
     public static readonly int FireBall = 8;
     public static readonly int FireDemon = 9;
     public static readonly int BlueSlime = 12;
+    public static readonly int WaterGolem = 13;
 }

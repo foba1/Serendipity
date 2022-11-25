@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HolyKnight : Creature
+public class WaterGolem : Creature
 {
-    private int armor = 20;
-
     IEnumerator DeathCoroutine()
     {
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetTrigger("Death");
 
-        yield return new WaitForSecondsRealtime(0.767f);
+        yield return new WaitForSecondsRealtime(0.600f);
 
         Destroy(gameObject);
     }
@@ -25,7 +23,7 @@ public class HolyKnight : Creature
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetTrigger("GetDamaged");
 
-        yield return new WaitForSecondsRealtime(0.600f);
+        yield return new WaitForSecondsRealtime(0.850f);
 
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         transform.GetChild(2).GetChild(0).GetComponent<Text>().color = new Color(1f, 1f, 1f, 1f);
@@ -35,11 +33,11 @@ public class HolyKnight : Creature
     {
         if (curPosition / 6 == 0)
         {
-            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(-13f, 0f, 0f);
+            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(-17f, 0f, 0f);
         }
         else
         {
-            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(7f, 0f, 0f);
+            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(17f, 0f, 0f);
         }
 
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
@@ -49,7 +47,7 @@ public class HolyKnight : Creature
 
         FieldManager.Instance.fieldObject[pos].transform.GetChild(0).GetComponent<Creature>().GetDamaged(power);
 
-        yield return new WaitForSecondsRealtime(0.403f);
+        yield return new WaitForSecondsRealtime(0.420f);
 
         transform.position = FieldManager.Instance.fieldObject[curPosition].transform.position;
         isAttackFinished = true;
@@ -57,19 +55,39 @@ public class HolyKnight : Creature
 
     public override void Instantiate(int pos)
     {
-        cardIndex = StaticVariable.HolyKnight;
+        cardIndex = StaticVariable.WaterGolem;
         cardClass = StaticVariable.Normal;
-        cardProperty = StaticVariable.Light;
+        cardProperty = StaticVariable.Water;
         cardType = StaticVariable.Creature;
-        cost = 4;
+        cost = 5;
         additionalCost = 0;
 
-        power = 40;
-        health = 100;
+        power = 60;
+        health = 150;
         ableToAct = true;
         curPosition = pos;
         isAttackFinished = false;
         UpdateInfoText();
+
+        for (int i = 0; i < FieldManager.Instance.fieldObject.Length; i++)
+        {
+            if (i / 6 == curPosition / 6 && i != pos)
+            {
+                if (FieldManager.Instance.fieldObject[i].transform.childCount > 0)
+                {
+                    Creature creature = FieldManager.Instance.fieldObject[i].transform.GetChild(0).GetComponent<Creature>();
+                    if (creature != null)
+                    {
+                        if (creature.cardProperty == StaticVariable.Water)
+                        {
+                            creature.health += 30;
+                            creature.power += 30;
+                            creature.UpdateInfoText();
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public override void Attack(int pos)
@@ -87,14 +105,6 @@ public class HolyKnight : Creature
         health -= damage;
         if (health > 0)
         {
-            if (damage >= armor)
-            {
-                health += armor;
-            }
-            else
-            {
-                health += damage;
-            }
             UpdateInfoText();
             StartCoroutine(GetDamagedCoroutine());
         }
