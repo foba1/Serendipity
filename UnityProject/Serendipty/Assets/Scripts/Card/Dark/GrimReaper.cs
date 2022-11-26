@@ -80,7 +80,7 @@ public class GrimReaper : Creature
         cost = 3;
         additionalCost = 0;
 
-        power = 40;
+        power = 50;
         health = 30;
         ableToAct = true;
         curPosition = pos;

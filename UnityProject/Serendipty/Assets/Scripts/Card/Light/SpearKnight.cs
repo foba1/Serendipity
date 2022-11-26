@@ -73,7 +73,7 @@ public class SpearKnight : Creature
         additionalCost = 0;
 
         power = 30;
-        health = 70;
+        health = 80;
         ableToAct = true;
         curPosition = pos;
         isAttackFinished = false;

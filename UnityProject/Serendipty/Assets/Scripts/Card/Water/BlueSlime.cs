@@ -69,7 +69,7 @@ public class BlueSlime : Creature
         additionalCost = 0;
 
         power = 20;
-        health = 80;
+        health = 70;
         ableToAct = true;
         curPosition = pos;
         isAttackFinished = false;

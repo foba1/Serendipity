@@ -80,7 +80,7 @@ public class Skeleton : Creature
         cost = 1;
         additionalCost = 0;
 
-        power = 15;
+        power = 30;
         health = 20;
         ableToAct = true;
         curPosition = pos;
