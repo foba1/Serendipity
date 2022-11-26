@@ -14,13 +14,16 @@ public class Player : Creature
 
         yield return new WaitForSecondsRealtime(0.767f);
         Destroy(gameObject);
-        if (GameManager.Instance.myArea == 0)
+        if (PhotonNetwork.IsMasterClient)
         {
-            GameManager.Instance.photonView.RPC("FinishGame", RpcTarget.AllBuffered, 1);
-        }
-        else
-        {
-            GameManager.Instance.photonView.RPC("FinishGame", RpcTarget.AllBuffered, 0);
+            if (curPosition / 6 == 0)
+            {
+                GameManager.Instance.photonView.RPC("FinishGame", RpcTarget.AllBuffered, 1);
+            }
+            else
+            {
+                GameManager.Instance.photonView.RPC("FinishGame", RpcTarget.AllBuffered, 0);
+            }
         }
     }
 
