@@ -112,7 +112,6 @@ public class ChildWolf : Creature
         ableToAct = true;
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetBool("ableToAct", true);
-        transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
     }
 
     public override void Deactive()
@@ -120,6 +119,5 @@ public class ChildWolf : Creature
         ableToAct = false;
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetBool("ableToAct", false);
-        transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(150f / 255f, 150f / 255f, 150f / 255f, 1f);
     }
 }
