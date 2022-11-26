@@ -241,8 +241,8 @@ MonoBehaviour:
   playerProfile:
   - {fileID: 1012116053}
   - {fileID: 2101092966}
-  winPanel: {fileID: 0}
-  losePanel: {fileID: 0}
+  winPanel: {fileID: 1991571502}
+  losePanel: {fileID: 640935460}
   turn: 0
   myArea: 0
   curMana: 0

@@ -18,8 +18,8 @@ public static class StaticVariable
     // Max & Min Card Count
     public static readonly int MaxLegendaryCardCount = 1;
     public static readonly int MaxNormalCardCount = 3;
+    public static readonly int MinDeckCardCount = 20;
     public static readonly int MaxDeckCardCount = 30;
-    public static readonly int MinDeckCardCount = 3;
 
     // Card Property
     public static readonly int Light = 100;

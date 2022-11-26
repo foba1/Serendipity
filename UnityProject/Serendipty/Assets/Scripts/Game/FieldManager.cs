@@ -132,6 +132,27 @@ public class FieldManager : MonoBehaviourPun
         UpdateFieldColor();
     }
 
+    public void ResetBeforeNextTurn()
+    {
+        HandManager.Instance.ResetHandSelection();
+        if (handSelectMode)
+        {
+            handSelectMode = false;
+            for (int i = 0; i < fieldObject.Length; i++)
+            {
+                fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < fieldObject.Length; i++)
+            {
+                fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            }
+            selectedFieldIndex = -1;
+        }
+    }
+
     private void UpdateFieldColor()
     {
         if (handSelectMode)

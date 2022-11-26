@@ -8,6 +8,7 @@ public class HandManager : MonoBehaviour
     public Card usedCard = null;
 
     private int selectedHandIndex = -1;
+    private int usedHandIndex = -1;
 
     static HandManager instance;
     public static HandManager Instance
@@ -43,6 +44,7 @@ public class HandManager : MonoBehaviour
                             if (FieldManager.Instance.hasSpaceToSpawn(GameManager.Instance.myArea))
                             {
                                 handObject[selectedHandIndex].transform.GetChild(0).gameObject.SetActive(false);
+                                usedHandIndex = selectedHandIndex;
                                 selectedHandIndex = -1;
                                 UpdateHand();
                                 FieldManager.Instance.UseHandCard();
@@ -55,6 +57,7 @@ public class HandManager : MonoBehaviour
                                 if (FieldManager.Instance.hasSpaceToSpawn(GameManager.Instance.myArea))
                                 {
                                     handObject[selectedHandIndex].transform.GetChild(0).gameObject.SetActive(false);
+                                    usedHandIndex = selectedHandIndex;
                                     selectedHandIndex = -1;
                                     UpdateHand();
                                     FieldManager.Instance.UseHandCard();
@@ -65,6 +68,7 @@ public class HandManager : MonoBehaviour
                                 if (FieldManager.Instance.hasCreature(GameManager.Instance.myArea))
                                 {
                                     handObject[selectedHandIndex].transform.GetChild(0).gameObject.SetActive(false);
+                                    usedHandIndex = selectedHandIndex;
                                     selectedHandIndex = -1;
                                     UpdateHand();
                                     FieldManager.Instance.UseHandCard();
@@ -73,6 +77,7 @@ public class HandManager : MonoBehaviour
                             else
                             {
                                 handObject[selectedHandIndex].transform.GetChild(0).gameObject.SetActive(false);
+                                usedHandIndex = selectedHandIndex;
                                 selectedHandIndex = -1;
                                 UpdateHand();
                                 FieldManager.Instance.UseHandCard();
@@ -85,6 +90,24 @@ public class HandManager : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    public void ResetHandSelection()
+    {
+        if (usedHandIndex != -1)
+        {
+            if (handObject[usedHandIndex].transform.childCount > 0)
+            {
+                handObject[usedHandIndex].transform.GetChild(0).gameObject.SetActive(true);
+            }
+            usedHandIndex = -1;
+            UpdateHand();
+        }
+        if (selectedHandIndex != -1)
+        {
+            selectedHandIndex = -1;
+            UpdateHand();
         }
     }
 

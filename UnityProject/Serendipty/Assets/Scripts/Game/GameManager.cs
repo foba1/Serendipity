@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviourPun
             if (startTime + 60f <= Time.time)
             {
                 turn++;
+                photonView.RPC("ResetBeforeNextTurn", RpcTarget.AllBuffered);
                 photonView.RPC("GoToNextTurn", RpcTarget.AllBuffered, turn);
             }
             else if (Input.GetKeyDown(KeyCode.Return))
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviourPun
                 if (IsMyTurn())
                 {
                     turn++;
+                    photonView.RPC("ResetBeforeNextTurn", RpcTarget.AllBuffered);
                     photonView.RPC("GoToNextTurn", RpcTarget.AllBuffered, turn);
                 }
             }
@@ -82,6 +84,7 @@ public class GameManager : MonoBehaviourPun
                     if (IsMyTurn())
                     {
                         turn++;
+                        photonView.RPC("ResetBeforeNextTurn", RpcTarget.AllBuffered);
                         photonView.RPC("GoToNextTurn", RpcTarget.AllBuffered, turn);
                     }
                 }
@@ -134,6 +137,12 @@ public class GameManager : MonoBehaviourPun
         {
             playerProfile[playerIndex].transform.GetChild(1).GetComponent<Slider>().value = 1f;
         }
+    }
+
+    [PunRPC]
+    public void ResetBeforeNextTurn()
+    {
+        FieldManager.Instance.ResetBeforeNextTurn();
     }
 
     [PunRPC]
