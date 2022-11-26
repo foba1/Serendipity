@@ -56,5 +56,5 @@ public static class StaticVariable
     public static readonly int BlueSlime = 12;
     public static readonly int WaterGolem = 13;
     public static readonly int WaterSpike = 14;
-    public static readonly int Bee = 15;
+    public static readonly int Bee = 16;
 }
