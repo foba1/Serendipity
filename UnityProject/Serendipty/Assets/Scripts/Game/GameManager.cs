@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviourPun
     [Header("Profile Object")]
     [SerializeField] GameObject[] playerProfile;
 
+    [Header("Game Result Object")]
+    [SerializeField] GameObject winPanel;
+    [SerializeField] GameObject losePanel;
+
     public int turn = 0;
     public int myArea = 0;
     public int curMana = 0;
@@ -199,11 +203,24 @@ public class GameManager : MonoBehaviourPun
     {
         if (myArea == winner)
         {
-            SceneManager.LoadScene("Win");
+            winPanel.SetActive(true);
+            if (PlayerPrefs.HasKey("Gold"))
+            {
+                int gold = PlayerPrefs.GetInt("Gold");
+                gold += StaticVariable.WinningResultGold;
+                PlayerPrefs.SetInt("Gold", gold);
+                PlayerPrefs.Save();
+            }
         }
         else
         {
-            SceneManager.LoadScene("Lose");
+            losePanel.SetActive(true);
         }
+    }
+
+    public void Main()
+    {
+        PhotonNetwork.LeaveRoom();
+        SceneManager.LoadScene("Main");
     }
 }
