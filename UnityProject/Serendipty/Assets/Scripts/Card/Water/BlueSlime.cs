@@ -81,11 +81,6 @@ public class BlueSlime : Creature
         StartCoroutine(AttackCoroutine(pos));
     }
 
-    public override void UseAbility(int index)
-    {
-
-    }
-
     public override void GetDamaged(int damage)
     {
         health -= damage;

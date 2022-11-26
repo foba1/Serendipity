@@ -21,7 +21,6 @@ public abstract class Creature : Card
 
     public abstract void Instantiate(int pos);
     public abstract void Attack(int pos);
-    public abstract void UseAbility(int index);
     public abstract void GetDamaged(int damage);
     public abstract void Death();
     public abstract void Active();
