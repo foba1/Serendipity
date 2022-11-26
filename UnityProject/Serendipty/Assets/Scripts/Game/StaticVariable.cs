@@ -58,10 +58,8 @@ public static class StaticVariable
     public static readonly int BlueSlime = 12;
     public static readonly int WaterGolem = 13;
     public static readonly int WaterSpike = 14;
-    public static readonly int KingOfSea = 15;
     public static readonly int Bee = 16;
     public static readonly int ParentWolf = 17;
     public static readonly int NatureCycle = 18;
-
     public static readonly int ChildWolf = 1000;
 }
