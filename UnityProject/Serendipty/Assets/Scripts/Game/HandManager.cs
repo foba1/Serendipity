@@ -88,6 +88,22 @@ public class HandManager : MonoBehaviour
         }
     }
 
+    public void DeleteSpellCard(int myArea)
+    {
+        if (GameManager.Instance.myArea == myArea) return;
+
+        for (int i = 0; i < handObject.Length; i++)
+        {
+            if (handObject[i].transform.childCount > 0)
+            {
+                if (handObject[i].transform.GetChild(0).GetComponent<Card>().cardType == StaticVariable.Spell)
+                {
+                    Destroy(handObject[i].transform.GetChild(0).gameObject);
+                }
+            }
+        }
+    }
+
     public void InstantiateCard(int cardIndex)
     {
         int emptyHand = -1;
