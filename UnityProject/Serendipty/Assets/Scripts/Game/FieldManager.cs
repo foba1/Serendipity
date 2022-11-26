@@ -93,6 +93,24 @@ public class FieldManager : MonoBehaviourPun
         else return true;
     }
 
+    public bool hasCreature(int area)
+    {
+        bool hasCreature = false;
+        for (int i = 0; i < fieldObject.Length; i++)
+        {
+            if ((area * 6) / 6 != i / 6) continue;
+            if (fieldObject[i].transform.childCount > 0)
+            {
+                if (!fieldObject[i].transform.GetChild(0).GetComponent<Creature>().isPlayer)
+                {
+                    hasCreature = true;
+                    break;
+                }
+            }
+        }
+        return hasCreature;
+    }
+
     public bool hasSpaceToSpawn(int area)
     {
         bool hasSpace = false;
@@ -154,6 +172,34 @@ public class FieldManager : MonoBehaviourPun
                             else
                             {
                                 fieldObject[i].GetComponent<SpriteRenderer>().color = red;
+                            }
+                        }
+                        else
+                        {
+                            fieldObject[i].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                        }
+                    }
+                }
+                else if (HandManager.Instance.usedCard.cardIndex == StaticVariable.NatureCycle)
+                {
+                    for (int i = 0; i < fieldObject.Length; i++)
+                    {
+                        if ((GameManager.Instance.myArea * 6) / 6 == i / 6)
+                        {
+                            if (fieldObject[i].transform.childCount == 0)
+                            {
+                                fieldObject[i].GetComponent<SpriteRenderer>().color = red;
+                            }
+                            else
+                            {
+                                if (fieldObject[i].transform.GetChild(0).GetComponent<Creature>().isPlayer)
+                                {
+                                    fieldObject[i].GetComponent<SpriteRenderer>().color = red;
+                                }
+                                else
+                                {
+                                    fieldObject[i].GetComponent<SpriteRenderer>().color = green;
+                                }
                             }
                         }
                         else
@@ -259,12 +305,33 @@ public class FieldManager : MonoBehaviourPun
                 {
                     if ((GameManager.Instance.myArea * 6) / 6 == fieldIndex / 6)
                     {
-                        GameManager.Instance.curMana -= HandManager.Instance.usedCard.cost;
-                        GameManager.Instance.photonView.RPC("UpdateMana", RpcTarget.AllBuffered, GameManager.Instance.curMana, GameManager.Instance.myArea);
-                        GameManager.Instance.photonView.RPC("UseSpell", RpcTarget.AllBuffered, fieldIndex, HandManager.Instance.usedCard.cardIndex);
-                        handSelectMode = false;
-                        UpdateFieldColor();
-                        Destroy(HandManager.Instance.usedCard.gameObject);
+                        if (fieldObject[fieldIndex].transform.childCount == 0)
+                        {
+                            GameManager.Instance.curMana -= HandManager.Instance.usedCard.cost;
+                            GameManager.Instance.photonView.RPC("UpdateMana", RpcTarget.AllBuffered, GameManager.Instance.curMana, GameManager.Instance.myArea);
+                            GameManager.Instance.photonView.RPC("UseSpell", RpcTarget.AllBuffered, fieldIndex, HandManager.Instance.usedCard.cardIndex);
+                            handSelectMode = false;
+                            UpdateFieldColor();
+                            Destroy(HandManager.Instance.usedCard.gameObject);
+                        }
+                    }
+                }
+                else if (HandManager.Instance.usedCard.cardIndex == StaticVariable.NatureCycle)
+                {
+                    if ((GameManager.Instance.myArea * 6) / 6 == fieldIndex / 6)
+                    {
+                        if (fieldObject[fieldIndex].transform.childCount > 0)
+                        {
+                            if (!fieldObject[fieldIndex].transform.GetChild(0).GetComponent<Creature>().isPlayer)
+                            {
+                                GameManager.Instance.curMana -= HandManager.Instance.usedCard.cost;
+                                GameManager.Instance.photonView.RPC("UpdateMana", RpcTarget.AllBuffered, GameManager.Instance.curMana, GameManager.Instance.myArea);
+                                GameManager.Instance.photonView.RPC("UseSpell", RpcTarget.AllBuffered, fieldIndex, HandManager.Instance.usedCard.cardIndex);
+                                handSelectMode = false;
+                                UpdateFieldColor();
+                                Destroy(HandManager.Instance.usedCard.gameObject);
+                            }
+                        }
                     }
                 }
                 else

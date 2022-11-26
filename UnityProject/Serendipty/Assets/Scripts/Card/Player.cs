@@ -70,6 +70,7 @@ public class Player : Creature
         ableToAct = true;
         curPosition = pos;
         isAttackFinished = false;
+        isPlayer = true;
         UpdateInfoText();
     }
 

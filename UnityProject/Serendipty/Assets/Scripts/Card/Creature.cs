@@ -11,6 +11,7 @@ public abstract class Creature : Card
     public int curPosition;
     public bool isAttackFinished;
     public bool isPoisoned = false;
+    public bool isPlayer = false;
 
     public void UpdateInfoText()
     {
