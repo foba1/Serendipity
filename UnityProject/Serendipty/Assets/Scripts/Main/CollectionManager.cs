@@ -161,12 +161,12 @@ public class CollectionManager : MonoBehaviour
                         Destroy(cardTransform.GetChild(j).gameObject);
                     }
                 }
-                GameObject card = Instantiate(Resources.Load<GameObject>("Collection/" + index), cardTransform);
+                GameObject card = Instantiate(Resources.Load<GameObject>("Collection/Card/" + index), cardTransform);
                 int temp = i;
                 card.AddComponent<Button>();
                 card.GetComponent<Button>().onClick.AddListener(() => SelectDeckCard(temp));
                 card.GetComponent<Button>().transition = Selectable.Transition.None;
-                GameObject text = Instantiate(Resources.Load<GameObject>("Collection/Text"), cardTransform);
+                GameObject text = Instantiate(Resources.Load<GameObject>("Collection/Card/Text"), cardTransform);
                 text.GetComponent<Text>().text = "x " + GetCardCountFromDeck(deck, index);
             }
             else
@@ -441,12 +441,12 @@ public class CollectionManager : MonoBehaviour
                         Destroy(cardTransform.GetChild(j).gameObject);
                     }
                 }
-                GameObject card = Instantiate(Resources.Load<GameObject>("Collection/" + index), cardTransform);
+                GameObject card = Instantiate(Resources.Load<GameObject>("Collection/Card/" + index), cardTransform);
                 int temp = i;
                 card.AddComponent<Button>();
                 card.GetComponent<Button>().onClick.AddListener(() => SelectCard(temp));
                 card.GetComponent<Button>().transition = Selectable.Transition.None;
-                GameObject text = Instantiate(Resources.Load<GameObject>("Collection/Text"), cardTransform);
+                GameObject text = Instantiate(Resources.Load<GameObject>("Collection/Card/Text"), cardTransform);
                 if (PlayerPrefs.HasKey("Card" + index))
                 {
                     text.GetComponent<Text>().text = "x " + PlayerPrefs.GetInt("Card" + index);
