@@ -39,6 +39,16 @@ public class CollectionManager : MonoBehaviour
         UpdateInfo();
     }
 
+    public void ButtonDown(GameObject button)
+    {
+        button.transform.GetChild(0).transform.localPosition -= new Vector3(0f, 20f, 0f);
+    }
+
+    public void ButtonUp(GameObject button)
+    {
+        button.transform.GetChild(0).transform.localPosition += new Vector3(0f, 20f, 0f);
+    }
+
     public void Main()
     {
         SceneManager.LoadScene("Main");
