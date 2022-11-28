@@ -214,7 +214,7 @@ public class CollectionManager : MonoBehaviour
         {
             string deckName = PlayerPrefs.GetString("Deck" + (index + 1) + "Name");
             deckInfoPanel.SetActive(true);
-            deckInfoPanel.transform.GetChild(1).GetComponent<Text>().text = deckName;
+            deckInfoPanel.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = deckName;
             UpdateDeckCardPage();
         }
     }
