@@ -144,8 +144,20 @@ public class CollectionManager : MonoBehaviour
             if (index < StaticVariable.CardCount)
             {
                 cardTransform.gameObject.SetActive(true);
-                cardTransform.GetComponent<Image>().sprite = Resources.Load<Sprite>("Card/" + index);
-                cardTransform.GetChild(0).GetComponent<Text>().text = "x " + GetCardCountFromDeck(deck, index);
+                if (cardTransform.childCount > 0)
+                {
+                    for (int j = cardTransform.childCount - 1; j >= 0; j--)
+                    {
+                        Destroy(cardTransform.GetChild(j).gameObject);
+                    }
+                }
+                GameObject card = Instantiate(Resources.Load<GameObject>("Collection/" + index), cardTransform);
+                int temp = i;
+                card.AddComponent<Button>();
+                card.GetComponent<Button>().onClick.AddListener(() => SelectDeckCard(temp));
+                card.GetComponent<Button>().transition = Selectable.Transition.None;
+                GameObject text = Instantiate(Resources.Load<GameObject>("Collection/Text"), cardTransform);
+                text.GetComponent<Text>().text = "x " + GetCardCountFromDeck(deck, index);
             }
             else
             {
