@@ -123,10 +123,40 @@ public class CollectionManager : MonoBehaviour
         if (PlayerPrefs.HasKey("Card" + selectedDeckCardIndex))
         {
             deckCardInfoPanel.SetActive(true);
-            deckCardInfoPanel.transform.GetChild(2).GetComponent<Text>().text = "Card " + selectedDeckCardIndex;
-            deckCardInfoPanel.transform.GetChild(3).GetComponent<Image>().sprite = Resources.Load<Sprite>("Card/" + selectedDeckCardIndex);
-            deckCardInfoPanel.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "x " + GetCardCountFromDeck(deck, selectedDeckCardIndex);
-            deckCardInfoPanel.transform.GetChild(4).GetComponent<Text>().text = "This is card " + selectedDeckCardIndex;
+            if (deckCardInfoPanel.transform.childCount > 0)
+            {
+                for (int i = deckCardInfoPanel.transform.childCount - 1; i >= 0; i--)
+                {
+                    Destroy(deckCardInfoPanel.transform.GetChild(i).gameObject);
+                }
+            }
+            GameObject cardInfo = Instantiate(Resources.Load<GameObject>("Collection/Info/" + selectedDeckCardIndex), deckCardInfoPanel.transform);
+            cardInfo.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => ExitDeckCardInfo());
+            cardInfo.transform.GetChild(7).GetChild(1).GetComponent<Text>().text = "x " + GetCardCountFromDeck(deck, selectedDeckCardIndex);
+
+            GameObject buyButton = cardInfo.transform.GetChild(9).gameObject;
+            buyButton.transform.GetChild(0).GetComponent<Text>().text = "³Ö±â";
+            buyButton.GetComponent<Button>().onClick.AddListener(() => AddCardToDeck());
+            EventTrigger.Entry buyEntry1 = new EventTrigger.Entry();
+            buyEntry1.eventID = EventTriggerType.PointerDown;
+            buyEntry1.callback.AddListener(data => ButtonDown(buyButton));
+            buyButton.GetComponent<EventTrigger>().triggers.Add(buyEntry1);
+            EventTrigger.Entry buyEntry2 = new EventTrigger.Entry();
+            buyEntry2.eventID = EventTriggerType.PointerUp;
+            buyEntry2.callback.AddListener(data => ButtonUp(buyButton));
+            buyButton.GetComponent<EventTrigger>().triggers.Add(buyEntry2);
+
+            GameObject sellButton = cardInfo.transform.GetChild(10).gameObject;
+            sellButton.transform.GetChild(0).GetComponent<Text>().text = "»©±â";
+            sellButton.GetComponent<Button>().onClick.AddListener(() => SubCardFromDeck());
+            EventTrigger.Entry sellEntry1 = new EventTrigger.Entry();
+            sellEntry1.eventID = EventTriggerType.PointerDown;
+            sellEntry1.callback.AddListener(data => ButtonDown(sellButton));
+            sellButton.GetComponent<EventTrigger>().triggers.Add(sellEntry1);
+            EventTrigger.Entry sellEntry2 = new EventTrigger.Entry();
+            sellEntry2.eventID = EventTriggerType.PointerUp;
+            sellEntry2.callback.AddListener(data => ButtonUp(sellButton));
+            sellButton.GetComponent<EventTrigger>().triggers.Add(sellEntry2);
         }
     }
 
@@ -135,7 +165,7 @@ public class CollectionManager : MonoBehaviour
         if (PlayerPrefs.HasKey("Deck" + (selectedDeckIndex + 1)))
         {
             string deck = PlayerPrefs.GetString("Deck" + (selectedDeckIndex + 1));
-            deckCardInfoPanel.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "x " + GetCardCountFromDeck(deck, selectedDeckCardIndex);
+            deckCardInfoPanel.transform.GetChild(0).GetChild(7).GetChild(1).GetComponent<Text>().text = "x " + GetCardCountFromDeck(deck, selectedDeckCardIndex);
         }
     }
 
