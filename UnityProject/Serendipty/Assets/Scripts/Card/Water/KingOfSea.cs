@@ -36,11 +36,11 @@ public class KingOfSea : Creature
     {
         if (curPosition / 6 == 0)
         {
-            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(-17f, 0f, 0f);
+            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(-40f, 0f, 0f);
         }
         else
         {
-            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(17f, 0f, 0f);
+            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(40f, 0f, 0f);
         }
 
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
