@@ -478,7 +478,7 @@ public class CollectionManager : MonoBehaviour
         if (PlayerPrefs.HasKey("Gold"))
         {
             gold = PlayerPrefs.GetInt("Gold");
-            goldText.text = "Gold : " + gold;
+            goldText.text = "x " + gold;
         }
     }
 
