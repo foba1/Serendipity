@@ -2124,6 +2124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deckSelectPanel: {fileID: 282278924}
   deckObject: {fileID: 594216619}
+  selectedDeckText: {fileID: 1054854239}
 --- !u!4 &1189284151
 Transform:
   m_ObjectHideFlags: 0
@@ -3029,6 +3030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connectStateText: {fileID: 1998304931}
+  selectedDeckText: {fileID: 1054854239}
 --- !u!4 &1791658884
 Transform:
   m_ObjectHideFlags: 0
