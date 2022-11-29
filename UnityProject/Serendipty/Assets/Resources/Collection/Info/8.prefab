@@ -839,8 +839,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.4
   m_Text: "\uC120\uD0DD\uD55C \uB300\uC0C1\uC5D0\uAC8C \uD53C\uD574\uB97C 30 \uC8FC\uACE0,
-    \uB300\uC0C1\uC5D0\uAC8C \uD53C\uD574\uB97C \uC785\uD788\uBA74 \uC544\uAD70 \uBD88
-    \uC18D\uC131 \uC0DD\uBB3C\uB4E4\uC744 \uD65C\uC131\uD654 \uC2DC\uD0B5\uB2C8\uB2E4."
+    \uC544\uAD70 \uBD88 \uC18D\uC131 \uC0DD\uBB3C\uB4E4\uC744 \uD65C\uC131\uD654
+    \uC2DC\uD0B5\uB2C8\uB2E4."
 --- !u!114 &1014946999252289599
 MonoBehaviour:
   m_ObjectHideFlags: 0
