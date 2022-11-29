@@ -27,6 +27,26 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public void InitializeCardForTest()
+    {
+        PlayerPrefs.DeleteAll();
+        for (int i = 0; i < StaticVariable.CardCount; i++)
+        {
+            if (i % 4 == 3)
+            {
+                PlayerPrefs.SetInt("Card" + i, 1);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("Card" + i, 3);
+            }
+            PlayerPrefs.SetInt("Card" + i, 3);
+        }
+        PlayerPrefs.SetInt("Gold", 99999);
+        PlayerPrefs.SetInt("DeckCount", 0);
+        PlayerPrefs.Save();
+    }
+
     public override void OnConnectedToMaster()
     {
         connectStateText.text = "¿Â¶óÀÎ";

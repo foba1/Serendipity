@@ -456,14 +456,17 @@ public class CollectionManager : MonoBehaviour
 
     private void InitializeInfo()
     {
-        PlayerPrefs.DeleteAll();
-        for (int i = 0; i < StaticVariable.CardCount; i++)
+        if (!PlayerPrefs.HasKey("Gold"))
         {
-            PlayerPrefs.SetInt("Card" + i, 0);
+            PlayerPrefs.DeleteAll();
+            for (int i = 0; i < StaticVariable.CardCount; i++)
+            {
+                PlayerPrefs.SetInt("Card" + i, 0);
+            }
+            PlayerPrefs.SetInt("Gold", 0);
+            PlayerPrefs.SetInt("DeckCount", 0);
+            PlayerPrefs.Save();
         }
-        PlayerPrefs.SetInt("Gold", 1000);
-        PlayerPrefs.SetInt("DeckCount", 0);
-        PlayerPrefs.Save();
     }
 
     private void UpdateInfo()
