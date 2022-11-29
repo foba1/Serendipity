@@ -7,7 +7,17 @@ public class DeckSelectManager : MonoBehaviour
 {
     public GameObject deckSelectPanel;
     public GameObject deckObject;
-    
+
+    public void ButtonDown(GameObject button)
+    {
+        button.transform.GetChild(0).transform.localPosition -= new Vector3(0f, 20f, 0f);
+    }
+
+    public void ButtonUp(GameObject button)
+    {
+        button.transform.GetChild(0).transform.localPosition += new Vector3(0f, 20f, 0f);
+    }
+
     public void QuickMatching()
     {
         deckSelectPanel.SetActive(true);
