@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.EventSystems;
 
 public class CollectionManager : MonoBehaviour
 {
@@ -315,6 +316,28 @@ public class CollectionManager : MonoBehaviour
             GameObject cardInfo = Instantiate(Resources.Load<GameObject>("Collection/Info/" + selectedCardIndex), cardInfoPanel.transform);
             cardInfo.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => ExitCardInfo());
             cardInfo.transform.GetChild(7).GetChild(1).GetComponent<Text>().text = "x " + PlayerPrefs.GetInt("Card" + selectedCardIndex);
+
+            GameObject buyButton = cardInfo.transform.GetChild(9).gameObject;
+            buyButton.GetComponent<Button>().onClick.AddListener(() => BuyCard());
+            EventTrigger.Entry buyEntry1 = new EventTrigger.Entry();
+            buyEntry1.eventID = EventTriggerType.PointerDown;
+            buyEntry1.callback.AddListener(data => ButtonDown(buyButton));
+            buyButton.GetComponent<EventTrigger>().triggers.Add(buyEntry1);
+            EventTrigger.Entry buyEntry2 = new EventTrigger.Entry();
+            buyEntry2.eventID = EventTriggerType.PointerUp;
+            buyEntry2.callback.AddListener(data => ButtonUp(buyButton));
+            buyButton.GetComponent<EventTrigger>().triggers.Add(buyEntry2);
+
+            GameObject sellButton = cardInfo.transform.GetChild(10).gameObject;
+            sellButton.GetComponent<Button>().onClick.AddListener(() => SellCard());
+            EventTrigger.Entry sellEntry1 = new EventTrigger.Entry();
+            sellEntry1.eventID = EventTriggerType.PointerDown;
+            sellEntry1.callback.AddListener(data => ButtonDown(sellButton));
+            sellButton.GetComponent<EventTrigger>().triggers.Add(sellEntry1);
+            EventTrigger.Entry sellEntry2 = new EventTrigger.Entry();
+            sellEntry2.eventID = EventTriggerType.PointerUp;
+            sellEntry2.callback.AddListener(data => ButtonUp(sellButton));
+            sellButton.GetComponent<EventTrigger>().triggers.Add(sellEntry2);
         }
     }
 
@@ -392,7 +415,7 @@ public class CollectionManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("Card" + selectedCardIndex))
         {
-            cardInfoPanel.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "x " + PlayerPrefs.GetInt("Card" + selectedCardIndex);
+            cardInfoPanel.transform.GetChild(0).GetChild(7).GetChild(1).GetComponent<Text>().text = "x " + PlayerPrefs.GetInt("Card" + selectedCardIndex);
         }
     }
 
