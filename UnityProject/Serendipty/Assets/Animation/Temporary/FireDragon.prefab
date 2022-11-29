@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 8410222094123710658}
   - component: {fileID: 6785019347773205597}
   m_Layer: 0
-  m_Name: ForestTurtle
+  m_Name: Dragon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,8 +207,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5508026323650936007}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.247, y: -0.214, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.45, y: 0.2, z: 0}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5508026323683446637}
@@ -255,12 +255,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2058315493, guid: 3c414c0b3dd53dc449b81e33eedb8e8c, type: 3}
+  m_Sprite: {fileID: 8019266, guid: 0773f148fc2c34646b21164afdc13e37, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.58, y: 1.02}
+  m_Size: {x: 0.99, y: 1.04}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -276,7 +276,7 @@ Animator:
   m_GameObject: {fileID: 5508026323650936007}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: da21703ac66b0c04f99d4810749d51b6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0dde8dfc7a96e6c40819b620988d6a3e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -296,7 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508026323683446637}
   m_Layer: 0
-  m_Name: 01 3
+  m_Name: FireDragon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
