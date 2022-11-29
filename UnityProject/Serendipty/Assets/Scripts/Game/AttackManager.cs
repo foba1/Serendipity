@@ -57,7 +57,10 @@ public class AttackManager : MonoBehaviour
                 while (!secondCreature.isAttackFinished) yield return null;
                 secondCreature.isAttackFinished = false;
 
-                firstCreature.Deactive();
+                if (firstCreature != null)
+                {
+                    firstCreature.Deactive();
+                }
             }
         }
         yield return null;
