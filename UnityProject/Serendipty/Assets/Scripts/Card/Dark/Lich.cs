@@ -16,7 +16,7 @@ public class Lich : Creature
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetTrigger("Death");
 
-        yield return new WaitForSecondsRealtime(0.767f);
+        yield return new WaitForSecondsRealtime(0.683f);
 
         if (ableToRespawn)
         {
@@ -42,7 +42,7 @@ public class Lich : Creature
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetTrigger("GetDamaged");
 
-        yield return new WaitForSecondsRealtime(0.600f);
+        yield return new WaitForSecondsRealtime(0.517f);
 
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         transform.GetChild(2).GetChild(0).GetComponent<Text>().color = new Color(1f, 1f, 1f, 1f);
@@ -66,7 +66,7 @@ public class Lich : Creature
 
         FieldManager.Instance.fieldObject[pos].transform.GetChild(0).GetComponent<Creature>().GetDamaged(power);
 
-        yield return new WaitForSecondsRealtime(0.403f);
+        yield return new WaitForSecondsRealtime(0.570f);
 
         transform.position = FieldManager.Instance.fieldObject[curPosition].transform.position;
         isAttackFinished = true;
