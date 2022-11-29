@@ -7,7 +7,23 @@ public class DeckSelectManager : MonoBehaviour
 {
     public GameObject deckSelectPanel;
     public GameObject deckObject;
-    
+    public GameObject selectedDeckText;
+
+    private void Start()
+    {
+        selectedDeckText.GetComponent<Text>().text = "덱을 선택하세요.";
+    }
+
+    public void ButtonDown(GameObject button)
+    {
+        button.transform.GetChild(0).transform.localPosition -= new Vector3(0f, 20f, 0f);
+    }
+
+    public void ButtonUp(GameObject button)
+    {
+        button.transform.GetChild(0).transform.localPosition += new Vector3(0f, 20f, 0f);
+    }
+
     public void QuickMatching()
     {
         deckSelectPanel.SetActive(true);
@@ -21,11 +37,12 @@ public class DeckSelectManager : MonoBehaviour
             string deck = PlayerPrefs.GetString("Deck" + (index + 1));
             if (GetCountFromDeck(deck) < StaticVariable.MinDeckCardCount || GetCountFromDeck(deck) > StaticVariable.MaxDeckCardCount)
             {
-                Debug.Log("Cannot select deck.");
+                selectedDeckText.GetComponent<Text>().text = "카드는 최소 20장, 최대 30장까지 덱에 넣을 수 있습니다.";
             }
             else
             {
                 StaticVariable.MyDeck = deck;
+                selectedDeckText.GetComponent<Text>().text = "선택된 덱 : 덱 " + (index + 1).ToString();
             }
         }
     }

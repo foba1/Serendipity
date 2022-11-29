@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
-using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 public class LoadingManager : MonoBehaviourPun
 {
@@ -44,5 +44,21 @@ public class LoadingManager : MonoBehaviourPun
         {
             PhotonNetwork.LoadLevel("Game");
         }
+    }
+
+    public void Main()
+    {
+        PhotonNetwork.LeaveRoom();
+        SceneManager.LoadScene("Main");
+    }
+
+    public void ButtonDown(GameObject button)
+    {
+        button.transform.GetChild(0).transform.localPosition -= new Vector3(0f, 20f, 0f);
+    }
+
+    public void ButtonUp(GameObject button)
+    {
+        button.transform.GetChild(0).transform.localPosition += new Vector3(0f, 20f, 0f);
     }
 }

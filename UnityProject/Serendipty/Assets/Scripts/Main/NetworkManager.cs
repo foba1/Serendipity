@@ -11,29 +11,50 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     private string gameVersion = "1";
 
     public Text connectStateText;
+    public GameObject selectedDeckText;
 
     private void Start()
     {
         if (PhotonNetwork.IsConnected)
         {
-            connectStateText.text = "Online";
+            connectStateText.text = "온라인";
         }
         else
         {
-            connectStateText.text = "Connecting to server...";
+            connectStateText.text = "서버에 접속중...";
             PhotonNetwork.GameVersion = gameVersion;
             PhotonNetwork.ConnectUsingSettings();
         }
     }
 
+    public void InitializeCardForTest()
+    {
+        PlayerPrefs.DeleteAll();
+        for (int i = 0; i < StaticVariable.CardCount; i++)
+        {
+            if (i % 4 == 3)
+            {
+                PlayerPrefs.SetInt("Card" + i, 1);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("Card" + i, 3);
+            }
+            PlayerPrefs.SetInt("Card" + i, 3);
+        }
+        PlayerPrefs.SetInt("Gold", 99999);
+        PlayerPrefs.SetInt("DeckCount", 0);
+        PlayerPrefs.Save();
+    }
+
     public override void OnConnectedToMaster()
     {
-        connectStateText.text = "Online";
+        connectStateText.text = "온라인";
     }
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-        connectStateText.text = "Fail to connect server...";
+        connectStateText.text = "서버 접속에 실패하였습니다..";
         PhotonNetwork.ConnectUsingSettings();
     }
 
@@ -41,20 +62,18 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsConnected)
         {
-            StaticVariable.MyDeck = "33000000333030003330";
             if (StaticVariable.MyDeck == "" || StaticVariable.MyDeck.Length != StaticVariable.CardCount)
             {
-                connectStateText.text = "Please select your deck.";
+                selectedDeckText.GetComponent<Text>().text = "덱을 선택해야 합니다.";
             }
             else
             {
-                connectStateText.text = "Quick matching...";
                 PhotonNetwork.JoinRandomRoom();
             }
         }
         else
         {
-            connectStateText.text = "Fail to connect server...";
+            connectStateText.text = "서버 접속에 실패하였습니다..";
             PhotonNetwork.ConnectUsingSettings();
         }
     }

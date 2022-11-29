@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.EventSystems;
 
 public class CollectionManager : MonoBehaviour
 {
@@ -37,6 +38,16 @@ public class CollectionManager : MonoBehaviour
         selectedDeckCardIndex = -1;
         InitializeInfo();
         UpdateInfo();
+    }
+
+    public void ButtonDown(GameObject button)
+    {
+        button.transform.GetChild(0).transform.localPosition -= new Vector3(0f, 20f, 0f);
+    }
+
+    public void ButtonUp(GameObject button)
+    {
+        button.transform.GetChild(0).transform.localPosition += new Vector3(0f, 20f, 0f);
     }
 
     public void Main()
@@ -112,10 +123,40 @@ public class CollectionManager : MonoBehaviour
         if (PlayerPrefs.HasKey("Card" + selectedDeckCardIndex))
         {
             deckCardInfoPanel.SetActive(true);
-            deckCardInfoPanel.transform.GetChild(2).GetComponent<Text>().text = "Card " + selectedDeckCardIndex;
-            deckCardInfoPanel.transform.GetChild(3).GetComponent<Image>().sprite = Resources.Load<Sprite>("Card/" + selectedDeckCardIndex);
-            deckCardInfoPanel.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "x " + GetCardCountFromDeck(deck, selectedDeckCardIndex);
-            deckCardInfoPanel.transform.GetChild(4).GetComponent<Text>().text = "This is card " + selectedDeckCardIndex;
+            if (deckCardInfoPanel.transform.childCount > 0)
+            {
+                for (int i = deckCardInfoPanel.transform.childCount - 1; i >= 0; i--)
+                {
+                    Destroy(deckCardInfoPanel.transform.GetChild(i).gameObject);
+                }
+            }
+            GameObject cardInfo = Instantiate(Resources.Load<GameObject>("Collection/Info/" + selectedDeckCardIndex), deckCardInfoPanel.transform);
+            cardInfo.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => ExitDeckCardInfo());
+            cardInfo.transform.GetChild(7).GetChild(1).GetComponent<Text>().text = "x " + GetCardCountFromDeck(deck, selectedDeckCardIndex);
+
+            GameObject buyButton = cardInfo.transform.GetChild(9).gameObject;
+            buyButton.transform.GetChild(0).GetComponent<Text>().text = "³Ö±â";
+            buyButton.GetComponent<Button>().onClick.AddListener(() => AddCardToDeck());
+            EventTrigger.Entry buyEntry1 = new EventTrigger.Entry();
+            buyEntry1.eventID = EventTriggerType.PointerDown;
+            buyEntry1.callback.AddListener(data => ButtonDown(buyButton));
+            buyButton.GetComponent<EventTrigger>().triggers.Add(buyEntry1);
+            EventTrigger.Entry buyEntry2 = new EventTrigger.Entry();
+            buyEntry2.eventID = EventTriggerType.PointerUp;
+            buyEntry2.callback.AddListener(data => ButtonUp(buyButton));
+            buyButton.GetComponent<EventTrigger>().triggers.Add(buyEntry2);
+
+            GameObject sellButton = cardInfo.transform.GetChild(10).gameObject;
+            sellButton.transform.GetChild(0).GetComponent<Text>().text = "»©±â";
+            sellButton.GetComponent<Button>().onClick.AddListener(() => SubCardFromDeck());
+            EventTrigger.Entry sellEntry1 = new EventTrigger.Entry();
+            sellEntry1.eventID = EventTriggerType.PointerDown;
+            sellEntry1.callback.AddListener(data => ButtonDown(sellButton));
+            sellButton.GetComponent<EventTrigger>().triggers.Add(sellEntry1);
+            EventTrigger.Entry sellEntry2 = new EventTrigger.Entry();
+            sellEntry2.eventID = EventTriggerType.PointerUp;
+            sellEntry2.callback.AddListener(data => ButtonUp(sellButton));
+            sellButton.GetComponent<EventTrigger>().triggers.Add(sellEntry2);
         }
     }
 
@@ -124,7 +165,7 @@ public class CollectionManager : MonoBehaviour
         if (PlayerPrefs.HasKey("Deck" + (selectedDeckIndex + 1)))
         {
             string deck = PlayerPrefs.GetString("Deck" + (selectedDeckIndex + 1));
-            deckCardInfoPanel.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "x " + GetCardCountFromDeck(deck, selectedDeckCardIndex);
+            deckCardInfoPanel.transform.GetChild(0).GetChild(7).GetChild(1).GetComponent<Text>().text = "x " + GetCardCountFromDeck(deck, selectedDeckCardIndex);
         }
     }
 
@@ -144,8 +185,20 @@ public class CollectionManager : MonoBehaviour
             if (index < StaticVariable.CardCount)
             {
                 cardTransform.gameObject.SetActive(true);
-                cardTransform.GetComponent<Image>().sprite = Resources.Load<Sprite>("Card/" + index);
-                cardTransform.GetChild(0).GetComponent<Text>().text = "x " + GetCardCountFromDeck(deck, index);
+                if (cardTransform.childCount > 0)
+                {
+                    for (int j = cardTransform.childCount - 1; j >= 0; j--)
+                    {
+                        Destroy(cardTransform.GetChild(j).gameObject);
+                    }
+                }
+                GameObject card = Instantiate(Resources.Load<GameObject>("Collection/Card/" + index), cardTransform);
+                int temp = i;
+                card.AddComponent<Button>();
+                card.GetComponent<Button>().onClick.AddListener(() => SelectDeckCard(temp));
+                card.GetComponent<Button>().transition = Selectable.Transition.None;
+                GameObject text = Instantiate(Resources.Load<GameObject>("Collection/Card/Text"), cardTransform);
+                text.GetComponent<Text>().text = "x " + GetCardCountFromDeck(deck, index);
             }
             else
             {
@@ -202,7 +255,7 @@ public class CollectionManager : MonoBehaviour
         {
             string deckName = PlayerPrefs.GetString("Deck" + (index + 1) + "Name");
             deckInfoPanel.SetActive(true);
-            deckInfoPanel.transform.GetChild(1).GetComponent<Text>().text = deckName;
+            deckInfoPanel.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = deckName;
             UpdateDeckCardPage();
         }
     }
@@ -283,10 +336,38 @@ public class CollectionManager : MonoBehaviour
         if (PlayerPrefs.HasKey("Card" + selectedCardIndex))
         {
             cardInfoPanel.SetActive(true);
-            cardInfoPanel.transform.GetChild(2).GetComponent<Text>().text = "Card " + selectedCardIndex;
-            cardInfoPanel.transform.GetChild(3).GetComponent<Image>().sprite = Resources.Load<Sprite>("Card/" + selectedCardIndex);
-            cardInfoPanel.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "x " + PlayerPrefs.GetInt("Card" + selectedCardIndex);
-            cardInfoPanel.transform.GetChild(4).GetComponent<Text>().text = "This is card " + selectedCardIndex;
+            if (cardInfoPanel.transform.childCount > 0)
+            {
+                for (int i = cardInfoPanel.transform.childCount - 1; i >= 0; i--)
+                {
+                    Destroy(cardInfoPanel.transform.GetChild(i).gameObject);
+                }
+            }
+            GameObject cardInfo = Instantiate(Resources.Load<GameObject>("Collection/Info/" + selectedCardIndex), cardInfoPanel.transform);
+            cardInfo.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => ExitCardInfo());
+            cardInfo.transform.GetChild(7).GetChild(1).GetComponent<Text>().text = "x " + PlayerPrefs.GetInt("Card" + selectedCardIndex);
+
+            GameObject buyButton = cardInfo.transform.GetChild(9).gameObject;
+            buyButton.GetComponent<Button>().onClick.AddListener(() => BuyCard());
+            EventTrigger.Entry buyEntry1 = new EventTrigger.Entry();
+            buyEntry1.eventID = EventTriggerType.PointerDown;
+            buyEntry1.callback.AddListener(data => ButtonDown(buyButton));
+            buyButton.GetComponent<EventTrigger>().triggers.Add(buyEntry1);
+            EventTrigger.Entry buyEntry2 = new EventTrigger.Entry();
+            buyEntry2.eventID = EventTriggerType.PointerUp;
+            buyEntry2.callback.AddListener(data => ButtonUp(buyButton));
+            buyButton.GetComponent<EventTrigger>().triggers.Add(buyEntry2);
+
+            GameObject sellButton = cardInfo.transform.GetChild(10).gameObject;
+            sellButton.GetComponent<Button>().onClick.AddListener(() => SellCard());
+            EventTrigger.Entry sellEntry1 = new EventTrigger.Entry();
+            sellEntry1.eventID = EventTriggerType.PointerDown;
+            sellEntry1.callback.AddListener(data => ButtonDown(sellButton));
+            sellButton.GetComponent<EventTrigger>().triggers.Add(sellEntry1);
+            EventTrigger.Entry sellEntry2 = new EventTrigger.Entry();
+            sellEntry2.eventID = EventTriggerType.PointerUp;
+            sellEntry2.callback.AddListener(data => ButtonUp(sellButton));
+            sellButton.GetComponent<EventTrigger>().triggers.Add(sellEntry2);
         }
     }
 
@@ -364,7 +445,7 @@ public class CollectionManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("Card" + selectedCardIndex))
         {
-            cardInfoPanel.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "x " + PlayerPrefs.GetInt("Card" + selectedCardIndex);
+            cardInfoPanel.transform.GetChild(0).GetChild(7).GetChild(1).GetComponent<Text>().text = "x " + PlayerPrefs.GetInt("Card" + selectedCardIndex);
         }
     }
 
@@ -375,14 +456,17 @@ public class CollectionManager : MonoBehaviour
 
     private void InitializeInfo()
     {
-        PlayerPrefs.DeleteAll();
-        for (int i = 0; i < StaticVariable.CardCount; i++)
+        if (!PlayerPrefs.HasKey("Gold"))
         {
-            PlayerPrefs.SetInt("Card" + i, 0);
+            PlayerPrefs.DeleteAll();
+            for (int i = 0; i < StaticVariable.CardCount; i++)
+            {
+                PlayerPrefs.SetInt("Card" + i, 0);
+            }
+            PlayerPrefs.SetInt("Gold", 0);
+            PlayerPrefs.SetInt("DeckCount", 0);
+            PlayerPrefs.Save();
         }
-        PlayerPrefs.SetInt("Gold", 1000);
-        PlayerPrefs.SetInt("DeckCount", 0);
-        PlayerPrefs.Save();
     }
 
     private void UpdateInfo()
@@ -397,7 +481,7 @@ public class CollectionManager : MonoBehaviour
         if (PlayerPrefs.HasKey("Gold"))
         {
             gold = PlayerPrefs.GetInt("Gold");
-            goldText.text = "Gold : " + gold;
+            goldText.text = "x " + gold;
         }
     }
 
@@ -412,10 +496,22 @@ public class CollectionManager : MonoBehaviour
             if (index < StaticVariable.CardCount)
             {
                 cardTransform.gameObject.SetActive(true);
-                cardTransform.GetComponent<Image>().sprite = Resources.Load<Sprite>("Card/" + index);
+                if (cardTransform.childCount > 0)
+                {
+                    for (int j = cardTransform.childCount - 1; j >= 0; j--)
+                    {
+                        Destroy(cardTransform.GetChild(j).gameObject);
+                    }
+                }
+                GameObject card = Instantiate(Resources.Load<GameObject>("Collection/Card/" + index), cardTransform);
+                int temp = i;
+                card.AddComponent<Button>();
+                card.GetComponent<Button>().onClick.AddListener(() => SelectCard(temp));
+                card.GetComponent<Button>().transition = Selectable.Transition.None;
+                GameObject text = Instantiate(Resources.Load<GameObject>("Collection/Card/Text"), cardTransform);
                 if (PlayerPrefs.HasKey("Card" + index))
                 {
-                    cardTransform.GetChild(0).GetComponent<Text>().text = "x " + PlayerPrefs.GetInt("Card" + index);
+                    text.GetComponent<Text>().text = "x " + PlayerPrefs.GetInt("Card" + index);
                 }
             }
             else
