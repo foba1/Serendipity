@@ -45,19 +45,20 @@ public class GraveManager : MonoBehaviour
 
     public int RandomPop(int area)
     {
+        int result, index;
         if (area == 0)
         {
             if (redGraveList.Count == 0) return -1;
-            int index = Random.Range(0, redGraveList.Count);
-            int result = redGraveList[index];
+            index = Random.Range(0, redGraveList.Count);
+            result = redGraveList[index];
             redGraveList.RemoveAt(index);
             return result;
         }
         else
         {
             if (blueGraveList.Count == 0) return -1;
-            int index = Random.Range(0, blueGraveList.Count);
-            int result = blueGraveList[index];
+            index = Random.Range(0, blueGraveList.Count);
+            result = blueGraveList[index];
             blueGraveList.RemoveAt(index);
             return result;
         }
@@ -65,18 +66,56 @@ public class GraveManager : MonoBehaviour
 
     public int Pop(int area)
     {
+        int result;
         if (area == 0)
         {
             if (redGraveList.Count == 0) return -1;
-            int result = redGraveList[redGraveList.Count - 1];
+            result = redGraveList[redGraveList.Count - 1];
             redGraveList.RemoveAt(redGraveList.Count - 1);
             return result;
         }
         else
         {
             if (blueGraveList.Count == 0) return -1;
-            int result = blueGraveList[blueGraveList.Count - 1];
+            result = blueGraveList[blueGraveList.Count - 1];
             blueGraveList.RemoveAt(blueGraveList.Count - 1);
+            return result;
+        }
+    }
+
+    public int UndeadPop(int area)
+    {
+        int result;
+        if (area == 0)
+        {
+            if (redGraveList.Count == 0) return -1;
+            for (int i = redGraveList.Count - 1; i >= 0; i--)
+            {
+                if (redGraveList[i] / 4 == 1)
+                {
+                    result = redGraveList[i];
+                    redGraveList.RemoveAt(i);
+                    return result;
+                }
+                else continue;
+            }
+            result = -1;
+            return result;
+        }
+        else
+        {
+            if (blueGraveList.Count == 0) return -1;
+            for (int i = blueGraveList.Count - 1; i >= 0; i--)
+            {
+                if (blueGraveList[i] / 4 == 1)
+                {
+                    result = blueGraveList[i];
+                    blueGraveList.RemoveAt(i);
+                    return result;
+                }
+                else continue;
+            }
+            result = -1;
             return result;
         }
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
 public class Lich : Creature
 {
@@ -86,6 +87,25 @@ public class Lich : Creature
         curPosition = pos;
         isAttackFinished = false;
         UpdateInfoText();
+
+        int area;
+        if (pos / 6 == 0) area = 0;
+        else area = 1;
+        for (int i = 0; i < 6; i++)
+        {
+            if (FieldManager.Instance.fieldObject[area * 6 + i].transform.childCount > 0) continue;
+            else
+            {
+                int index = GraveManager.Instance.UndeadPop(area);
+                if (index != -1)
+                {
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.Instance.photonView.RPC("SpawnCreature", RpcTarget.AllBuffered, area * 6 + i, index);
+                    }
+                }
+            }
+        }
     }
 
     public override void Attack(int pos)
