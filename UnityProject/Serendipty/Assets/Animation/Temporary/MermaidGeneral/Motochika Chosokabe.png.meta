@@ -1,0 +1,630 @@
+fileFormatVersion: 2
+guid: d9d782eea8ad7a64ea3fd86a4f0cbb5f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Motochika Chosokabe_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 285
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfc9994b8ab71934eb209452bcacdb6c
+      internalID: -1332037670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_1
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 285
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfd6764b506f45c489b941682c5241dc
+      internalID: -987323488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_2
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 285
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 458ac77165ababf498b60d0bde226d9d
+      internalID: 1769167722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_3
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 285
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29c17e366a0423145b5425a3fee261d1
+      internalID: -942138694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_4
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 285
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 278fdc9b0a996d84cb1bfe7234d6b342
+      internalID: -1722194683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_5
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 285
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1a8740bc24ceaa40885ad1342322830
+      internalID: 1105415887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_6
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 285
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be9516f38a1ef2d42b95bc5b8e0ec169
+      internalID: -2067130243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_7
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 285
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dcda8b6940dbe84594d4d60fa1bcd28
+      internalID: -73416166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_8
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 170
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3c9cc754f00d8744a9df009a3a4c84f
+      internalID: 1809365909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_9
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 170
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1faa74f9df1a2d54fa65585b2d4308e0
+      internalID: 1694058865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_10
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 170
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eb167cf2387d9340bd7cee17168117c
+      internalID: -1083302374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_11
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 170
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cace1f52d47743468e951872097c14a
+      internalID: -1277868012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_12
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 170
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 190ff70502c25db44a03f9896329632f
+      internalID: 1156664943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_13
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 170
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdb73d5185e5d13468bb88ccb89ae27c
+      internalID: 1409872498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_14
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 170
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 629aa1d2ba1216148b98383a882f4c13
+      internalID: -1441794963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_15
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 170
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96b2802e5d0f24a42b3e7af54951b8f2
+      internalID: -2126241890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_16
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 55
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1b0859dd5163d748a8a39c6deba2df0
+      internalID: -1697385183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_17
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 55
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9fb1c1830086e74a990c1a15c2d98ab
+      internalID: -1754166880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_18
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 55
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc20fd9823b8f25459616ea481f89235
+      internalID: -870093926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_19
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 55
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b03bf26df8df00943b92a64bef558e85
+      internalID: 667721961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_20
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 55
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c9764c0d146804b8d5010379dcb1fc
+      internalID: 606557705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_21
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 55
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b95c818055c6054387d0a4cd8dc83a7
+      internalID: 871774160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Motochika Chosokabe_22
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 55
+        width: 120
+        height: 115
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 355fbdcca4082394ea3ceb8a363f5f5a
+      internalID: -198263192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Motochika Chosokabe_7: -73416166
+      Motochika Chosokabe_13: 1409872498
+      Motochika Chosokabe_4: -1722194683
+      Motochika Chosokabe_6: -2067130243
+      Motochika Chosokabe_5: 1105415887
+      Motochika Chosokabe_3: -942138694
+      Motochika Chosokabe_14: -1441794963
+      Motochika Chosokabe_21: 871774160
+      Motochika Chosokabe_15: -2126241890
+      Motochika Chosokabe_8: 1809365909
+      Motochika Chosokabe_20: 606557705
+      Motochika Chosokabe_2: 1769167722
+      Motochika Chosokabe_9: 1694058865
+      Motochika Chosokabe_16: -1697385183
+      Motochika Chosokabe_22: -198263192
+      Motochika Chosokabe_23: -955907995
+      Motochika Chosokabe_10: -1083302374
+      Motochika Chosokabe_1: -987323488
+      Motochika Chosokabe_18: -870093926
+      Motochika Chosokabe_17: -1754166880
+      Motochika Chosokabe_12: 1156664943
+      Motochika Chosokabe_11: -1277868012
+      Motochika Chosokabe_0: -1332037670
+      Motochika Chosokabe_19: 667721961
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

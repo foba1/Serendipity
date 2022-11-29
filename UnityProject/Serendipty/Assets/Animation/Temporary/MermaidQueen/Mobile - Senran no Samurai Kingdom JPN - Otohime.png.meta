@@ -1,0 +1,448 @@
+fileFormatVersion: 2
+guid: 67bd5247adcd6e6419825a0ae635f61a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mobile - Senran no Samurai Kingdom JPN - Otohime_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 297
+        width: 76
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 240ee2fc832e8e74dbba8c49bd1060e6
+      internalID: -383963200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Senran no Samurai Kingdom JPN - Otohime_3
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 297
+        width: 78
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1afd7a90cad15b1468f8ec0498eb04d7
+      internalID: 1946308742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Senran no Samurai Kingdom JPN - Otohime_5
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 297
+        width: 80
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fd069edf82f89841899dda4c24fd41a
+      internalID: -163130077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Senran no Samurai Kingdom JPN - Otohime_6
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 297
+        width: 78
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4873a9e238095bc4a9416baaea45b82d
+      internalID: -1136603981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Senran no Samurai Kingdom JPN - Otohime_7
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 297
+        width: 75
+        height: 71
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 951af10fa9b334e4ab41773a1f084eb2
+      internalID: 483560804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Senran no Samurai Kingdom JPN - Otohime_8
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 288
+        width: 106
+        height: 105
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec962f41c7535bf4aa3cf167927ce6df
+      internalID: 1855616545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Senran no Samurai Kingdom JPN - Otohime_10
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 297
+        width: 90
+        height: 75
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db456ea982c5ddc43b52c08538d7cf5a
+      internalID: 1914175605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Senran no Samurai Kingdom JPN - Otohime_12
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 297
+        width: 96
+        height: 77
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dc848c582bb5f847a0c15aaf0a46f7c
+      internalID: -912492650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Senran no Samurai Kingdom JPN - Otohime_23
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 193
+        width: 77
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4a265bc4940da84496fd847e5f64f62
+      internalID: -247468260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Senran no Samurai Kingdom JPN - Otohime_42
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 175
+        width: 90
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69b8416f8573ac640b9d3ee1a305b315
+      internalID: 995006620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Senran no Samurai Kingdom JPN - Otohime_53
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 106
+        width: 13
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 923f32b08831546408c5ba0fb99b229e
+      internalID: 1849196862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Senran no Samurai Kingdom JPN - Otohime_68
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 79
+        width: 9
+        height: 14
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f3cd12ce32688d48bc76ac0ca15173f
+      internalID: -1711885798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_33: 338655763
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_26: 2030249701
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_51: 1924019685
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_40: -114797136
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_37: -955402012
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_11: -2012320126
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_57: 1931411854
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_39: 746213115
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_63: -1533430680
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_62: -407694959
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_10: 1914175605
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_41: 32417703
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_44: -377795037
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_49: -120811776
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_17: -1214601354
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_43: -1796424161
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_64: 1159018983
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_29: 1458736573
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_25: 312576158
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_48: 689347266
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_65: -1065426501
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_70: 1708041766
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_31: 950983692
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_8: 1855616545
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_16: -715376823
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_13: 840903408
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_4: 1704182108
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_5: -163130077
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_58: 1553580429
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_24: 1106609280
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_67: 143661424
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_21: 1953938923
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_1: 298921351
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_61: -435543582
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_53: 1849196862
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_12: -912492650
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_7: 483560804
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_9: -303548946
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_22: 1027281445
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_2: -1713853166
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_15: -1840694099
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_23: -247468260
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_52: 1688789932
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_34: 94222874
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_36: 1278192718
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_3: 1946308742
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_38: 205610166
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_6: -1136603981
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_19: -1117245246
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_32: -1025049261
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_56: -1112254684
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_50: 1875664907
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_47: -2093720736
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_59: 1939920940
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_68: -1711885798
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_69: -2113147384
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_14: 1812260848
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_28: -207933473
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_18: 1702543271
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_60: -707069125
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_71: -1362018317
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_54: -650263886
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_42: 995006620
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_72: -1491461201
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_35: -2033206118
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_30: 1243665265
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_0: -383963200
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_45: -1011653109
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_46: -1124582598
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_55: -146233262
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_27: 924685564
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_20: -1151943349
+      Mobile - Senran no Samurai Kingdom JPN - Otohime_66: 935850007
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
