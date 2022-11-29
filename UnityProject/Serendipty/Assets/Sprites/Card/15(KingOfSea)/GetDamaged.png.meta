@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: unit_standby_100034717_0
+      name: GetDamaged_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 179.66666
-        width: 81.333336
-        height: 82.333336
+        x: 0
+        y: 178
+        width: 88
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6def08dab1a2305499097c20081256e0
-      internalID: -1552972616
+      spriteID: 410f79ac0e4af14428cea3be22838baf
+      internalID: 577771068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: unit_standby_100034717_1
+      name: GetDamaged_1
       rect:
         serializedVersion: 2
-        x: 91
-        y: 179.66666
-        width: 81.333336
-        height: 82.333336
+        x: 88
+        y: 178
+        width: 88
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a41709b851a9d24caf280767ee2edf9
-      internalID: 217542083
+      spriteID: c12968c989c5ca143abf173fd6aafd64
+      internalID: 248664822
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: unit_standby_100034717_2
+      name: GetDamaged_2
       rect:
         serializedVersion: 2
-        x: 177
-        y: 179.66666
-        width: 81.333336
-        height: 82.333336
+        x: 176
+        y: 178
+        width: 88
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca0a0017f6e3fb44fa3d300e55126f68
-      internalID: 1287881453
+      spriteID: 85819b0f05bfee14e85871dcbdfdda43
+      internalID: -1505593323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: unit_standby_100034717_3
+      name: GetDamaged_3
       rect:
         serializedVersion: 2
-        x: 5
-        y: 92.666664
-        width: 81.333336
-        height: 82.333336
+        x: 0
+        y: 89
+        width: 88
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7042680c2b918ba4f8cd74fa2fc8cc20
-      internalID: 949941344
+      spriteID: 876d08d0b98163243920526c3aa621a9
+      internalID: -1391712633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: unit_standby_100034717_4
+      name: GetDamaged_4
       rect:
         serializedVersion: 2
-        x: 91
-        y: 92.666664
-        width: 81.333336
-        height: 82.333336
+        x: 88
+        y: 89
+        width: 88
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 483648a905baaad45b45f6f7ccd31197
-      internalID: -248561183
+      spriteID: 466541cec16ef0e4d9e8a16a3d1e256a
+      internalID: 371505442
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: unit_standby_100034717_5
+      name: GetDamaged_5
       rect:
         serializedVersion: 2
-        x: 177
-        y: 92.666664
-        width: 81.333336
-        height: 82.333336
+        x: 176
+        y: 89
+        width: 88
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efb2bc3a4e3e26448a60a4a8930ec787
-      internalID: 258836531
+      spriteID: f21a31313cabaf24ca4e6ae13c99d905
+      internalID: -183256225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: unit_standby_100034717_6
+      name: GetDamaged_6
       rect:
         serializedVersion: 2
-        x: 5
-        y: 5.666664
-        width: 81.333336
-        height: 82.333336
+        x: 0
+        y: 0
+        width: 88
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7187e07d76083a94eb39b47dad90024d
-      internalID: -1035800672
+      spriteID: 29f74fb54f68f604b92a3ca2f9b006f9
+      internalID: -1844272410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: unit_standby_100034717_7
+      name: GetDamaged_7
       rect:
         serializedVersion: 2
-        x: 91
-        y: 5.666664
-        width: 81.333336
-        height: 82.333336
+        x: 88
+        y: 0
+        width: 88
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,8 +266,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7acef05e038a2143b5535ff46fb125f
-      internalID: 1210902918
+      spriteID: 3f1f8a3ca3e09444998588bda97acfb0
+      internalID: 1241051466
       vertices: []
       indices: 
       edges: []
@@ -283,14 +283,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      unit_standby_100034717_2: 1287881453
-      unit_standby_100034717_6: -1035800672
-      unit_standby_100034717_1: 217542083
-      unit_standby_100034717_4: -248561183
-      unit_standby_100034717_0: -1552972616
-      unit_standby_100034717_3: 949941344
-      unit_standby_100034717_7: 1210902918
-      unit_standby_100034717_5: 258836531
+      GetDamaged_2: -1505593323
+      GetDamaged_5: -183256225
+      GetDamaged_6: -1844272410
+      GetDamaged_0: 577771068
+      GetDamaged_3: -1391712633
+      GetDamaged_7: 1241051466
+      GetDamaged_4: 371505442
+      GetDamaged_1: 248664822
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
