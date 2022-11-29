@@ -305,10 +305,16 @@ public class CollectionManager : MonoBehaviour
         if (PlayerPrefs.HasKey("Card" + selectedCardIndex))
         {
             cardInfoPanel.SetActive(true);
-            cardInfoPanel.transform.GetChild(2).GetComponent<Text>().text = "Card " + selectedCardIndex;
-            cardInfoPanel.transform.GetChild(3).GetComponent<Image>().sprite = Resources.Load<Sprite>("Card/" + selectedCardIndex);
-            cardInfoPanel.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "x " + PlayerPrefs.GetInt("Card" + selectedCardIndex);
-            cardInfoPanel.transform.GetChild(4).GetComponent<Text>().text = "This is card " + selectedCardIndex;
+            if (cardInfoPanel.transform.childCount > 0)
+            {
+                for (int i = cardInfoPanel.transform.childCount - 1; i >= 0; i--)
+                {
+                    Destroy(cardInfoPanel.transform.GetChild(i).gameObject);
+                }
+            }
+            GameObject cardInfo = Instantiate(Resources.Load<GameObject>("Collection/Info/" + selectedCardIndex), cardInfoPanel.transform);
+            cardInfo.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => ExitCardInfo());
+            cardInfo.transform.GetChild(7).GetChild(1).GetComponent<Text>().text = "x " + PlayerPrefs.GetInt("Card" + selectedCardIndex);
         }
     }
 
