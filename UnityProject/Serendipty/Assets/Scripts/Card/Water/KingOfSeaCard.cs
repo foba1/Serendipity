@@ -7,10 +7,10 @@ public class KingOfSeaCard : Card
     private void Start()
     {
         cardIndex = StaticVariable.KingOfSea;
-        cardClass = StaticVariable.Normal;
+        cardClass = StaticVariable.Legendary;
         cardProperty = StaticVariable.Water;
         cardType = StaticVariable.Creature;
-        cost = 5;
+        cost = 8;
         additionalCost = 0;
     }
 }

@@ -862,9 +862,9 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: "\uC120\uD0DD\uD55C \uB300\uC0C1\uC5D0\uAC8C \uD53C\uD574\uB97C 60 \uC8FC\uACE0,\n\n\uB300\uC0C1\uC744
-    \uCC98\uCE58\uD558\uBA74 \uBAA8\uB4E0 \uC544\uAD70 \uBB3C \uC18D\uC131\n\n\uC0DD\uBB3C\uC5D0\uAC8C
+    m_LineSpacing: 1.3
+  m_Text: "\uC120\uD0DD\uD55C \uB300\uC0C1\uC5D0\uAC8C \uD53C\uD574\uB97C 60 \uC8FC\uACE0,\n\uB300\uC0C1\uC744
+    \uCC98\uCE58\uD558\uBA74 \uBAA8\uB4E0 \uC544\uAD70 \uBB3C \uC18D\uC131\n\uC0DD\uBB3C\uC5D0\uAC8C
     +10 / +10 \uBC84\uD504\uB97C \uBD80\uC5EC\uD569\uB2C8\uB2E4."
 --- !u!114 &424871729318605368
 MonoBehaviour:

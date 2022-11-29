@@ -13,7 +13,7 @@ public class KingOfSea : Creature
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetTrigger("Death");
 
-        yield return new WaitForSecondsRealtime(0.600f);
+        yield return new WaitForSecondsRealtime(0.350f);
 
         Destroy(gameObject);
     }
@@ -26,7 +26,7 @@ public class KingOfSea : Creature
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetTrigger("GetDamaged");
 
-        yield return new WaitForSecondsRealtime(0.850f);
+        yield return new WaitForSecondsRealtime(0.833f);
 
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         transform.GetChild(2).GetChild(0).GetComponent<Text>().color = new Color(1f, 1f, 1f, 1f);
@@ -50,7 +50,7 @@ public class KingOfSea : Creature
 
         FieldManager.Instance.fieldObject[pos].transform.GetChild(0).GetComponent<Creature>().GetDamaged(power);
 
-        yield return new WaitForSecondsRealtime(0.420f);
+        yield return new WaitForSecondsRealtime(0.737f);
 
         transform.position = FieldManager.Instance.fieldObject[curPosition].transform.position;
         isAttackFinished = true;
@@ -59,14 +59,14 @@ public class KingOfSea : Creature
     public override void Instantiate(int pos)
     {
         cardIndex = StaticVariable.KingOfSea;
-        cardClass = StaticVariable.Normal;
+        cardClass = StaticVariable.Legendary;
         cardProperty = StaticVariable.Water;
         cardType = StaticVariable.Creature;
-        cost = 5;
+        cost = 8;
         additionalCost = 0;
 
-        power = 60;
-        health = 150;
+        power = 80;
+        health = 200;
         ableToAct = true;
         curPosition = pos;
         isAttackFinished = false;
@@ -74,18 +74,48 @@ public class KingOfSea : Creature
 
         for (int i = 0; i < FieldManager.Instance.fieldObject.Length; i++)
         {
-            if (i / 6 == curPosition / 6 && i != pos)
+            if (FieldManager.Instance.fieldObject[i].transform.childCount > 0)
             {
-                if (FieldManager.Instance.fieldObject[i].transform.childCount > 0)
+                Creature creature = FieldManager.Instance.fieldObject[i].transform.GetChild(0).GetComponent<Creature>();
+                if (creature != null)
                 {
-                    Creature creature = FieldManager.Instance.fieldObject[i].transform.GetChild(0).GetComponent<Creature>();
-                    if (creature != null)
+                    if (i / 6 == curPosition / 6 && i != pos)
                     {
                         if (creature.cardProperty == StaticVariable.Water)
                         {
                             creature.health += 50;
                             creature.power += 50;
                             creature.UpdateInfoText();
+                        }
+                    }
+                    if (!creature.isPlayer)
+                    {
+                        int temp = creature.health;
+                        creature.health = creature.power;
+                        creature.power = temp;
+                        creature.UpdateInfoText();
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                if (FieldManager.Instance.fieldObject[i * 6 + j].transform.childCount > 0)
+                {
+                    Creature creature = FieldManager.Instance.fieldObject[i * 6 + j].transform.GetChild(0).GetComponent<Creature>();
+                    if (creature != null)
+                    {
+                        FieldManager.Instance.Move(i * 6 + j, i * 6 + j + 3);
+                    }
+                    else
+                    {
+                        creature = FieldManager.Instance.fieldObject[i * 6 + j + 3].transform.GetChild(0).GetComponent<Creature>();
+                        if (creature != null)
+                        {
+                            FieldManager.Instance.Move(i * 6 + j + 3, i * 6 + j);
                         }
                     }
                 }
