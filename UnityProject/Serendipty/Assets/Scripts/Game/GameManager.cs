@@ -94,6 +94,16 @@ public class GameManager : MonoBehaviourPun
         topObject.transform.GetChild(1).GetComponent<Text>().text = Mathf.FloorToInt(60f + startTime - Time.time).ToString();
     }
 
+    public void ButtonDown(GameObject button)
+    {
+        button.transform.GetChild(0).transform.localPosition -= new Vector3(0f, 20f, 0f);
+    }
+
+    public void ButtonUp(GameObject button)
+    {
+        button.transform.GetChild(0).transform.localPosition += new Vector3(0f, 20f, 0f);
+    }
+
     [PunRPC]
     public void GoToNextTurn(int nextTurn)
     {
