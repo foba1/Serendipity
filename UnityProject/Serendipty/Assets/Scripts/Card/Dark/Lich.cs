@@ -74,14 +74,14 @@ public class Lich : Creature
     public override void Instantiate(int pos)
     {
         cardIndex = StaticVariable.Lich;
-        cardClass = StaticVariable.Normal;
+        cardClass = StaticVariable.Legendary;
         cardProperty = StaticVariable.Dark;
         cardType = StaticVariable.Creature;
-        cost = 1;
+        cost = 8;
         additionalCost = 0;
 
-        power = 30;
-        health = 20;
+        power = 60;
+        health = 120;
         ableToAct = true;
         curPosition = pos;
         isAttackFinished = false;

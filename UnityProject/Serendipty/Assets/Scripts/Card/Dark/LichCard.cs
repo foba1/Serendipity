@@ -7,10 +7,10 @@ public class LichCard : Card
     private void Start()
     {
         cardIndex = StaticVariable.Lich;
-        cardClass = StaticVariable.Normal;
+        cardClass = StaticVariable.Legendary;
         cardProperty = StaticVariable.Dark;
         cardType = StaticVariable.Creature;
-        cost = 1;
+        cost = 8;
         additionalCost = 0;
     }
 }
