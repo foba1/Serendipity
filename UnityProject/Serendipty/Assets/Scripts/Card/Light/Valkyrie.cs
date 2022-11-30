@@ -80,7 +80,7 @@ public class Valkyrie : Creature
         }
         else
         {
-            index = GraveManager.Instance.HighLightPop(0);
+            index = GraveManager.Instance.HighLightPop(1);
         }
         if (index != -1)
         {

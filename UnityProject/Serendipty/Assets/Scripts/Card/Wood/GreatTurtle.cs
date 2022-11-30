@@ -54,7 +54,11 @@ public class GreatTurtle : Creature
 
         for (int i = 0; i < 6; i++)
         {
-            FieldManager.Instance.fieldObject[area * 6 + i].transform.GetChild(0).GetComponent<Creature>().GetDamaged(power);
+            Creature creature = FieldManager.Instance.fieldObject[area * 6 + i].transform.GetChild(0).GetComponent<Creature>();
+            if (creature != null)
+            {
+                FieldManager.Instance.fieldObject[area * 6 + i].transform.GetChild(0).GetComponent<Creature>().GetDamaged(power);
+            }
         }
 
         yield return new WaitForSecondsRealtime(0.653f);
