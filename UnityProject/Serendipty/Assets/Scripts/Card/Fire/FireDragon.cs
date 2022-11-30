@@ -83,8 +83,8 @@ public class FireDragon : Creature
         }
         else
         {
-            area2 = 1;
-            area1 = 0;
+            area1 = 1;
+            area2 = 0;
         }
 
         for (int i = 0; i < 6; i++)

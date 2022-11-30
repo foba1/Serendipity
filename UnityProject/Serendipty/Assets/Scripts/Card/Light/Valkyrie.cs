@@ -91,7 +91,7 @@ public class Valkyrie : Creature
                 else area = 1;
                 for (int i = 0; i < 6; i++)
                 {
-                    if (FieldManager.Instance.fieldObject[area * 6 + i].transform.childCount > 0) continue;
+                    if (FieldManager.Instance.fieldObject[area * 6 + i].transform.childCount > 0 || pos == i) continue;
                     else
                     {
                         spawnPos = i;
