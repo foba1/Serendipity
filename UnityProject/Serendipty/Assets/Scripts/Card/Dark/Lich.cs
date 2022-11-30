@@ -88,6 +88,9 @@ public class Lich : Creature
         isAttackFinished = false;
         UpdateInfoText();
 
+        Animator animator = transform.GetChild(0).GetComponent<Animator>();
+        animator.SetBool("Spawn", true);
+
         int area;
         if (pos / 6 == 0) area = 0;
         else area = 1;
