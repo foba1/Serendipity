@@ -93,7 +93,7 @@ public class FireDragon : Creature
             if (FieldManager.Instance.fieldObject[area1 * 6 + i].transform.childCount > 0)
             {
                 creature = FieldManager.Instance.fieldObject[area1 * 6 + i].transform.GetChild(0).GetComponent<Creature>();
-                if (creature != null)
+                if (creature != null && area1 * 6 + i != pos)
                 {
                     if (!creature.isPlayer)
                     {

@@ -91,7 +91,7 @@ public class Valkyrie : Creature
                 else area = 1;
                 for (int i = 0; i < 6; i++)
                 {
-                    if (FieldManager.Instance.fieldObject[area * 6 + i].transform.childCount > 0 || pos == i) continue;
+                    if (FieldManager.Instance.fieldObject[area * 6 + i].transform.childCount > 0) continue;
                     else
                     {
                         spawnPos = i;
@@ -100,7 +100,7 @@ public class Valkyrie : Creature
                 }
                 if (spawnPos != -1)
                 {
-                    GameManager.Instance.photonView.RPC("SpawnCreature", RpcTarget.AllBuffered, pos, index, 70, 70);
+                    GameManager.Instance.photonView.RPC("SpawnCreature", RpcTarget.AllBuffered, spawnPos, index, 70, 70);
                 }
             }
         }
