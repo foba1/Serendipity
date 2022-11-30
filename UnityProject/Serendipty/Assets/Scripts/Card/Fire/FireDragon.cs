@@ -90,16 +90,22 @@ public class FireDragon : Creature
         for (int i = 0; i < 6; i++)
         {
             Creature creature;
-            creature = FieldManager.Instance.fieldObject[area1 * 6 + i].transform.GetChild(0).GetComponent<Creature>();
-            if (creature != null)
+            if (FieldManager.Instance.fieldObject[area1 * 6 + i].transform.childCount > 0)
             {
-                creature.health += 50;
-                creature.UpdateInfoText();
+                creature = FieldManager.Instance.fieldObject[area1 * 6 + i].transform.GetChild(0).GetComponent<Creature>();
+                if (creature != null)
+                {
+                    creature.health += 50;
+                    creature.UpdateInfoText();
+                }
             }
-            creature = FieldManager.Instance.fieldObject[area2 * 6 + i].transform.GetChild(0).GetComponent<Creature>();
-            if (creature != null)
+            if (FieldManager.Instance.fieldObject[area2 * 6 + i].transform.childCount > 0)
             {
-                creature.GetDamaged(50);
+                creature = FieldManager.Instance.fieldObject[area2 * 6 + i].transform.GetChild(0).GetComponent<Creature>();
+                if (creature != null)
+                {
+                    creature.GetDamaged(50);
+                }
             }
         }
     }
