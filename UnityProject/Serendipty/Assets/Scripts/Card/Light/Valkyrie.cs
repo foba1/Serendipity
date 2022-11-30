@@ -67,7 +67,7 @@ public class Valkyrie : Creature
         additionalCost = 0;
 
         power = 80;
-        health = 170;
+        health = 150;
         ableToAct = true;
         curPosition = pos;
         isAttackFinished = false;
@@ -100,7 +100,7 @@ public class Valkyrie : Creature
                 }
                 if (spawnPos != -1)
                 {
-                    GameManager.Instance.photonView.RPC("SpawnCreature", RpcTarget.AllBuffered, spawnPos, index, 70, 70);
+                    GameManager.Instance.photonView.RPC("SpawnCreature", RpcTarget.AllBuffered, spawnPos, index, 40, 50);
                 }
             }
         }

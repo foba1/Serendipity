@@ -1217,7 +1217,7 @@ MonoBehaviour:
     m_LineSpacing: 1.4
   m_Text: "\uC774 \uC0DD\uBB3C\uC774 \uC18C\uD658\uB420 \uB54C, \uAC00\uC7A5 \uCF54\uC2A4\uD2B8\uAC00
     \uB192\uC740 \uBE5B \uC18D\uC131 \uC0DD\uBB3C\uC744 \uD558\uB098 \uBD80\uD65C\uC2DC\uD0A4\uACE0
-    +70 / +70 \uBC84\uD504\uB97C \uBD80\uC5EC\uD569\uB2C8\uB2E4."
+    +40 / +50 \uBC84\uD504\uB97C \uBD80\uC5EC\uD569\uB2C8\uB2E4."
 --- !u!114 &2620063168443364354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1436,7 +1436,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 170
+  m_Text: 150
 --- !u!114 &2620063168599932021
 MonoBehaviour:
   m_ObjectHideFlags: 0
