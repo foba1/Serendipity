@@ -72,7 +72,7 @@ public class SpearKnight : Creature
         cost = 3;
         additionalCost = 0;
 
-        power = 30;
+        power = 40;
         health = 80;
         ableToAct = true;
         curPosition = pos;
