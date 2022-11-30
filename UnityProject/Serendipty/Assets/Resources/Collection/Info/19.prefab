@@ -1140,7 +1140,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.4
   m_Text: "\uC801\uC744 \uACF5\uACA9\uD560 \uB54C, \uBAA8\uB4E0 \uC801\uC744 \uB300\uC0C1\uC73C\uB85C
-    \uACF5\uACA9\uB825\uB9CC\uD07C \uAD11\uC5ED \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
+    40\uB9CC\uD07C \uAD11\uC5ED \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
 --- !u!114 &2620063168443364354
 MonoBehaviour:
   m_ObjectHideFlags: 0
