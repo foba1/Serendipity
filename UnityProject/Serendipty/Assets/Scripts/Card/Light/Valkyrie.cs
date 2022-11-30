@@ -86,7 +86,8 @@ public class Valkyrie : Creature
         {
             if (PhotonNetwork.IsMasterClient)
             {
-                GameManager.Instance.photonView.RPC("SpawnCreature", RpcTarget.AllBuffered, pos, cardIndex);
+
+                GameManager.Instance.photonView.RPC("SpawnCreature", RpcTarget.AllBuffered, pos, cardIndex, 70, 70);
             }
         }
     }
