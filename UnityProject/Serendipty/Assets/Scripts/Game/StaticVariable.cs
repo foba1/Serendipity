@@ -64,5 +64,6 @@ public static class StaticVariable
     public static readonly int Bee = 16;
     public static readonly int ParentWolf = 17;
     public static readonly int NatureCycle = 18;
+    public static readonly int GreatTurtle = 19;
     public static readonly int ChildWolf = 1000;
 }
