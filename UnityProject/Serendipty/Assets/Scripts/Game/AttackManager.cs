@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AttackManager : MonoBehaviour
 {
+    public bool isAttackFinished = true;
+
     static AttackManager instance;
     public static AttackManager Instance
     {
@@ -29,6 +31,8 @@ public class AttackManager : MonoBehaviour
 
     IEnumerator AttackCoroutine(int fieldIndex1, int fieldIndex2)
     {
+        isAttackFinished = false;
+
         Creature firstCreature = FieldManager.Instance.fieldObject[fieldIndex1].transform.GetChild(0).GetComponent<Creature>();
         Creature secondCreature = FieldManager.Instance.fieldObject[fieldIndex2].transform.GetChild(0).GetComponent<Creature>();
 
@@ -63,6 +67,7 @@ public class AttackManager : MonoBehaviour
                 }
             }
         }
-        yield return null;
+
+        isAttackFinished = true;
     }
 }

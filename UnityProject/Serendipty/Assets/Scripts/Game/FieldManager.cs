@@ -323,6 +323,8 @@ public class FieldManager : MonoBehaviourPun
 
         if (!GameManager.Instance.IsMyTurn()) return;
 
+        if (!AttackManager.Instance.isAttackFinished) return;
+
         if (handSelectMode)
         {
             if (HandManager.Instance.usedCard.cardType == StaticVariable.Creature)
