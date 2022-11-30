@@ -140,7 +140,7 @@ public class GraveManager : MonoBehaviour
             if (redGraveList.Count == 0) return -1;
             for (int i = redGraveList.Count - 1; i >= 0; i--)
             {
-                if (redGraveList[i] / 4 == 1)
+                if (redGraveList[i] / 4 == 1 && redGraveList[i] != StaticVariable.Lich)
                 {
                     result = redGraveList[i];
                     redGraveList.RemoveAt(i);
@@ -156,7 +156,7 @@ public class GraveManager : MonoBehaviour
             if (blueGraveList.Count == 0) return -1;
             for (int i = blueGraveList.Count - 1; i >= 0; i--)
             {
-                if (blueGraveList[i] / 4 == 1)
+                if (blueGraveList[i] / 4 == 1 && blueGraveList[i] != StaticVariable.Lich)
                 {
                     result = blueGraveList[i];
                     blueGraveList.RemoveAt(i);
