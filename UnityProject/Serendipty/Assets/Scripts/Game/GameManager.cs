@@ -168,12 +168,6 @@ public class GameManager : MonoBehaviourPun
     }
 
     [PunRPC]
-    public void SpawnCreature(int pos, int cardIndex, int additionalPower, int additionalHealth)
-    {
-        FieldManager.Instance.SpawnCreature(pos, cardIndex, additionalPower, additionalHealth);
-    }
-
-    [PunRPC]
     public void SpawnCreature(int pos, int cardIndex)
     {
         FieldManager.Instance.SpawnCreature(pos, cardIndex);

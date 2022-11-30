@@ -49,27 +49,6 @@ public class FieldManager : MonoBehaviourPun
         spellObject.GetComponent<Spell>().UseAbility(pos);
     }
 
-    public void SpawnCreature(int pos, int cardIndex, int additionalPower, int additionalHealth)
-    {
-        GameObject creatureObject = Instantiate(Resources.Load<GameObject>("Creature/" + cardIndex.ToString()), fieldObject[pos].transform);
-        if (pos > 5)
-        {
-            creatureObject.transform.GetChild(0).localEulerAngles = creatureObject.transform.GetChild(0).localEulerAngles + new Vector3(0f, 180f, 0f);
-        }
-        Creature creature = creatureObject.GetComponent<Creature>();
-        creature.Instantiate(pos);
-        creature.power += additionalPower;
-        creature.health += additionalHealth;
-        creature.UpdateInfoText();
-
-        GameObject spawnObject = Instantiate(Resources.Load<GameObject>("Creature/Spawn"), fieldObject[pos].transform);
-        if (pos > 5)
-        {
-            spawnObject.transform.GetChild(0).localEulerAngles = spawnObject.transform.GetChild(0).localEulerAngles + new Vector3(0f, 180f, 0f);
-        }
-        spawnObject.GetComponent<Spell>().UseAbility(pos);
-    }
-
     public void SpawnCreature(int pos, int cardIndex)
     {
         GameObject creatureObject = Instantiate(Resources.Load<GameObject>("Creature/" + cardIndex.ToString()), fieldObject[pos].transform);
