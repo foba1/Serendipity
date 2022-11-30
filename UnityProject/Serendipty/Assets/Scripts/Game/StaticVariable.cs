@@ -47,8 +47,9 @@ public static class StaticVariable
     // Card Index
     public static readonly int CardCount = 20;
     public static readonly int Resurrection = 0;
-    public static readonly int HolyKnight = 1;
-    public static readonly int SpearKnight = 2;
+    public static readonly int SpearKnight = 1;
+    public static readonly int HolyKnight = 2;
+    public static readonly int Valkyrie = 3;
     public static readonly int Skeleton = 4;
     public static readonly int GrimReaper = 5;
     public static readonly int Wraith = 6;

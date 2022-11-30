@@ -83,6 +83,55 @@ public class GraveManager : MonoBehaviour
         }
     }
 
+    public int HighLightPop(int area)
+    {
+        int result, index = -1, high = -1;
+        if (area == 0)
+        {
+            if (redGraveList.Count == 0) return -1;
+            for (int i = redGraveList.Count - 1; i >= 0; i--)
+            {
+                if (redGraveList[i] / 4 == 0)
+                {
+                    if (high < redGraveList[i])
+                    {
+                        high = redGraveList[i];
+                        index = i;
+                    }
+                }
+            }
+            if (index == -1) return -1;
+            else
+            {
+                result = redGraveList[index];
+                redGraveList.RemoveAt(index);
+                return result;
+            }
+        }
+        else
+        {
+            if (blueGraveList.Count == 0) return -1;
+            for (int i = blueGraveList.Count - 1; i >= 0; i--)
+            {
+                if (blueGraveList[i] / 4 == 0)
+                {
+                    if (high < blueGraveList[i])
+                    {
+                        high = blueGraveList[i];
+                        index = i;
+                    }
+                }
+            }
+            if (index == -1) return -1;
+            else
+            {
+                result = blueGraveList[index];
+                blueGraveList.RemoveAt(index);
+                return result;
+            }
+        }
+    }
+
     public int UndeadPop(int area)
     {
         int result;
