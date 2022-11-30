@@ -94,7 +94,7 @@ public class Valkyrie : Creature
                     if (FieldManager.Instance.fieldObject[area * 6 + i].transform.childCount > 0) continue;
                     else
                     {
-                        spawnPos = i;
+                        spawnPos = area * 6 + i;
                         break;
                     }
                 }
