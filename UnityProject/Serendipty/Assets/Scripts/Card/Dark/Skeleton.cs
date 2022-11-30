@@ -81,7 +81,7 @@ public class Skeleton : Creature
         additionalCost = 0;
 
         power = 30;
-        health = 20;
+        health = 10;
         ableToAct = true;
         curPosition = pos;
         isAttackFinished = false;
