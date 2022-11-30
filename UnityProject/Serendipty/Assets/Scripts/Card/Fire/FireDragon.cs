@@ -36,11 +36,11 @@ public class FireDragon : Creature
     {
         if (curPosition / 6 == 0)
         {
-            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(0f, 0f, 0f);
+            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(-10f, 0f, 0f);
         }
         else
         {
-            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(0f, 0f, 0f);
+            transform.position = FieldManager.Instance.fieldObject[pos].transform.position + new Vector3(10f, 0f, 0f);
         }
 
         Animator animator = transform.GetChild(0).GetComponent<Animator>();
@@ -84,7 +84,7 @@ public class FireDragon : Creature
         else
         {
             area2 = 1;
-            area1 = 1;
+            area1 = 0;
         }
 
         for (int i = 0; i < 6; i++)
@@ -95,8 +95,12 @@ public class FireDragon : Creature
                 creature = FieldManager.Instance.fieldObject[area1 * 6 + i].transform.GetChild(0).GetComponent<Creature>();
                 if (creature != null)
                 {
-                    creature.health += 50;
-                    creature.UpdateInfoText();
+                    if (!creature.isPlayer)
+                    {
+                        creature.power += 50;
+                        creature.health += 50;
+                        creature.UpdateInfoText();
+                    }
                 }
             }
             if (FieldManager.Instance.fieldObject[area2 * 6 + i].transform.childCount > 0)
