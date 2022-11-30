@@ -10,7 +10,7 @@ public class GrimReaperCard : Card
         cardClass = StaticVariable.Normal;
         cardProperty = StaticVariable.Dark;
         cardType = StaticVariable.Creature;
-        cost = 3;
+        cost = 2;
         additionalCost = 0;
     }
 }

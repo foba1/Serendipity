@@ -77,11 +77,11 @@ public class GrimReaper : Creature
         cardClass = StaticVariable.Normal;
         cardProperty = StaticVariable.Dark;
         cardType = StaticVariable.Creature;
-        cost = 3;
+        cost = 2;
         additionalCost = 0;
 
         power = 50;
-        health = 30;
+        health = 10;
         ableToAct = true;
         curPosition = pos;
         isAttackFinished = false;

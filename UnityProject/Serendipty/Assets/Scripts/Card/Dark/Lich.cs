@@ -78,11 +78,11 @@ public class Lich : Creature
         cardClass = StaticVariable.Legendary;
         cardProperty = StaticVariable.Dark;
         cardType = StaticVariable.Creature;
-        cost = 8;
+        cost = 6;
         additionalCost = 0;
 
         power = 60;
-        health = 120;
+        health = 20;
         ableToAct = true;
         curPosition = pos;
         isAttackFinished = false;
