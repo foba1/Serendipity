@@ -53,7 +53,7 @@ public class SpearKnight : Creature
         {
             if (FieldManager.Instance.fieldObject[pos + 3].transform.childCount > 0)
             {
-                FieldManager.Instance.fieldObject[pos + 3].transform.GetChild(0).GetComponent<Creature>().GetDamaged(power);
+                FieldManager.Instance.fieldObject[pos + 3].transform.GetChild(0).GetComponent<Creature>().GetDamaged(Mathf.FloorToInt(power * 1.5f));
             }
         }
 
