@@ -80,7 +80,7 @@ public class GreatTurtle : Creature
     public override void Instantiate(int pos)
     {
         cardIndex = StaticVariable.GreatTurtle;
-        cardClass = StaticVariable.Normal;
+        cardClass = StaticVariable.Legendary;
         cardProperty = StaticVariable.Wood;
         cardType = StaticVariable.Creature;
         cost = 8;

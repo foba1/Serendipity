@@ -7,7 +7,7 @@ public class GreatTurtleCard : Card
     private void Start()
     {
         cardIndex = StaticVariable.GreatTurtle;
-        cardClass = StaticVariable.Normal;
+        cardClass = StaticVariable.Legendary;
         cardProperty = StaticVariable.Wood;
         cardType = StaticVariable.Creature;
         cost = 8;
