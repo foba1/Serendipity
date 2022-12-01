@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviourPun
     [Header("Profile Object")]
     [SerializeField] GameObject[] playerProfile;
 
+    [Header("Turn Object")]
+    [SerializeField] GameObject turnObject;
+
     [Header("Game Result Object")]
     [SerializeField] GameObject winPanel;
     [SerializeField] GameObject losePanel;
@@ -104,6 +107,15 @@ public class GameManager : MonoBehaviourPun
         button.transform.GetChild(0).transform.localPosition += new Vector3(0f, 20f, 0f);
     }
 
+    IEnumerator MyTurnCoroutine()
+    {
+        turnObject.SetActive(true);
+
+        yield return new WaitForSecondsRealtime(1.5f);
+
+        turnObject.SetActive(false);
+    }
+
     [PunRPC]
     public void GoToNextTurn(int nextTurn)
     {
@@ -133,6 +145,7 @@ public class GameManager : MonoBehaviourPun
             }
             photonView.RPC("UpdateMana", RpcTarget.AllBuffered, curMana, myArea);
             DeckManager.Instance.Draw();
+            StartCoroutine(MyTurnCoroutine());
         }
     }
 
