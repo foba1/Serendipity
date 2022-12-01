@@ -10,7 +10,7 @@ public class ResurrectionCard : Card
         cardClass = StaticVariable.Normal;
         cardProperty = StaticVariable.Light;
         cardType = StaticVariable.Spell;
-        cost = 6;
+        cost = 5;
         additionalCost = 0;
     }
 }
