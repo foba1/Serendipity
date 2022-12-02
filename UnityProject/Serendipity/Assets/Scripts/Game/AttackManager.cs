@@ -54,12 +54,15 @@ public class AttackManager : MonoBehaviour
                 while (!firstCreature.isAttackFinished) yield return null;
                 firstCreature.isAttackFinished = false;
 
-                yield return new WaitForSecondsRealtime(0.4f);
+                yield return new WaitForSecondsRealtime(0.6f);
 
-                secondCreature.Attack(fieldIndex1);
+                if (secondCreature != null && secondCreature.health > 0)
+                {
+                    secondCreature.Attack(fieldIndex1);
 
-                while (!secondCreature.isAttackFinished) yield return null;
-                secondCreature.isAttackFinished = false;
+                    while (!secondCreature.isAttackFinished) yield return null;
+                    secondCreature.isAttackFinished = false;
+                }
 
                 if (firstCreature != null)
                 {
