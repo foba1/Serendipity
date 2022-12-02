@@ -1224,10 +1224,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 37
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -1235,8 +1235,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.4
-  m_Text: "\uD604\uC7AC \uCCB4\uB825\uBCF4\uB2E4 \uB0AE\uC740 \uD53C\uD574\uB97C
-    \uBC1B\uC73C\uBA74, \uBC1B\uB294 \uD53C\uD574\uB97C 20 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+  m_Text: "\uACF5\uACA9\uC744 \uBC1B\uC744 \uB54C, \uBC1B\uB294 \uD53C\uD574\uB97C
+    20 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
 --- !u!114 &2620063168443364354
 MonoBehaviour:
   m_ObjectHideFlags: 0

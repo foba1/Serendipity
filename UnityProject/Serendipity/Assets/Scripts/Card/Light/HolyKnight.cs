@@ -82,17 +82,17 @@ public class HolyKnight : Creature
 
     public override void GetDamaged(int damage)
     {
+        if (damage <= armor)
+        {
+            damage = 0;
+        }
+        else
+        {
+            damage -= armor;
+        }
         health -= damage;
         if (health > 0)
         {
-            if (damage >= armor)
-            {
-                health += armor;
-            }
-            else
-            {
-                health += damage;
-            }
             UpdateInfoText();
             StartCoroutine(GetDamagedCoroutine());
         }
