@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviourPun
     [Header("Turn Object")]
     [SerializeField] GameObject turnObject;
 
+    [Header("Live2D Panel")]
+    [SerializeField] GameObject live2DPanel;
+
     [Header("Game Result Object")]
     [SerializeField] GameObject winPanel;
     [SerializeField] GameObject losePanel;
@@ -105,6 +108,11 @@ public class GameManager : MonoBehaviourPun
     public void ButtonUp(GameObject button)
     {
         button.transform.GetChild(0).transform.localPosition += new Vector3(0f, 20f, 0f);
+    }
+
+    public void InstantiateLive2D(int cardIndex)
+    {
+        Instantiate(Resources.Load<GameObject>("Live2D/" + cardIndex.ToString()), live2DPanel.transform);
     }
 
     IEnumerator MyTurnCoroutine()
