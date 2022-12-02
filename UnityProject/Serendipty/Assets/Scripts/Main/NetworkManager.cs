@@ -25,6 +25,30 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             PhotonNetwork.GameVersion = gameVersion;
             PhotonNetwork.ConnectUsingSettings();
         }
+
+        if (!PlayerPrefs.HasKey("Gold"))
+        {
+            BasicCard();
+        }
+    }
+
+    private void BasicCard()
+    {
+        PlayerPrefs.DeleteAll();
+        for (int i = 0; i < StaticVariable.CardCount; i++)
+        {
+            if (i % 4 == 3)
+            {
+                PlayerPrefs.SetInt("Card" + i, 0);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("Card" + i, 2);
+            }
+        }
+        PlayerPrefs.SetInt("Gold", 0);
+        PlayerPrefs.SetInt("DeckCount", 0);
+        PlayerPrefs.Save();
     }
 
     public void InitializeCardForTest()
