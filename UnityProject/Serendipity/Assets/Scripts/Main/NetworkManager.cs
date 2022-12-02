@@ -65,7 +65,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
                 PlayerPrefs.SetInt("Card" + i, 3);
             }
         }
-        PlayerPrefs.SetInt("Gold", 99999);
+        PlayerPrefs.SetInt("Gold", 0);
         PlayerPrefs.SetInt("DeckCount", 0);
         PlayerPrefs.Save();
     }
