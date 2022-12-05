@@ -104,6 +104,8 @@ public class Valkyrie : Creature
                 }
             }
         }
+
+        GameManager.Instance.InstantiateLive2D(cardIndex);
     }
 
     public override void Attack(int pos)
