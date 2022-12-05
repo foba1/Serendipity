@@ -49,7 +49,7 @@ public class SpearKnight : Creature
         yield return new WaitForSecondsRealtime(0.280f);
 
         FieldManager.Instance.fieldObject[pos].transform.GetChild(0).GetComponent<Creature>().GetDamaged(power);
-        if (pos + 3 >= 0 && pos + 3 < 12)
+        if ((pos >= 0 && pos <= 2) || (pos >= 6 && pos <= 8))
         {
             if (FieldManager.Instance.fieldObject[pos + 3].transform.childCount > 0)
             {
