@@ -121,6 +121,8 @@ public class KingOfSea : Creature
                 }
             }
         }
+
+        GameManager.Instance.InstantiateLive2D(cardIndex);
     }
 
     public override void Attack(int pos)
