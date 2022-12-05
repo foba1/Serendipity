@@ -112,6 +112,8 @@ public class FireDragon : Creature
                 }
             }
         }
+
+        GameManager.Instance.InstantiateLive2D(cardIndex);
     }
 
     public override void Attack(int pos)
