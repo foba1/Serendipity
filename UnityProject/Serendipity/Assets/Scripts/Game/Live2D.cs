@@ -12,7 +12,7 @@ public class Live2D : MonoBehaviour
 
     IEnumerator WaitCoroutine()
     {
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSecondsRealtime(4f);
         Destroy(gameObject);
     }
 }
